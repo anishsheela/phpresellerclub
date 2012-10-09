@@ -21,11 +21,11 @@
 /* Configuration file for phpresellerclub */
 
 $config = [
-    "auth_userid"   => "0"
-    "auth_password" => "password"
-    "api_domain"    => "test.httpapi.com"
+    "auth_userid"   => "0",
+    "auth_password" => 'password',
+    "api_domain"    => "test.httpapi.com",
     "api_protocol"  => "https"
 ];
 
-var_dump($config);
+
 ?>
