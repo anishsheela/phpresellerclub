@@ -45,4 +45,28 @@ function domain_availability($domain_name) {
         return FALSE;
 }
 
+/*
+ * function domain_suggestion
+ * returns suggestions of a domain with an assosiated array
+ * arguments:
+ * keyword (string)
+ * tlds (array)
+ * no_of_results (positive int)
+ * hyphens (boolean)
+ * related (boolean)
+ * module: domains function: suggest-names
+ */
+
+function domain_suggestion($keyword, $tlds, $no_of_results, $hyphens = FALSE, $related = FALSE) {
+    $parameter = array("keyword" => $keyword, "tlds" => $tlds,
+        "no-of-results" => $no_of_results, "hyphen-allowed" => $hyphens,
+        "add-related" => $related);
+    $url = geturl("domains", "suggest-names", $parameter);
+    $json = getjson($url);
+    var_dump($json);
+    
+}
+
+domain_suggestion("test domain hello", array("in", "com"), 12);
+
 ?>
