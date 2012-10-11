@@ -34,9 +34,10 @@ $required_input_parameter_format = array(
     "auth-userid" => "0",
     "auth-password" => 'p@$$W0rd',
     "domain-name" => ["domain1", "domain2"],
-    "tlds" => ["com", "net"]
+    "tlds" => ["com", "net"],
+    "test" => TRUE
 );
-$required_output_parameter_format = 'auth-userid=0&auth-password=p%40%24%24W0rd&domain-name=domain1&domain-name=domain2&tlds=com&tlds=net';
+$required_output_parameter_format = 'auth-userid=0&auth-password=p%40%24%24W0rd&domain-name=domain1&domain-name=domain2&tlds=com&tlds=net&test=true';
 
 testfunction("parameter_format", $required_input_parameter_format, $required_output_parameter_format);
 

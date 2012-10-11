@@ -38,9 +38,20 @@ function parameter_format($parameters_array) {
     foreach ($parameters_array as $key => $value) { // get each key value parameters
         if (is_array($value)) { // if multiple arguments to a parameter
             foreach ($value as $sub_values) { // add the values with same key
-                array_push($output_parameter_list, urlencode($key) . "=" . urlencode($sub_values));
+                if (is_bool($sub_values)) {
+                    $val_string = ($value) ? "true" : "false";
+                    array_push($output_parameter_list, urlencode($key) . "=" .
+                        urlencode($val_string));
+                }
+                array_push($output_parameter_list, urlencode($key) . "=" .
+                        urlencode($sub_values));
             }
+        } elseif (is_bool($value)) {
+            // if boolean, say true or false rather than 1 or 0.
+            $val_string = ($value) ? "true" : "false";
+            array_push($output_parameter_list, urlencode($key) . "=" . urlencode($val_string));
         } else {
+            // if it is a string 
             array_push($output_parameter_list, urlencode($key) . "=" . urlencode($value));
         }
     }
@@ -86,8 +97,10 @@ function geturl($module, $function, $parameters_array, $format = "json") {
  * Accepts: url
  * Returns: decoded JSON
  */
+
 function getjson($url) {
     $json = file_get_contents($url);
     return json_decode($json, TRUE);
 }
+
 ?>
