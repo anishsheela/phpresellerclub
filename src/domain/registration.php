@@ -62,11 +62,14 @@ function domain_suggestion($keyword, $tlds, $no_of_results, $hyphens = FALSE, $r
         "no-of-results" => $no_of_results, "hyphen-allowed" => $hyphens,
         "add-related" => $related);
     $url = geturl("domains", "suggest-names", $parameter);
+    echo $url;
     $json = getjson($url);
-    var_dump($json);
-    
+    foreach ($json as $domain => $value) {
+        foreach ($value as $tld => $status) {
+            echo $domain . ".".$tld." -> ".$status."\n";
+        }
+    }
 }
 
-domain_suggestion("test domain hello", array("in", "com"), 12);
-
+domain_suggestion("google", array("in", "com", "tv"), 12);
 ?>
