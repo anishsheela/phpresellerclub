@@ -47,7 +47,7 @@ function domain_availability($domain_name) {
 
 /*
  * function domain_suggestion
- * returns suggestions of a domain with an assosiated array
+ * returns suggestions of a domain in an assosiated array
  * arguments:
  * keyword (string)
  * tlds (array)
@@ -62,14 +62,17 @@ function domain_suggestion($keyword, $tlds, $no_of_results, $hyphens = FALSE, $r
         "no-of-results" => $no_of_results, "hyphen-allowed" => $hyphens,
         "add-related" => $related);
     $url = geturl("domains", "suggest-names", $parameter);
-    echo $url;
     $json = getjson($url);
+    $domains_available = array();
     foreach ($json as $domain => $value) {
         foreach ($value as $tld => $status) {
-            echo $domain . ".".$tld." -> ".$status."\n";
+            if (domain_availability(strtolower($domain) . "." . $tld)) {
+                array_push($domains_available, strtolower($domain) . "." . $tld);
+            }
         }
     }
+    return $domains_available;
 }
 
-domain_suggestion("google", array("in", "com", "tv"), 12);
+
 ?>
