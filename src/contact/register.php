@@ -21,4 +21,41 @@
 require '../core/parameter.php';
 
 
+
+$contact_details = [
+    "name" => 'baputty',
+    "company" => 'nift',
+    "email" => 'baputty@helloinfinity.com',
+    "address-line-1" => 'Mnajeri',
+    "city" => 'Malappuram',
+    "country" => 'IN',
+    "zipcode" => '676122',
+    "phone-cc" => '91',
+    "phone" => '9995131334',
+    "customer-id" => '8997525',
+    "type" => 'Contact',
+    "address-line-2" => 'thurakkal',
+    "address-line-3" => 'bypass Jn',
+    "state" => 'Kerala',
+    "fax-cc" => '91',
+    "fax" => '4712459094',
+];
+
+
+
+
+/*
+ * function add_contact
+ * Input : Assosiate array with contact details
+ * Output: contact_id if sucess, else 0
+ */
+
+function add_contact($contact_details) {
+    $url = geturl("contacts", "add", $contact_details);
+    $json = getjson($url);
+    if (is_integer($json))
+        return $json;
+    else
+        return 0;
+}
 ?>
