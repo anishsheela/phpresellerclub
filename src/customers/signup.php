@@ -20,6 +20,14 @@
 
 require '../core/parameter.php';
 
+
+/* function add_customer
+ * returns True or False
+ * arguments:
+ * customer_details
+ * module: customers function: signup
+ */
+
 $customer_details = [
 "username" => 'sidu@helloinfinity.com',
 "passwd" => '%^&TU9uhu',
@@ -44,11 +52,7 @@ $customer_details = [
 "mobile" => '9995131334'
 ];
 
-/*
- * function add_customer
- * Input : Assosiate array with customer details
- * Output: customer_id if sucess, else 0
- */
+
 function add_customer($customer_details) {
     $url = geturl("customers", "signup", $customer_details);
     $json = getjson($url);
