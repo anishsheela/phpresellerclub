@@ -32,7 +32,7 @@ $customer_details = [
 
 
 function search_transactions_of_customers($customer_details) {
-    $url = geturl("customer-transactions", "search", $customer_details);
+    $url = geturl("billing/customer-transactions", "search", $customer_details);
     $json = getjson($url);
    echo $url;
         return $json;
