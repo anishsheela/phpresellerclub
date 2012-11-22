@@ -14,12 +14,12 @@ $domain_name =["domain-name" => 'sidhu.com'];
 function domain_get_order_id($domain_name) {
     $url = geturl("domains", "orderid", $domain_name);
     $json = getjson($url);
-    if (is_integer($json))
+   
         return $json;
-    else {
-        return 0;
-    }
+   
 }
 
 
+
+domain_get_order_id($domain_name);
 ?>

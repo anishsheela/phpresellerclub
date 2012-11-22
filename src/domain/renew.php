@@ -26,5 +26,5 @@ function domain_renew($domain_renew__details) {
     return $json;
 }
 
-
+domain_renew($domain_renew__details);
 ?>
