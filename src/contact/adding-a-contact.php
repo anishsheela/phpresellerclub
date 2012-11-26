@@ -3,7 +3,7 @@
 /*
  *  phpresellerclub
  *  
- *  Copyright 2012 Anish A <aneesh.nl@gmail.com>.
+ *  Copyright 2012 Sidhu p k <sidhupkonline@gmail.com>.
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
