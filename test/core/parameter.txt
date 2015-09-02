@@ -1,2 +1,0 @@
-Input: array("auth-userid" => "0", "auth-password" => "password", "domain-name" => ["domain1", "domain2"], "tlds" =>["com","net"])
-Output: auth-userid=0&auth-password=password&domain-name=domain1&domain-name=domain2&tlds=com&tlds=net
