@@ -1,6 +1,8 @@
 phpresellerclub
 ===============
 
+[![Build Status](https://travis-ci.org/anishsheela/phpresellerclub.svg?branch=master)](https://travis-ci.org/anishsheela/phpresellerclub)
+
 PHP abstraction for resellerclub API.
 
 ResellerClub is one of the leading providers of domain name
