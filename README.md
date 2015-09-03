@@ -2,6 +2,8 @@ phpresellerclub
 ===============
 
 [![Build Status](https://travis-ci.org/anishsheela/phpresellerclub.svg?branch=master)](https://travis-ci.org/anishsheela/phpresellerclub)
+[![Test Coverage](https://codeclimate.com/github/anishsheela/phpresellerclub/badges/coverage.svg)](https://codeclimate.com/github/anishsheela/phpresellerclub/coverage)
+[![Code Climate](https://codeclimate.com/github/anishsheela/phpresellerclub/badges/gpa.svg)](https://codeclimate.com/github/anishsheela/phpresellerclub)
 
 PHP abstraction for resellerclub API.
 
