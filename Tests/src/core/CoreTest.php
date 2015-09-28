@@ -30,19 +30,105 @@ class CoreTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   *
+   * @dataProvider providerTestCreateUrlParametersValidValues
    * @covers Core::createUrlParameters
    */
-  public function testCreateUrlParametersSimpleQuery() {
-    $simpleUrlArray = array(
-      'auth-userid' => 'xxxx',
-      'api-key' => 'yyyy',
-      'domain-name' => 'domain1',
-      'tlds' => 'com',
-    );
-    $simpleUrl = 'auth-userid=xxxx&api-key=yyyy&domain-name=domain1&tlds=com';
+  public function testCreateUrlParametersValidValues($urlArray, $urlString) {
     $this->assertEquals(
-        $simpleUrl, $this->object->createUrlParameters($simpleUrlArray)
+        $urlString, $this->object->createUrlParameters($urlArray)
+    );
+  }
+
+  public function providerTestCreateUrlParametersValidValues() {
+    return array(
+      array(// Empty array produce empty result
+        array(),
+        ''
+      ),
+      array(// Simple parameters
+        array(
+          'auth-userid' => 'xxxx',
+          'api-key' => 'yyyy',
+          'domain-name' => 'domain1',
+          'tlds' => 'com',
+        ),
+        'auth-userid=xxxx&api-key=yyyy&domain-name=domain1&tlds=com'
+      ),
+      array(// Recursive parameters
+        array(
+          'auth-userid' => 'xxxx',
+          'api-key' => 'yyyy',
+          'domain-name' => array('domain1', 'domain2'),
+          'tlds' => array('com', 'net'),
+        ),
+        'auth-userid=xxxx&api-key=yyyy&domain-name=domain1&domain-name=domain2&tlds=com&tlds=net'
+      ),
+    );
+  }
+
+  /**
+   * @expectedException Exception
+   * @covers Core::createUrlParameters
+   */
+  public function testCreateUrlParametersInvalidValues() {
+    $invalidArray = array('someval' => NULL); // NULL is invalid
+    $this->object->createUrlParameters($invalidArray);
+  }
+
+  /**
+   * @dataProvider providerTestCreateUrlValidValues
+   * @covers Core::createUrl
+   */
+  public function testCreateUrlValidValues($urlArray, $urlString) {
+    $this->assertEquals(
+        $urlString, $this->object->createUrl($urlArray)
+    );
+  }
+
+  public function providerTestCreateUrlValidValues() {
+    return array(
+      array(// Empty content is also valid
+        array(
+          'head' => array(
+            'section' => 'domains',
+            'api-name' => 'available',
+          ),
+          'content' => array(),
+        ),
+        'https://test.httpapi.com/api/domains/available.json?',
+      ),
+      array(// Simple parameters
+        array(
+          'head' => array(
+            'section' => 'domains',
+            'api-name' => 'available',
+          ),
+          'content' => array(
+            'auth-userid' => 'xxxx',
+            'api-key' => 'yyyy',
+            'domain-name' => 'domain1',
+            'tlds' => 'com',
+          ),
+        ),
+        'https://test.httpapi.com/api/domains/available.json?auth-userid=xxxx'
+        . '&api-key=yyyy&domain-name=domain1&tlds=com',
+      ),
+      array(// Recursive parameters
+        array(
+          'head' => array(
+            'section' => 'domains',
+            'api-name' => 'available',
+          ),
+          'content' => array(
+            'auth-userid' => 'xxxx',
+            'api-key' => 'yyyy',
+            'domain-name' => array('domain1', 'domain2'),
+            'tlds' => array('com', 'net'),
+          ),
+        ),
+        'https://test.httpapi.com/api/domains/available.json?auth-userid=xxxx'
+        . '&api-key=yyyy&domain-name=domain1&domain-name=domain2&tlds=com&tlds=net',
+      ),
     );
   }
 
