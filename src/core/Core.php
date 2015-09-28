@@ -10,12 +10,12 @@ class Core {
    * @param array $url_array
    * @return string Array converted into URL
    */
-  public function create_url_parameters($parameters) {
-    $parameter_items = array();
+  public function createUrlParameters($parameters) {
+    $parameterItems = array();
     foreach ($parameters as $key => $value) {
-      $parameter_items[] = $key . '=' . $value;
+      $parameterItems[] = $key . '=' . $value;
     }
-    return implode('&', $parameter_items);
+    return implode('&', $parameterItems);
   }
 
 }

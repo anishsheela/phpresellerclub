@@ -31,18 +31,18 @@ class CoreTest extends PHPUnit_Framework_TestCase {
 
   /**
    *
-   * @covers Core::create_url_parameters
+   * @covers Core::createUrlParameters
    */
-  public function testCreateUrlParameterSimpleQuery() {
-    $simple_url_array = array(
+  public function testCreateUrlParametersSimpleQuery() {
+    $simpleUrlArray = array(
       'auth-userid' => 'xxxx',
       'api-key' => 'yyyy',
       'domain-name' => 'domain1',
       'tlds' => 'com',
     );
-    $simple_url = 'auth-userid=xxxx&api-key=yyyy&domain-name=domain1&tlds=com';
+    $simpleUrl = 'auth-userid=xxxx&api-key=yyyy&domain-name=domain1&tlds=com';
     $this->assertEquals(
-        $simple_url, $this->object->create_url_parameters($simple_url_array)
+        $simpleUrl, $this->object->createUrlParameters($simpleUrlArray)
     );
   }
 
