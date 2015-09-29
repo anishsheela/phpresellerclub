@@ -90,8 +90,11 @@ class CoreTest extends PHPUnit_Framework_TestCase {
       array(// Empty content is also valid
         array(
           'head' => array(
+            'protocol'=> 'https',
+            'domain' => 'test.httpapi.com',
             'section' => 'domains',
             'api-name' => 'available',
+            'format' => 'json',
           ),
           'content' => array(),
         ),
@@ -100,8 +103,11 @@ class CoreTest extends PHPUnit_Framework_TestCase {
       array(// Simple parameters
         array(
           'head' => array(
+            'protocol'=> 'https',
+            'domain' => 'test.httpapi.com',
             'section' => 'domains',
             'api-name' => 'available',
+            'format' => 'json',
           ),
           'content' => array(
             'auth-userid' => 'xxxx',
@@ -116,8 +122,11 @@ class CoreTest extends PHPUnit_Framework_TestCase {
       array(// Recursive parameters
         array(
           'head' => array(
+            'protocol'=> 'https',
+            'domain' => 'test.httpapi.com',
             'section' => 'domains',
             'api-name' => 'available',
+            'format' => 'json'
           ),
           'content' => array(
             'auth-userid' => 'xxxx',
@@ -132,4 +141,18 @@ class CoreTest extends PHPUnit_Framework_TestCase {
     );
   }
 
+  /**
+   * @covers Core::callApi
+   */
+  // Commented out as have to find a way to execute tests when API is not available.
+//  public function testCallApiReturnsValidData() {
+//    $section = 'domains';
+//    $apiName = 'available';
+//    $urlArray = array(
+//      'domain-name' => 'anishsheela',
+//      'tlds' => 'com',
+//    );
+//    $result = $this->object->callApi($section, $apiName, $urlArray);
+//    $this->assertNotEmpty($result);
+//  }
 }
