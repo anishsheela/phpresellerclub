@@ -90,7 +90,7 @@ class CoreTest extends PHPUnit_Framework_TestCase {
       array(// Empty content is also valid
         array(
           'head' => array(
-            'protocol'=> 'https',
+            'protocol' => 'https',
             'domain' => 'test.httpapi.com',
             'section' => 'domains',
             'api-name' => 'available',
@@ -103,7 +103,7 @@ class CoreTest extends PHPUnit_Framework_TestCase {
       array(// Simple parameters
         array(
           'head' => array(
-            'protocol'=> 'https',
+            'protocol' => 'https',
             'domain' => 'test.httpapi.com',
             'section' => 'domains',
             'api-name' => 'available',
@@ -122,7 +122,7 @@ class CoreTest extends PHPUnit_Framework_TestCase {
       array(// Recursive parameters
         array(
           'head' => array(
-            'protocol'=> 'https',
+            'protocol' => 'https',
             'domain' => 'test.httpapi.com',
             'section' => 'domains',
             'api-name' => 'available',
@@ -139,6 +139,13 @@ class CoreTest extends PHPUnit_Framework_TestCase {
         . '&api-key=yyyy&domain-name=domain1&domain-name=domain2&tlds=com&tlds=net',
       ),
     );
+  }
+
+  /**
+   * @covers Core::createUrl
+   */
+  public function testValidateEmailCorrect() {
+    $this->assertTrue($this->object->validate('anishsheela@outlook.com', 'string', 'email'));
   }
 
   /**

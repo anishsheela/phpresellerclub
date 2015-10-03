@@ -16,12 +16,12 @@ class Core {
       if (is_array($value)) {
         foreach ($value as $item) {
           if ($this->_isValidUrlParameter($item)) {
-            $parameterItems[] = $key . '=' . $item;
+            $parameterItems[] = $key . '=' . urlencode($item);
           }
         }
       }
       elseif ($this->_isValidUrlParameter($value)) {
-        $parameterItems[] = $key . '=' . $value;
+        $parameterItems[] = $key . '=' . urlencode($value);
       }
       else {
         throw new Exception("Invalid URL Array", 1001);
@@ -93,6 +93,43 @@ class Core {
     curl_close($curl);
     $result_array = json_decode($json_result);
     return $result_array;
+  }
+
+  public function validate($data, $type = NULL, $subType = NULL, $parameters = NULL) {
+    // For null type, it should be validated recursiveley
+    if (is_array($data) and ( NULL === $type)) {
+      foreach ($data as $item) {
+        $data = $item['data'];
+        $type = $item['type'];
+        $subType = $item['sub-type'];
+        $parameters = $item['parameters'];
+        // Of the first time in my programmming career, I used a recursive function.
+        $this->validate($data, $type, $subType, $parameters);
+      }
+    }
+    else {
+      $validations = array();
+      $validations['string']['email'] = 'validateEmail';
+
+      if (empty($validations[$type][$subType])) {
+        throw new Exception('Invalid Validation', '1003');
+      }
+      else {
+        $method = $validations[$type][$subType];
+        if(method_exists($this, $method)) {
+          return $this->$method($data);
+        }
+      }
+    }
+  }
+
+  private function validateEmail($email) {
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      return TRUE;
+    }
+    else {
+      return FALSE;
+    }
   }
 
 }
