@@ -6,11 +6,11 @@ class Contact extends Core {
 
   /**
    * Create a contact 
-   * @param array $customerDetails
+   * @param array $contactDetails
    * @return array
    */
-  function createContact($customerDetails) {
-    $apiOut = $this->callApi('contacts', 'add', $customerDetails);
+  function createContact($contactDetails) {
+    $apiOut = $this->callApi('contacts', 'add', $contactDetails);
     return $apiOut;
   }
 
@@ -21,12 +21,28 @@ class Contact extends Core {
     return $apiOut;
   }
 
-  function editContact($customerId, $customerDetails) {
-    $customerDetails['contact-id'] = $customerId;
+  function editContact($customerId, $contactDetails) {
+    $contactDetails['contact-id'] = $customerId;
     $apiOut = $this->callApi('contacts', 'edit', array(
-      'contact-id' => $customerDetails,
+      'contact-id' => $contactDetails,
     ));
     return $apiOut;
+  }
+
+  function getContact($customerId) {
+    $contactDetails['contact-id'] = $customerId;
+    $apiOut = $this->callApi('contacts', 'details', array(
+      'contact-id' => $contactDetails,
+    ));
+  }
+
+  function searchContact($customerId, $contactDetails, $count = 10, $page = 0) {
+    $contactDetails['contact-id'] = $customerId;
+    $contactDetails['no-of-records'] = $count;
+    $contactDetails['page-no'] = $page;
+    $apiOut = $this->callApi('contacts', 'search', array(
+      'contact-id' => $contactDetails,
+    ));
   }
 
 }

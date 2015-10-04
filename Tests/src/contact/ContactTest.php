@@ -75,4 +75,21 @@ class ContactTest extends PHPUnit_Framework_TestCase {
     $apiOut = $this->object->editContact($customerId, $contactDetails);
   }
 
+  /**
+   * @covers Contact::getContact
+   */
+  public function testGetContact() {
+    $customerId = '46983302';
+    $apiOut = $this->object->getContact($customerId);
+  }
+
+  /**
+   * @covers Contact::searchContact
+   */
+  public function testSearchContact() {
+    $customerId = '46983302';
+    $contactDetails = array();
+    $apiOut = $this->object->searchContact($customerId, $contactDetails);
+  }
+
 }
