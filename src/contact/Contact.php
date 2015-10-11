@@ -10,8 +10,13 @@ class Contact extends Core {
    * @return array
    */
   function createContact($contactDetails) {
-    $apiOut = $this->callApi('contacts', 'add', $contactDetails);
-    return $apiOut;
+    if ($this->validate('array', 'contact', $contactDetails)) {
+      $apiOut = $this->callApi('contacts', 'add', $contactDetails);
+      return $apiOut;
+    }
+    else {
+      throw new Exception('Adding contact failed.', 2001);
+    }
   }
 
   function deleteContact($customerId) {

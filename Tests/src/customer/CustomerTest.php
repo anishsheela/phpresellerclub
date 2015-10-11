@@ -31,7 +31,7 @@ class CustomerTest extends PHPUnit_Framework_TestCase {
    */
   public function testCreateCustomer() {
     $customerDetails = array(
-      'user-name' => 'anishsheela@outlook.com',
+      'username' => 'anishsheela@outlook.com',
       'passwd' => 'Rand@123om',
       'name' => 'Anish Sheela',
       'company' => 'N/A',
@@ -53,7 +53,7 @@ class CustomerTest extends PHPUnit_Framework_TestCase {
   public function testEditCustomer() {
     $customerId = '768906';
     $customerDetails = array(
-      'user-name' => 'anishsheela@outlook.com',
+      'username' => 'anishsheela@outlook.com',
       'passwd' => 'Rand@123om',
       'name' => 'Anish Sheela',
       'company' => 'N/A',

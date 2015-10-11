@@ -4,30 +4,40 @@ require_once __DIR__ . '/../core/Core.php';
 
 class Customer extends Core {
 
-  function createCustomer($customerDetails) {
-    $apiOut = $this->callApi('customers', 'signup', $customerDetails);
-    return $apiOut;
+  public function createCustomer($customerDetails) {
+    if ($this->validate('array', 'customer', $customerDetails)) {
+      $apiOut = $this->callApi('customers', 'signup', $customerDetails);
+      return $apiOut;
+    }
+    else {
+      throw new Exception('Adding customer failed.', 3001);
+    }
   }
 
-  function editCustomer($customerId, $customerDetails) {
-    $customerDetails['contact-id'] = $customerId;
-    $apiOut = $this->callApi('customers', 'modify', $customerDetails);
-    return $apiOut;
+  public function editCustomer($customerId, $customerDetails) {
+    $customerDetails['customer-id'] = $customerId;
+    if ($this->validate('array', 'customer', $customerDetails)) {
+      $apiOut = $this->callApi('customers', 'modify', $customerDetails);
+      return $apiOut;
+    }
+    else {
+      throw new Exception('Editing customer failed.', 3002);
+    }
   }
 
-  function getCustomerByUserName($userName) {
+  public function getCustomerByUserName($userName) {
     $customerDetails['username'] = $userName;
     $apiOut = $this->callApi('customers', 'details', $customerDetails);
     return $apiOut;
   }
 
-  function getCustomerByCustomerId($customerId) {
+  public function getCustomerByCustomerId($customerId) {
     $customerDetails['customer-id'] = $customerId;
     $apiOut = $this->callApi('customers', 'details-by-id', $customerDetails);
     return $apiOut;
   }
 
-  function generateToken($userName, $password, $ip) {
+  public function generateToken($userName, $password, $ip) {
     $customerDetails['username'] = $userName;
     $customerDetails['passwd'] = $password;
     $customerDetails['ip'] = $ip;
@@ -35,39 +45,39 @@ class Customer extends Core {
     return $apiOut;
   }
 
-  function authenticateToken($token) {
+  public function authenticateToken($token) {
     $customerDetails['token'] = $token;
     $apiOut = $this->callApi('customers', 'authenticate-token', $customerDetails);
     return $apiOut;
   }
 
-  function changePassword($customerId, $newPassword) {
+  public function changePassword($customerId, $newPassword) {
     $customerDetails['customer-id'] = $customerId;
     $customerDetails['new-passwd'] = $newPassword;
     $apiOut = $this->callApi('customers', 'change-password', $customerDetails);
     return $apiOut;
   }
 
-  function generateTemporaryPassword($customerId) {
+  public function generateTemporaryPassword($customerId) {
     $customerDetails['customer-id'] = $customerId;
     $apiOut = $this->callApi('customers', 'temp-password', $customerDetails);
     return $apiOut;
   }
 
-  function searchCustomer($customerDetails, $count = 10, $page = 1) {
+  public function searchCustomer($customerDetails, $count = 10, $page = 1) {
     $customerDetails['no-of-records'] = $count;
     $customerDetails['page-no'] = $page;
     $apiOut = $this->callApi('customers', 'search', $customerDetails);
     return $apiOut;
   }
 
-  function forgotPassword($userName) {
+  public function forgotPassword($userName) {
     $customerDetails['forgot-password'] = $userName;
     $apiOut = $this->callApi('customers', 'forgot-password', $customerDetails);
     return $apiOut;
   }
 
-  function deleteCustomer($customerId) {
+  public function deleteCustomer($customerId) {
     $customerDetails['customer-id'] = $customerId;
     $apiOut = $this->callApi('customers', 'delete', $customerDetails);
     return $apiOut;
