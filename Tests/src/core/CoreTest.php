@@ -145,8 +145,39 @@ class CoreTest extends PHPUnit_Framework_TestCase {
    * @covers Core::createUrl
    */
   public function testValidateEmailCorrect() {
-    $this->assertTrue($this->object->validate('anishsheela@outlook.com', 'string', 'email'));
+    $this->assertTrue($this->object->validate('string', 'email', 'anishsheela@outlook.com'));
   }
+  
+  /**
+   * @covers Core::createUrl
+   */
+  public function testValidateEmailWrong() {
+    $this->assertFalse($this->object->validate('string', 'email', '123456'));
+    $this->assertFalse($this->object->validate('string', 'email', 'anish@gmail'));
+    $this->assertFalse($this->object->validate('string', 'email', 'a@g.'));
+  }
+  
+  /**
+   * @covers Core::validate
+   */
+  public function testValidateContactCorrect() {
+    $contactDetails = array(
+      'name' => 'Anish Sheela',
+      'company' => 'N/A',
+      'email' => 'anishsheela@outlook.com',
+      'address-line-1' => '221B Baker St.',
+      'city' => 'London',
+      'country' => 'IN',
+      'zipcode' => '635426',
+      'phone-cc' => '91',
+      'phone' => '9876543210',
+      'customer-id' => '13560700',
+      'type' => 'Contact',
+    );
+    $this->assertTrue($this->object->validate('array', 'contact', $contactDetails));
+  }
+  
+  
 
   /**
    * @covers Core::callApi
