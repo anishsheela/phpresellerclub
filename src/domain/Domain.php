@@ -7,7 +7,7 @@ class Domain extends Core {
     $avail = array(
       'domain-name' => $domainName,
       'tlds' => $tlds,
-      'suggest-alternative' => $suggestAlternatives
+      'suggest-alternative' => $suggestAlternatives,
     );
     $apiOut = $this->callApi('domains', 'available', $avail);
     return $apiOut;
@@ -26,8 +26,8 @@ class Domain extends Core {
     }
     $avail = array(
       'domain-name' => $punyDomain,
-      'tlds' => $tlds,
-      'suggest-alternative' => $suggestAlternatives
+      'tlds' => $tld,
+      'idn-languagecode' => $idnLanguageCode,
     );
     $apiOut = $this->callApi('domains', 'idn-available', $avail);
     return $apiOut;
@@ -37,7 +37,7 @@ class Domain extends Core {
     // TODO: Rewrite using new API call
     $options['key-word'] = $keyWord;
     $options['tlds'] = $tlds;
-    $apiOut = $this->callApi('domains', 'available', $avail, 'premium');
+    $apiOut = $this->callApi('domains', 'available', $options, 'premium');
     return $apiOut;
   }
   
@@ -46,7 +46,7 @@ class Domain extends Core {
     $options['key-word'] = $keyWord;
     $options['tld-only'] = $tld;
     $options['exact-match'] = $exactMatch;
-    $apiOut = $this->callApi('domains', 'suggest-names', $avail, 'v5');
+    $apiOut = $this->callApi('domains', 'suggest-names', $options, 'v5');
     return $apiOut;
   }
   
