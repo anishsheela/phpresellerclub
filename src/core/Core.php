@@ -44,6 +44,7 @@ class Core {
     $protocol = $head['protocol'];
     $domain = $head['domain'];
     $section = $head['section'];
+    $section2 = $head['section2'];
     $apiName = $head['api-name'];
     $format = $head['format'];
     $urlArray = $urlFullArray['content'];
@@ -55,7 +56,11 @@ class Core {
       $authParameterString = $this->createUrlParameters($authParameter);
     }
     $parameterString = $this->createUrlParameters($urlArray);
-    $url = "$protocol://$domain/api/$section/$apiName.$format?";
+    if(NULL == $section2) {
+      $url = "$protocol://$domain/api/$section/$apiName.$format?";
+    } else {
+      $url = "$protocol://$domain/api/$section/$section2/$apiName.$format?";
+    }
     if (!empty($parameterString)) {
       if (!empty($authParameterString)) {
         $url .= $authParameterString . '&';
@@ -65,12 +70,13 @@ class Core {
     return $url;
   }
 
-  public function callApi($section, $apiName, $urlArray) {
+  public function callApi($section, $apiName, $urlArray, $section2 = NULL) {
     $urlFullArray = array(
       'head' => array(
         'protocol' => 'https',
         'domain' => RESELLER_DOMAIN,
         'section' => $section,
+        'section2' => $section2,
         'api-name' => $apiName,
         'format' => 'json',
         'auth-userid' => RESELLER_ID,

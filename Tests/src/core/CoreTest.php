@@ -93,6 +93,7 @@ class CoreTest extends PHPUnit_Framework_TestCase {
             'protocol' => 'https',
             'domain' => 'test.httpapi.com',
             'section' => 'domains',
+            'section2' => NULL,
             'api-name' => 'available',
             'format' => 'json',
           ),
@@ -106,6 +107,7 @@ class CoreTest extends PHPUnit_Framework_TestCase {
             'protocol' => 'https',
             'domain' => 'test.httpapi.com',
             'section' => 'domains',
+            'section2' => NULL,
             'api-name' => 'available',
             'format' => 'json',
           ),
@@ -125,6 +127,7 @@ class CoreTest extends PHPUnit_Framework_TestCase {
             'protocol' => 'https',
             'domain' => 'test.httpapi.com',
             'section' => 'domains',
+            'section2' => NULL,
             'api-name' => 'available',
             'format' => 'json'
           ),
