@@ -37,7 +37,7 @@ class Domain extends Core {
     // TODO: Rewrite using new API call
     $options['key-word'] = $keyWord;
     $options['tlds'] = $tlds;
-    $apiOut = $this->callApi('domains', 'premium-available', $avail);
+    $apiOut = $this->callApi('domains', 'available', $avail, 'premium');
     return $apiOut;
   }
   
@@ -46,7 +46,7 @@ class Domain extends Core {
     $options['key-word'] = $keyWord;
     $options['tld-only'] = $tld;
     $options['exact-match'] = $exactMatch;
-    $apiOut = $this->callApi('domains', 'suggest-names', $avail);
+    $apiOut = $this->callApi('domains', 'suggest-names', $avail, 'v5');
     return $apiOut;
   }
   
