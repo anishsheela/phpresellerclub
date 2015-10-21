@@ -56,9 +56,10 @@ class Core {
       $authParameterString = $this->createUrlParameters($authParameter);
     }
     $parameterString = $this->createUrlParameters($urlArray);
-    if(NULL == $section2) {
+    if (NULL == $section2) {
       $url = "$protocol://$domain/api/$section/$apiName.$format?";
-    } else {
+    }
+    else {
       $url = "$protocol://$domain/api/$section/$section2/$apiName.$format?";
     }
     if (!empty($parameterString)) {
@@ -104,7 +105,7 @@ class Core {
   public function validate($type, $subType, $parameters) {
     $validationFunction = $this->getValidationFunction($type, $subType);
     if (empty($validationFunction)) {
-      throw new Exception('Invalid Validation', '1003');
+      throw new Exception('Invalid Validation', 1003);
     }
     else {
       if (method_exists($this, $validationFunction)) {
@@ -133,7 +134,7 @@ class Core {
   private function validateArray($inputArray, $mandatory, $optional = array()) {
     if (!is_array($inputArray)) {
       // Not even an array. Who does that :\ ?
-      throw new Exception('Input is not an array', '1003');
+      throw new Exception('Input is not an array', 1004);
       return FALSE;
     }
     foreach ($inputArray as $key => $value) {
@@ -141,7 +142,7 @@ class Core {
         // If its not in mandatory or optional,
         // then parameter is not valid.
         // We don't want outsiders here
-        throw new Exception('There are invalid parameters', '1003');
+        throw new Exception('There are invalid parameters', 1005);
         return FALSE;
       }
       // If the value in array is correct
@@ -153,21 +154,39 @@ class Core {
             }
           }
         }
-        throw new Exception('Input is not an array', '1003');
+        throw new Exception('Input is not an array', 1006);
         return FALSE;
       }
-      //TODO Validate parameters here itself
+      if (TRUE !== $this->validateItem($key, $value)) {
+        throw new Exception('Item is invalid', 1007);
+        return FALSE;
+      }
     }
-    
+
     // Check for mandatory elements
     foreach ($mandatory as $mandatory_item) {
       // If any of the mandatory array elements is not found, then array is invalid
-      if(!isset($inputArray[$mandatory_item])) {
+      if (!isset($inputArray[$mandatory_item])) {
         return FALSE;
-        throw new Exception('Mandatory items in array missing', '1003');
+        throw new Exception('Mandatory items in array missing', '1005');
       }
     }
     return TRUE;
+  }
+
+  private function validateItem($itemName, $item) {
+    $itemValidators = array(
+      'email' => 'validateEmail',
+    );
+    if (!empty($itemValidators[$itemName]) && method_exists($this, $itemValidators[$itemName])) {
+      $validatorFunction = $itemValidators[$itemName];
+      return $this->$validatorFunction($item);
+    }
+    else {
+      // It doesn't have item validator.
+      // We give it the benifit of doubt.
+      return TRUE;
+    }
   }
 
   private function validateEmail($email) {
@@ -204,7 +223,7 @@ class Core {
     );
     return $this->validateArray($contactDetails, $mandatory, $optional);
   }
-  
+
   private function validateCustomer($customerDetails) {
     $mandatory = array(
       'username',
@@ -232,8 +251,8 @@ class Core {
       'mobile',
       'customer-id',
     );
-    if($this->validateArray($customerDetails, $mandatory, $optional)) {
-      if($this->validate('string', 'email', $customerDetails['username'])) {
+    if ($this->validateArray($customerDetails, $mandatory, $optional)) {
+      if ($this->validate('string', 'email', $customerDetails['username'])) {
         return TRUE;
       }
     }
