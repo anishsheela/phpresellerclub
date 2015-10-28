@@ -31,10 +31,9 @@ class DomainTest extends PHPUnit_Framework_TestCase {
    * @todo   Implement testCheckAvailability().
    */
   public function testCheckAvailability() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
-    );
+    $domainName = 'justrandomdomain';
+    $tlds = array('com', 'net');
+    $this->object->checkAvailability($domainName, $tlds, FALSE);
   }
 
   /**
