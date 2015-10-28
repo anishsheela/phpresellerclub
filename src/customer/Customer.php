@@ -82,5 +82,4 @@ class Customer extends Core {
     $apiOut = $this->callApi('customers', 'delete', $customerDetails);
     return $apiOut;
   }
-
 }
