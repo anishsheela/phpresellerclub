@@ -53,13 +53,15 @@ class Domain extends Core {
   }
 
   public function register($domainName, $options) {
-    $options['domain'] = $domainName;
+    $options['domain-name'] = $domainName;
     $apiOut = $this->callApi('domains', 'register', $options);
+    return $apiOut;
   }
 
   public function transfer($domain, $options) {
     $options['domain'] = $domain;
     $apiOut = $this->callApi('domains', 'transfer', $options);
+    return $apiOut;
   }
 
   public function submitAuthCode($orderId, $authCode) {
@@ -68,6 +70,7 @@ class Domain extends Core {
       'auth-code' => $authCode,
     );
     $apiOut = $this->callApi('domains', 'submit-auth-code', $options, 'transfer');
+    return $apiOut;
   }
 
   public function validateTransfer($domain) {
@@ -75,17 +78,20 @@ class Domain extends Core {
       'domain-name' => $domain,
     );
     $apiOut = $this->callApi('domains', 'validate-transfer', $options);
+    return $apiOut;
   }
 
   public function renew($orderid, $options) {
     $options['order-id'] = $domain;
     $apiOut = $this->callApi('domains', 'renew', $options);
+    return $apiOut;
   }
 
   public function searchDomain($options, $page = 1, $count = 10) {
     $options['no-of-records'] = $count;
     $options['page-no'] = $page;
     $apiOut = $this->callApi('domains', 'search', $options);
+    return $apiOut;
   }
 
   public function getDefaultNameServer($customerId) {
@@ -93,6 +99,7 @@ class Domain extends Core {
       'customer-id' => $customerId,
     );
     $apiOut = $this->callApi('domains', 'customer-default-ns', $options);
+    return $apiOut;
   }
 
   public function getOrderId($domain) {
@@ -100,6 +107,7 @@ class Domain extends Core {
       'domain' => $domain,
     );
     $apiOut = $this->callApi('domains', 'orderid', $options);
+    return $apiOut;
   }
 
   public function getDomainDetailsByOrderId($orderId, $options) {
@@ -114,6 +122,7 @@ class Domain extends Core {
       $apiOptions['options'] = $apiOptions['options'];
     }
     $apiOut = $this->callApi('domains', 'details', $apioptions);
+    return $apiOut;
   }
 
   public function getDomainDetailsByDomain($domain, $options) {
@@ -128,6 +137,7 @@ class Domain extends Core {
       $apiOptions['options'] = $apiOptions['options'];
     }
     $apiOut = $this->callApi('domains', 'details-by-name', $apioptions);
+    return $apiOut;
   }
 
   public function setNameServer($orderId, $ns) {
@@ -136,6 +146,7 @@ class Domain extends Core {
       'ns' => $ns,
     );
     $apiOut = $this->callApi('domains', 'modify-ns', $options);
+    return $apiOut;
   }
 
   public function setChildNameServer($orderId, $cns, $ips) {
@@ -145,6 +156,7 @@ class Domain extends Core {
       'ip' => $ips,
     );
     $apiOut = $this->callApi('domains', 'add-cns', $options);
+    return $apiOut;
   }
 
   public function modifyChildNameServerHost($orderId, $oldCns, $newCns) {
@@ -154,6 +166,7 @@ class Domain extends Core {
       'new-cns' => $newCns,
     );
     $apiOut = $this->callApi('domains', 'modify-cns-name', $options);
+    return $apiOut;
   }
 
   public function modifyChildNameServerIp($orderId, $cns, $oldIp, $newIp) {
@@ -164,6 +177,7 @@ class Domain extends Core {
       'new-ip' => $newIp,
     );
     $apiOut = $this->callApi('domains', 'modify-cns-ip', $options);
+    return $apiOut;
   }
 
   public function deleteChildNameServer($orderId, $cns, $ip) {
@@ -173,11 +187,13 @@ class Domain extends Core {
       'ip' => $ip,
     );
     $apiOut = $this->callApi('domains', 'delete-cns-ip', $options);
+    return $apiOut;
   }
 
   public function modifyDomainContacts($orderId, $contactIds) {
     $options['order-id'] = $orderId;
     $apiOut = $this->callApi('domains', 'modify-contact', $options);
+    return $apiOut;
   }
 
   public function addPrivacyProtection($orderId, $invoiceOption) {
@@ -186,6 +202,7 @@ class Domain extends Core {
       'invoice-option' => $invoiceOption,
     );
     $apiOut = $this->callApi('domains', 'purchase-privacy', $options);
+    return $apiOut;
   }
 
   public function modifyPrivacyProtection($orderId, $protectPrivacy, $reason) {
@@ -195,6 +212,7 @@ class Domain extends Core {
       'reason' => $reason,
     );
     $apiOut = $this->callApi('domains', 'modify-privacy-protection', $options);
+    return $apiOut;
   }
 
   public function modifyAuthCode($orderId, $authCode) {
@@ -203,6 +221,7 @@ class Domain extends Core {
       'auth-code' => $authCode,
     );
     $apiOut = $this->callApi('domains', 'modify-auth-code', $options);
+    return $apiOut;
   }
 
   public function modifyTheftProtection($orderId, $status) {
@@ -219,6 +238,7 @@ class Domain extends Core {
       );
       $apiOut = $this->callApi('domains', 'disable-theft-protection', $options);
     }
+    return $apiOut;
   }
 
   public function suspendDomain($orderId, $reason) {
@@ -227,6 +247,7 @@ class Domain extends Core {
       'reason' => $reason,
     );
     $apiOut = $this->callApi('orders', 'suspend', $options);
+    return $apiOut;
   }
 
   public function unsuspendDomain($orderId) {
@@ -234,6 +255,7 @@ class Domain extends Core {
       'order-id' => $orderId,
     );
     $apiOut = $this->callApi('orders', 'unsuspend', $options);
+    return $apiOut;
   }
 
   public function deleteDomain($orderId) {
@@ -241,6 +263,7 @@ class Domain extends Core {
       'order-id' => $orderId,
     );
     $apiOut = $this->callApi('domains', 'delete', $options);
+    return $apiOut;
   }
 
   public function restoreDomain($orderId, $invoiceOption) {
@@ -249,6 +272,7 @@ class Domain extends Core {
       'invoice-option' => $invoiceOption
     );
     $apiOut = $this->callApi('domains', 'restore', $options);
+    return $apiOut;
   }
 
 }
