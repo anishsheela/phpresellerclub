@@ -85,6 +85,9 @@ class Core {
       ),
       'content' => $urlArray,
     );
+    // Here, we have to check whether the URL is test or production.
+    // As production URLs accept only POST requests for things that need
+    // modifications. It was a bit tricky to find, but yes, its there...
     $url = $this->createUrl($urlFullArray);
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
