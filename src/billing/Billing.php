@@ -31,7 +31,7 @@ class Billing extends Core {
 
   }
 
-  public function getBalance($customerId) {
+  public function getCustomerBalance($customerId) {
 
   }
 
@@ -50,5 +50,64 @@ class Billing extends Core {
   public function getResellerBalance($resellerId) {
     
   }
-  
+
+  public function discountInvoice($invoiceId, $discount, $transactionKey, $role) {
+    
+  }
+
+  public function addFundsCustomer($customerId, $options) {
+
+  }
+
+  public function addFundsReseller($resellerId, $options) {
+    
+  }
+
+  public function addDebitNoteCustomer($customerId, $options) {
+
+  }
+
+  public function addDebitNoteReseller($customerId, $options) {
+    
+  }
+
+  public function suspendOrder($orderId, $reason) {
+
+  }
+
+  public function unsuspendOrder($orderId, $reason) {
+
+  }
+
+  public function getCurrentActions($options, $page = 1, $count = 10) {
+
+  }
+
+  public function getArchiveActions($options, $page = 1, $count = 10) {
+
+  }
+
+  public function getLegalAggrement($type) {
+
+  }
+
+  public function getAllowedPaymentGatewayCustomer($customerId = NULL, $paymentType) {
+    // handle both API calls
+  }
+
+  public function getAllowedPaymentGatewayReseller() {
+
+  }
+
+  public function getCurrencyDetails() {
+
+  }
+
+  public function getCountryList() {
+
+  }
+
+  public function getStateList($countryCode) {
+    
+  }
 }
