@@ -28,9 +28,7 @@ class Contact extends Core {
 
   public function editContact($customerId, $contactDetails) {
     $contactDetails['contact-id'] = $customerId;
-    $apiOut = $this->callApi('contacts', 'edit', array(
-      'contact-id' => $contactDetails,
-    ));
+    $apiOut = $this->callApi('contacts', 'edit', $contactDetails);
     return $apiOut;
   }
 
@@ -45,8 +43,6 @@ class Contact extends Core {
     $contactDetails['contact-id'] = $customerId;
     $contactDetails['no-of-records'] = $count;
     $contactDetails['page-no'] = $page;
-    $apiOut = $this->callApi('contacts', 'search', array(
-      'contact-id' => $contactDetails,
-    ));
+    $apiOut = $this->callApi('contacts', 'search', $contactDetails);
   }
 }
