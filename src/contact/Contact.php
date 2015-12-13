@@ -11,7 +11,7 @@ class Contact extends Core {
    */
   public function createContact($contactDetails) {
     if ($this->validate('array', 'contact', $contactDetails)) {
-      $apiOut = $this->callApi('contacts', 'add', $contactDetails);
+      $apiOut = $this->callApi(METHOD_POST, 'contacts', 'add', $contactDetails);
       return $apiOut;
     }
     else {
@@ -20,7 +20,7 @@ class Contact extends Core {
   }
 
   public function deleteContact($customerId) {
-    $apiOut = $this->callApi('contacts', 'delete', array(
+    $apiOut = $this->callApi(METHOD_POST, 'contacts', 'delete', array(
       'contact-id' => $customerId,
     ));
     return $apiOut;
@@ -28,13 +28,13 @@ class Contact extends Core {
 
   public function editContact($customerId, $contactDetails) {
     $contactDetails['contact-id'] = $customerId;
-    $apiOut = $this->callApi('contacts', 'edit', $contactDetails);
+    $apiOut = $this->callApi(METHOD_POST, 'contacts', 'edit', $contactDetails);
     return $apiOut;
   }
 
   public function getContact($customerId) {
     $contactDetails['contact-id'] = $customerId;
-    $apiOut = $this->callApi('contacts', 'details', array(
+    $apiOut = $this->callApi(METHOD_GET, 'contacts', 'details', array(
       'contact-id' => $contactDetails,
     ));
   }
@@ -43,6 +43,6 @@ class Contact extends Core {
     $contactDetails['contact-id'] = $customerId;
     $contactDetails['no-of-records'] = $count;
     $contactDetails['page-no'] = $page;
-    $apiOut = $this->callApi('contacts', 'search', $contactDetails);
+    $apiOut = $this->callApi(METHOD_GET, 'contacts', 'search', $contactDetails);
   }
 }

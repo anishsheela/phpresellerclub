@@ -10,7 +10,7 @@ class Domain extends Core {
       'tlds' => $tlds,
       'suggest-alternative' => $suggestAlternatives,
     );
-    $apiOut = $this->callApi('domains', 'available', $avail);
+    $apiOut = $this->callApi(METHOD_GET, 'domains', 'available', $avail);
     return $apiOut;
   }
 
@@ -31,7 +31,7 @@ class Domain extends Core {
       'tlds' => $tld,
       'idn-languagecode' => $idnLanguageCode,
     );
-    $apiOut = $this->callApi('domains', 'idn-available', $avail);
+    $apiOut = $this->callApi(METHOD_GET, 'domains', 'idn-available', $avail);
     return $apiOut;
   }
 
@@ -39,7 +39,7 @@ class Domain extends Core {
     // TODO: Rewrite using new API call
     $options['key-word'] = $keyWord;
     $options['tlds'] = $tlds;
-    $apiOut = $this->callApi('domains', 'available', $options, 'premium');
+    $apiOut = $this->callApi(METHOD_GET, 'domains', 'available', $options, 'premium');
     return $apiOut;
   }
 
@@ -48,19 +48,19 @@ class Domain extends Core {
     $options['key-word'] = $keyWord;
     $options['tld-only'] = $tld;
     $options['exact-match'] = $exactMatch;
-    $apiOut = $this->callApi('domains', 'suggest-names', $options, 'v5');
+    $apiOut = $this->callApi(METHOD_GET, 'domains', 'suggest-names', $options, 'v5');
     return $apiOut;
   }
 
   public function register($domainName, $options) {
     $options['domain-name'] = $domainName;
-    $apiOut = $this->callApi('domains', 'register', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'register', $options);
     return $apiOut;
   }
 
   public function transfer($domain, $options) {
     $options['domain'] = $domain;
-    $apiOut = $this->callApi('domains', 'transfer', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'transfer', $options);
     return $apiOut;
   }
 
@@ -69,7 +69,7 @@ class Domain extends Core {
       'order-id' => $orderId,
       'auth-code' => $authCode,
     );
-    $apiOut = $this->callApi('domains', 'submit-auth-code', $options, 'transfer');
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'submit-auth-code', $options, 'transfer');
     return $apiOut;
   }
 
@@ -77,20 +77,20 @@ class Domain extends Core {
     $options = array(
       'domain-name' => $domain,
     );
-    $apiOut = $this->callApi('domains', 'validate-transfer', $options);
+    $apiOut = $this->callApi(METHOD_GET, 'domains', 'validate-transfer', $options);
     return $apiOut;
   }
 
   public function renew($orderid, $options) {
     $options['order-id'] = $domain;
-    $apiOut = $this->callApi('domains', 'renew', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'renew', $options);
     return $apiOut;
   }
 
   public function searchDomain($options, $page = 1, $count = 10) {
     $options['no-of-records'] = $count;
     $options['page-no'] = $page;
-    $apiOut = $this->callApi('domains', 'search', $options);
+    $apiOut = $this->callApi(METHOD_GET, 'domains', 'search', $options);
     return $apiOut;
   }
 
@@ -98,7 +98,7 @@ class Domain extends Core {
     $options = array(
       'customer-id' => $customerId,
     );
-    $apiOut = $this->callApi('domains', 'customer-default-ns', $options);
+    $apiOut = $this->callApi(METHOD_GET, 'domains', 'customer-default-ns', $options);
     return $apiOut;
   }
 
@@ -106,7 +106,7 @@ class Domain extends Core {
     $options = array(
       'domain' => $domain,
     );
-    $apiOut = $this->callApi('domains', 'orderid', $options);
+    $apiOut = $this->callApi(METHOD_GET, 'domains', 'orderid', $options);
     return $apiOut;
   }
 
@@ -121,7 +121,7 @@ class Domain extends Core {
     else {
       $apiOptions['options'] = $apiOptions['options'];
     }
-    $apiOut = $this->callApi('domains', 'details', $apioptions);
+    $apiOut = $this->callApi(METHOD_GET, 'domains', 'details', $apioptions);
     return $apiOut;
   }
 
@@ -136,7 +136,7 @@ class Domain extends Core {
     else {
       $apiOptions['options'] = $apiOptions['options'];
     }
-    $apiOut = $this->callApi('domains', 'details-by-name', $apioptions);
+    $apiOut = $this->callApi(METHOD_GET, 'domains', 'details-by-name', $apioptions);
     return $apiOut;
   }
 
@@ -145,7 +145,7 @@ class Domain extends Core {
       'order-id' => $orderId,
       'ns' => $ns,
     );
-    $apiOut = $this->callApi('domains', 'modify-ns', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'modify-ns', $options);
     return $apiOut;
   }
 
@@ -155,7 +155,7 @@ class Domain extends Core {
       'cns' => $cns,
       'ip' => $ips,
     );
-    $apiOut = $this->callApi('domains', 'add-cns', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'add-cns', $options);
     return $apiOut;
   }
 
@@ -165,7 +165,7 @@ class Domain extends Core {
       'old-cns' => $oldCns,
       'new-cns' => $newCns,
     );
-    $apiOut = $this->callApi('domains', 'modify-cns-name', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'modify-cns-name', $options);
     return $apiOut;
   }
 
@@ -176,7 +176,7 @@ class Domain extends Core {
       'old-ip' => $oldIp,
       'new-ip' => $newIp,
     );
-    $apiOut = $this->callApi('domains', 'modify-cns-ip', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'modify-cns-ip', $options);
     return $apiOut;
   }
 
@@ -186,13 +186,13 @@ class Domain extends Core {
       'cns' => $cns,
       'ip' => $ip,
     );
-    $apiOut = $this->callApi('domains', 'delete-cns-ip', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'delete-cns-ip', $options);
     return $apiOut;
   }
 
   public function modifyDomainContacts($orderId, $contactIds) {
     $options['order-id'] = $orderId;
-    $apiOut = $this->callApi('domains', 'modify-contact', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'modify-contact', $options);
     return $apiOut;
   }
 
@@ -201,7 +201,7 @@ class Domain extends Core {
       'order-id' => $orderId,
       'invoice-option' => $invoiceOption,
     );
-    $apiOut = $this->callApi('domains', 'purchase-privacy', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'purchase-privacy', $options);
     return $apiOut;
   }
 
@@ -211,7 +211,7 @@ class Domain extends Core {
       'protect-privacy' => $protectPrivacy,
       'reason' => $reason,
     );
-    $apiOut = $this->callApi('domains', 'modify-privacy-protection', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'modify-privacy-protection', $options);
     return $apiOut;
   }
 
@@ -220,7 +220,7 @@ class Domain extends Core {
       'order-id' => $orderId,
       'auth-code' => $authCode,
     );
-    $apiOut = $this->callApi('domains', 'modify-auth-code', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'modify-auth-code', $options);
     return $apiOut;
   }
 
@@ -230,13 +230,13 @@ class Domain extends Core {
       $options = array(
         'order-id' => $orderId,
       );
-      $apiOut = $this->callApi('domains', 'enable-theft-protection', $options);
+      $apiOut = $this->callApi(METHOD_POST, 'domains', 'enable-theft-protection', $options);
     }
     else {
       $options = array(
         'order-id' => $orderId,
       );
-      $apiOut = $this->callApi('domains', 'disable-theft-protection', $options);
+      $apiOut = $this->callApi(METHOD_POST, 'domains', 'disable-theft-protection', $options);
     }
     return $apiOut;
   }
@@ -246,7 +246,7 @@ class Domain extends Core {
       'order-id' => $orderId,
       'reason' => $reason,
     );
-    $apiOut = $this->callApi('orders', 'suspend', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'orders', 'suspend', $options);
     return $apiOut;
   }
 
@@ -254,7 +254,7 @@ class Domain extends Core {
     $options = array(
       'order-id' => $orderId,
     );
-    $apiOut = $this->callApi('orders', 'unsuspend', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'orders', 'unsuspend', $options);
     return $apiOut;
   }
 
@@ -262,7 +262,7 @@ class Domain extends Core {
     $options = array(
       'order-id' => $orderId,
     );
-    $apiOut = $this->callApi('domains', 'delete', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'delete', $options);
     return $apiOut;
   }
 
@@ -271,7 +271,7 @@ class Domain extends Core {
       'order-id' => $orderId,
       'invoice-option' => $invoiceOption
     );
-    $apiOut = $this->callApi('domains', 'restore', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'domains', 'restore', $options);
     return $apiOut;
   }
 

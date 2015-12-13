@@ -7,7 +7,7 @@ class Core {
 
   /**
    * Create URL parameters from array
-   * @param array $url_array
+   * @param array $parameters
    * @return string Array converted into URL
    */
   public function createUrlParameters($parameters) {
@@ -71,7 +71,7 @@ class Core {
     return $url;
   }
 
-  public function callApi($section, $apiName, $urlArray, $section2 = NULL) {
+  public function callApi($method, $section, $apiName, $urlArray, $section2 = NULL) {
     $urlFullArray = array(
       'head' => array(
         'protocol' => 'https',

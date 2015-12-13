@@ -8,32 +8,32 @@ class Billing extends Core {
     $options = array(
       'customer-id' => $customerId,
     );
-    $apiOut = $this->callApi('products', 'customer-price', $options);
+    $apiOut = $this->callApi(METHOD_GET, 'products', 'customer-price', $options);
   }
 
   public function getResellerPricing($resellerId) {
     $options = array(
       'reseller-id' => $resellerId,
     );
-    $apiOut = $this->callApi('products', 'reseller-price', $options);
+    $apiOut = $this->callApi(METHOD_GET, 'products', 'reseller-price', $options);
   }
 
   public function getResellerCostPricing($resellerId) {
     $options = array(
       'reseller-id' => $resellerId,
     );
-    $apiOut = $this->callApi('products', 'reseller-cost-price', $options);
+    $apiOut = $this->callApi(METHOD_GET, 'products', 'reseller-cost-price', $options);
     return $apiOut;
   }
 
   public function getCustomerTransactionDetails($transactionIds) {
     // Handles array and string
-    $apiOut = $this->callApi('products', 'reseller-cost-price', $transactionIds);
+    $apiOut = $this->callApi(METHOD_GET, 'products', 'reseller-cost-price', $transactionIds);
     return $apiOut;
   }
 
   public function getResellerTransactionDetails($transactionIds) {
-    $apiOut = $this->callApi('products', 'reseller-cost-price', $transactionIds);
+    $apiOut = $this->callApi(METHOD_GET, 'products', 'reseller-cost-price', $transactionIds);
     return $apiOut;
   }
 
@@ -42,7 +42,7 @@ class Billing extends Core {
       'invoice-ids' => $invoiceIds,
       'debit-ids' => $debitIds,
     );
-    $apiOut = $this->callApi('billing', 'customer-pay', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'billing', 'customer-pay', $options);
     return $apiOut;
   }
 
@@ -51,7 +51,7 @@ class Billing extends Core {
       'invoice-ids' => $invoiceIds,
       'debit-ids' => $debitIds,
     );
-    $apiOut = $this->callApi('billing', 'cancel', $options, 'customer-transactions');
+    $apiOut = $this->callApi(METHOD_POST, 'billing', 'cancel', $options, 'customer-transactions');
     return $apiOut;
   }
 
@@ -59,7 +59,7 @@ class Billing extends Core {
     $options = array(
       'customer-id' => $customerId,
     );
-    $apiOut = $this->callApi('billing', 'customer-balance', $options);
+    $apiOut = $this->callApi(METHOD_GET, 'billing', 'customer-balance', $options);
     return $apiOut;
   }
 
@@ -68,21 +68,21 @@ class Billing extends Core {
       'invoice-ids' => $invoiceIds,
       'cancel-invoice' => $cancelInvoice,
     );
-    $apiOut = $this->callApi('billing', 'execute-order-without-payment', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'billing', 'execute-order-without-payment', $options);
     return $apiOut;
   }
 
   public function searchCustomerTransaction($options, $page = 1, $count = 10) {
     $options['no-of-records'] = $count;
     $options['page-no'] = $page;
-    $apiOut = $this->callApi('billing', 'search', $options, 'customer-transactions');
+    $apiOut = $this->callApi(METHOD_GET, 'billing', 'search', $options, 'customer-transactions');
     return $apiOut;
   }
 
   public function searchResellerTransaction($options, $page = 1, $count = 10) {
     $options['no-of-records'] = $count;
     $options['page-no'] = $page;
-    $apiOut = $this->callApi('billing', 'search', $options, 'reseller-transactions');
+    $apiOut = $this->callApi(METHOD_GET, 'billing', 'search', $options, 'reseller-transactions');
     return $apiOut;
   }
 
@@ -90,7 +90,7 @@ class Billing extends Core {
     $options = array(
       'reseller-id' => $resellerId,
     );
-    $apiOut = $this->callApi('billing', 'reseller-balance', $options);
+    $apiOut = $this->callApi(METHOD_GET, 'billing', 'reseller-balance', $options);
     return $apiOut;
   }
 
@@ -101,36 +101,36 @@ class Billing extends Core {
       'transaction-key' => $transactionKey,
       'role' => $role,
     );
-    $apiOut = $this->callApi('billing', 'customer-processdiscount', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'billing', 'customer-processdiscount', $options);
     return $apiOut;
   }
 
   public function addFundsCustomer($customerId, $options) {
     $options['customer-id'] = $customerId;
-    $apiOut = $this->callApi('billing', 'add-customer-fund', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'billing', 'add-customer-fund', $options);
     return $apiOut;
   }
 
   public function addFundsReseller($resellerId, $options) {
     $options['reseller-id'] = $resellerId;
-    $apiOut = $this->callApi('billing', 'add-reseller-fund', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'billing', 'add-reseller-fund', $options);
     return $apiOut;
   }
 
   public function addDebitNoteCustomer($customerId, $options) {
     $options['customer-id'] = $customerId;
-    $apiOut = $this->callApi('billing', 'add-customer-debit-note', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'billing', 'add-customer-debit-note', $options);
     return $apiOut;
   }
 
   public function addDebitNoteReseller($resellerId, $options) {
     $options['reseller-id'] = $resellerId;
-    $apiOut = $this->callApi('billing', 'add-reseller-debit-note', $options);
+    $apiOut = $this->callApi(METHOD_POST, 'billing', 'add-reseller-debit-note', $options);
     return $apiOut;
   }
 
   public function suspendOrder($orderId, $reason) {
-    $apiOut = $this->callApi('orders', 'suspend', array(
+    $apiOut = $this->callApi(METHOD_POST, 'orders', 'suspend', array(
       'order-id' => $orderId,
       'reason', $reason,
     ));
@@ -138,7 +138,7 @@ class Billing extends Core {
   }
 
   public function unsuspendOrder($orderId) {
-    $apiOut = $this->callApi('orders', 'unsuspend', array(
+    $apiOut = $this->callApi(METHOD_POST, 'orders', 'unsuspend', array(
       'order-id' => $orderId,
     ));
     return $apiOut;
@@ -147,19 +147,19 @@ class Billing extends Core {
   public function getCurrentActions($options, $page = 1, $count = 10) {
     $options['no-of-records'] = $count;
     $options['page-no'] = $page;
-    $apiOut = $this->callApi('actions', 'search-current', $options);
+    $apiOut = $this->callApi(METHOD_GET, 'actions', 'search-current', $options);
     return $apiOut;
   }
 
   public function getArchiveActions($options, $page = 1, $count = 10) {
     $options['no-of-records'] = $count;
     $options['page-no'] = $page;
-    $apiOut = $this->callApi('actions', 'search-archived', $options);
+    $apiOut = $this->callApi(METHOD_GET, 'actions', 'search-archived', $options);
     return $apiOut;
   }
 
   public function getLegalAggrement($type) {
-    $apiOut = $this->callApi('commons', 'legal-agreements', array('type' => $type));
+    $apiOut = $this->callApi(METHOD_GET, 'commons', 'legal-agreements', array('type' => $type));
     return $apiOut;
   }
 
@@ -175,7 +175,7 @@ class Billing extends Core {
     if (!empty($paymentType)) {
       $options['payment-type'] = $paymentType;
     }
-    $apiOut = $this->callApi('pg', 'allowedlist-for-customer', $options);
+    $apiOut = $this->callApi(METHOD_GET, 'pg', 'allowedlist-for-customer', $options);
     return $apiOut;
   }
 
@@ -184,12 +184,12 @@ class Billing extends Core {
    * @return array Parsed output of API call
    */
   public function getAllowedPaymentGatewayReseller() {
-    $apiOut = $this->callApi('pg', 'list-for-reseller', array());
+    $apiOut = $this->callApi(METHOD_GET, 'pg', 'list-for-reseller', array());
     return $apiOut;
   }
 
   public function getCurrencyDetails() {
-    $apiOut = $this->callApi('currency', 'details', array());
+    $apiOut = $this->callApi(METHOD_GET, 'currency', 'details', array());
     return $apiOut;
   }
 
@@ -200,7 +200,7 @@ class Billing extends Core {
    * @return array Parsed output of API call
    */
   public function getCountryList() {
-    $apiOut = $this->callApi('country', 'list', array());
+    $apiOut = $this->callApi(METHOD_GET, 'country', 'list', array());
     return $apiOut;
   }
 
@@ -212,7 +212,7 @@ class Billing extends Core {
    * @return array Parsed output of API call
    */
   public function getStateList($countryCode) {
-    $apiOut = $this->callApi('country', 'state-list', array(
+    $apiOut = $this->callApi(METHOD_POST, 'country', 'state-list', array(
       'country-code' => $countryCode,
     ));
     return $apiOut;
