@@ -40,6 +40,12 @@ class Core {
   }
 
   public function createUrl($urlFullArray) {
+    $requestPath = $this->createRequestPath($urlFullArray);
+    $parameterString = $this->createParameterString($urlFullArray);
+    return $requestPath . '?' . $parameterString;
+  }
+
+  function createRequestPath($urlFullArray) {
     $head = $urlFullArray['head'];
     $protocol = $head['protocol'];
     $domain = $head['domain'];
@@ -47,6 +53,18 @@ class Core {
     $section2 = $head['section2'];
     $apiName = $head['api-name'];
     $format = $head['format'];
+
+    if (NULL == $section2) {
+      $requestPath = "$protocol://$domain/api/$section/$apiName.$format";
+    }
+    else {
+      $requestPath = "$protocol://$domain/api/$section/$section2/$apiName.$format";
+    }
+    return $requestPath;
+  }
+
+  function createParameterString($urlFullArray) {
+    $head = $urlFullArray['head'];
     $urlArray = $urlFullArray['content'];
     if (isset($head['auth-userid']) && isset($head['api-key'])) {
       $authParameter = array(
@@ -56,19 +74,14 @@ class Core {
       $authParameterString = $this->createUrlParameters($authParameter);
     }
     $parameterString = $this->createUrlParameters($urlArray);
-    if (NULL == $section2) {
-      $url = "$protocol://$domain/api/$section/$apiName.$format?";
-    }
-    else {
-      $url = "$protocol://$domain/api/$section/$section2/$apiName.$format?";
-    }
+    $parameters = '';
     if (!empty($parameterString)) {
       if (!empty($authParameterString)) {
-        $url .= $authParameterString . '&';
+        $parameters .= $authParameterString . '&';
       }
-      $url .= $parameterString;
+      $parameters .= $parameterString;
     }
-    return $url;
+    return $parameters;
   }
 
   public function callApi($method, $section, $apiName, $urlArray, $section2 = NULL) {
@@ -88,16 +101,33 @@ class Core {
     // Here, we have to check whether the URL is test or production.
     // As production URLs accept only POST requests for things that need
     // modifications. It was a bit tricky to find, but yes, its there...
-    $url = $this->createUrl($urlFullArray);
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    if(METHOD_GET === $method) {
+      $url = $this->createUrl($urlFullArray);
+      curl_setopt($curl, CURLOPT_URL, $url);
+      curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    } else {
+      // METHOD_POST
+      $requestPath = $this->createRequestPath($urlFullArray);
+
+      curl_setopt($curl, CURLOPT_URL, $requestPath);
+      curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+      curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+
+      curl_setopt($curl, CURLOPT_POST,TRUE);
+      curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+      // Set the request as a POST FIELD for curl.
+      $parameterString = $this->createParameterString($urlFullArray);
+      curl_setopt($curl, CURLOPT_POSTFIELDS, $parameterString);
+    }
     $json_result = curl_exec($curl);
     if (curl_errno($curl)) {
       // This means curl can't connect to server
-      // It can be because IP is not whitelisted
-      // Or connection not available or
-      // Curl is not installed
+      // It can be because IP is not whitelisted or
+      // Connection not available or
+      // Curl is not installed or
+      // Dinosaurs are extinct.
       throw new Exception('Cannot connect to API server.', 1002);
     }
     curl_close($curl);
