@@ -15,12 +15,12 @@ class Core {
     foreach ($parameters as $key => $value) {
       if (is_array($value)) {
         foreach ($value as $item) {
-          if ($this->_isValidUrlParameter($item)) {
+          if ($this->isValidUrlParameter($item)) {
             $parameterItems[] = $key . '=' . urlencode($item);
           }
         }
       }
-      elseif ($this->_isValidUrlParameter($value)) {
+      elseif ($this->isValidUrlParameter($value)) {
         $parameterItems[] = $key . '=' . urlencode($value);
       }
       else {
@@ -30,7 +30,7 @@ class Core {
     return implode('&', $parameterItems);
   }
 
-  private function _isValidUrlParameter($parameter) {
+  private function isValidUrlParameter($parameter) {
     if (is_string($parameter) || is_int($parameter) || is_bool($parameter)) {
       return TRUE;
     }
