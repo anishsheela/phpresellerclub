@@ -15,7 +15,9 @@ class CustomerTest extends PHPUnit_Framework_TestCase {
    * This method is called before a test is executed.
    */
   protected function setUp() {
-    $this->object = new Customer;
+    $mock = $this->getMock('Customer', array('callApi'));
+    $mock->method('callApi')->willReturn('foo');
+    $this->object = $mock;
   }
 
   /**

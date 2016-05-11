@@ -18,7 +18,9 @@ class CoreTest extends PHPUnit_Framework_TestCase {
    * This method is called before a test is executed.
    */
   protected function setUp() {
-    $this->object = new Core;
+    $mock = $this->getMock('Core', array('callApi'));
+    $mock->method('callApi')->willReturn('foo');
+    $this->object = $mock;
   }
 
   /**
@@ -179,21 +181,26 @@ class CoreTest extends PHPUnit_Framework_TestCase {
     );
     $this->assertTrue($this->object->validate('array', 'contact', $contactDetails));
   }
-  
-  
 
   /**
    * @covers Core::callApi
    */
-  // Commented out as have to find a way to execute tests when API is not available.
-//  public function testCallApiReturnsValidData() {
-//    $section = 'domains';
-//    $apiName = 'available';
-//    $urlArray = array(
-//      'domain-name' => 'anishsheela',
-//      'tlds' => 'com',
-//    );
-//    $result = $this->object->callApi($section, $apiName, $urlArray);
-//    $this->assertNotEmpty($result);
-//  }
+  public function testCallApiReturnsValidData() {
+    $customerDetails = array(
+      'username' => 'anishsheela@outlook.com',
+      'passwd' => 'Rand@123om',
+      'name' => 'Anish Sheela',
+      'company' => 'N/A',
+      'address-line-1' => 'Test Address Line',
+      'city' => 'Mumbai',
+      'state' => 'Maharashtra',
+      'country' => 'IN',
+      'zipcode' => '567889',
+      'phone-cc' => '91',
+      'phone' => '9876543210',
+      'lang-pref' => 'en',
+    );
+    $json = $this->object->callApi(METHOD_GET, 'customers', 'signup', $customerDetails);
+    $this->assertEquals('foo', $json);
+  }
 }
