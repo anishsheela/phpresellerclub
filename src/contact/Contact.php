@@ -4,11 +4,6 @@ require_once __DIR__ . '/../core/Core.php';
 
 class Contact extends Core {
 
-  /**
-   * Create a contact 
-   * @param array $contactDetails
-   * @return array
-   */
   public function createContact($contactDetails) {
     if ($this->validate('array', 'contact', $contactDetails)) {
       $apiOut = $this->callApi(METHOD_POST, 'contacts', 'add', $contactDetails);
@@ -37,6 +32,7 @@ class Contact extends Core {
     $apiOut = $this->callApi(METHOD_GET, 'contacts', 'details', array(
       'contact-id' => $contactDetails,
     ));
+    return $apiOut;
   }
 
   public function searchContact($customerId, $contactDetails, $count = 10, $page = 0) {
@@ -44,5 +40,6 @@ class Contact extends Core {
     $contactDetails['no-of-records'] = $count;
     $contactDetails['page-no'] = $page;
     $apiOut = $this->callApi(METHOD_GET, 'contacts', 'search', $contactDetails);
+    return $apiOut;
   }
 }

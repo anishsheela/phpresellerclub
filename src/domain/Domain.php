@@ -82,7 +82,7 @@ class Domain extends Core {
   }
 
   public function renew($orderid, $options) {
-    $options['order-id'] = $domain;
+    $options['order-id'] = $orderid;
     $apiOut = $this->callApi(METHOD_POST, 'domains', 'renew', $options);
     return $apiOut;
   }
@@ -118,25 +118,19 @@ class Domain extends Core {
     if (is_string($options)) {
       $apiOptions['options'] = $options;
     }
-    else {
-      $apiOptions['options'] = $apiOptions['options'];
-    }
-    $apiOut = $this->callApi(METHOD_GET, 'domains', 'details', $apioptions);
+    $apiOut = $this->callApi(METHOD_GET, 'domains', 'details', $apiOptions);
     return $apiOut;
   }
 
   public function getDomainDetailsByDomain($domain, $options) {
     // Since a parameter name is options, we are using variable as apiOptions
     $apiOptions = array(
-      'domain-name' => $orderId,
+      'domain-name' => $domain,
     );
     if (is_string($options)) {
       $apiOptions['options'] = $options;
     }
-    else {
-      $apiOptions['options'] = $apiOptions['options'];
-    }
-    $apiOut = $this->callApi(METHOD_GET, 'domains', 'details-by-name', $apioptions);
+    $apiOut = $this->callApi(METHOD_GET, 'domains', 'details-by-name', $apiOptions);
     return $apiOut;
   }
 

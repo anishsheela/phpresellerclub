@@ -9,6 +9,7 @@ class Billing extends Core {
       'customer-id' => $customerId,
     );
     $apiOut = $this->callApi(METHOD_GET, 'products', 'customer-price', $options);
+    return $apiOut;
   }
 
   public function getResellerPricing($resellerId) {
@@ -16,6 +17,7 @@ class Billing extends Core {
       'reseller-id' => $resellerId,
     );
     $apiOut = $this->callApi(METHOD_GET, 'products', 'reseller-price', $options);
+    return $apiOut;
   }
 
   public function getResellerCostPricing($resellerId) {
