@@ -1,5 +1,7 @@
 <?php
 
+namespace Resellerclub;
+
 /**
  * Class contains core abstractions
  */
@@ -25,7 +27,7 @@ class Core {
         $parameterItems[] = $key . '=' . urlencode($value);
       }
       else {
-        throw new Exception("Invalid URL Array", 1001);
+        throw new \Exception("Invalid URL Array", 1001);
       }
     }
     return implode('&', $parameterItems);
@@ -160,7 +162,7 @@ class Core {
       // Connection not available or
       // Curl is not installed or
       // Dinosaurs are extinct.
-      throw new Exception('Cannot connect to API server.', 1002);
+      throw new \Exception('Cannot connect to API server.', 1002);
     }
     curl_close($curl);
     $result_array = json_decode($json_result);

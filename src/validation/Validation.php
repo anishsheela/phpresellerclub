@@ -1,5 +1,9 @@
 <?php
 
+namespace Resellerclub;
+
+require_once __DIR__ . '/../core/Core.php';
+
 class Validation extends Core {
 
   /**
@@ -13,7 +17,7 @@ class Validation extends Core {
   public function validate($type, $subType, $parameters) {
     $validationFunction = $this->getValidationFunction($type, $subType);
     if (NULL === $validationFunction) {
-      throw new Exception('Invalid Validation', 1003);
+      throw new \Exception('Invalid Validation', 1003);
     }
     else {
       if (method_exists($this, $validationFunction)) {
@@ -56,14 +60,14 @@ class Validation extends Core {
   private function validateArray($inputArray, $mandatory, $optional = array()) {
     if (!is_array($inputArray)) {
       // Not even an array. Who does that :\ ?
-      throw new Exception('Input is not an array', 1004);
+      throw new \Exception('Input is not an array', 1004);
     }
     foreach ($inputArray as $key => $value) {
       if (!(in_array($key, $mandatory) or in_array($key, $optional))) {
         // If its not in mandatory or optional,
         // then parameter is not valid.
         // We don't want outsiders here.
-        throw new Exception('There are invalid parameters', 1005);
+        throw new \Exception('There are invalid parameters', 1005);
       }
       // If the value in array is correct.
       if (!(is_array($value) or is_string($value) or is_int($value) or is_bool($value))) {
@@ -74,10 +78,10 @@ class Validation extends Core {
             }
           }
         }
-        throw new Exception('Input is not an array', 1006);
+        throw new \Exception('Input is not an array', 1006);
       }
       if (TRUE !== $this->validateItem($key, $value)) {
-        throw new Exception('Item is invalid', 1007);
+        throw new \Exception('Item is invalid', 1007);
       }
     }
 
@@ -85,7 +89,7 @@ class Validation extends Core {
     foreach ($mandatory as $mandatory_item) {
       // If any of the mandatory array elements is not found, then array is invalid.
       if (!isset($inputArray[$mandatory_item])) {
-        throw new Exception('Mandatory items in array missing', '1005');
+        throw new \Exception('Mandatory items in array missing', '1005');
       }
     }
     return TRUE;

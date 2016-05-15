@@ -1,5 +1,7 @@
 <?php
 
+namespace Resellerclub;
+
 // TODO: use autoloader
 require_once __DIR__ . '/../../../src/index.php';
 
@@ -9,7 +11,7 @@ require_once __DIR__ . '/../../../src/index.php';
  * Date: 12/5/16
  * Time: 12:29 AM
  */
-class ValidationTest extends PHPUnit_Framework_TestCase {
+class ValidationTest extends \PHPUnit_Framework_TestCase {
 
   /**
    * @var Validation
@@ -21,7 +23,7 @@ class ValidationTest extends PHPUnit_Framework_TestCase {
    * This method is called before a test is executed.
    */
   protected function setUp() {
-    $mock = $this->getMock('Validation', array('callApi'));
+    $mock = $this->getMock('\Resellerclub\Validation', array('callApi'));
     $mock->method('callApi')->willReturn('foo');
     $this->object = $mock;
   }

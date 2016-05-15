@@ -1,5 +1,7 @@
 <?php
 
+namespace Resellerclub;
+
 require_once __DIR__ . '/../core/Core.php';
 
 class Contact extends Core {
@@ -10,7 +12,7 @@ class Contact extends Core {
       return $apiOut;
     }
     else {
-      throw new Exception('Adding contact failed.', 2001);
+      throw new \Exception('Adding contact failed.', 2001);
     }
   }
 
