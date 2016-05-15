@@ -6,9 +6,10 @@
 class Core {
 
   /**
-   * Create URL parameters from array
-   * @param array $parameters
-   * @return string Array converted into URL
+   * Create URL parameter string from an array.
+   * @param $parameters array Parameter to be made into string as an array.
+   * @return string URL parameters separated by &.
+   * @throws \Exception If URL array is invalid.
    */
   public function createUrlParameters($parameters) {
     $parameterItems = array();
@@ -30,6 +31,11 @@ class Core {
     return implode('&', $parameterItems);
   }
 
+  /**
+   * Check if a URL parameter is valid.
+   * @param $parameter mixed Parameter to validate.
+   * @return bool TRUE is parameter is valid, else FALSE
+   */
   private function isValidUrlParameter($parameter) {
     if (is_string($parameter) || is_int($parameter) || is_bool($parameter)) {
       return TRUE;
@@ -39,13 +45,23 @@ class Core {
     }
   }
 
+  /**
+   * Create a URL from the parameters. Used for GET requests.
+   * @param $urlFullArray array URL array in full format.
+   * @return string Full request path.
+   */
   public function createUrl($urlFullArray) {
     $requestPath = $this->createRequestPath($urlFullArray);
     $parameterString = $this->createParameterString($urlFullArray);
     return $requestPath . '?' . $parameterString;
   }
 
-  function createRequestPath($urlFullArray) {
+  /**
+   * Create request path, without parameters.
+   * @param $urlFullArray array URL array in full format.
+   * @return string Request path without parameters.
+   */
+  private function createRequestPath($urlFullArray) {
     $head = $urlFullArray['head'];
     $protocol = $head['protocol'];
     $domain = $head['domain'];
@@ -63,7 +79,13 @@ class Core {
     return $requestPath;
   }
 
-  function createParameterString($urlFullArray) {
+  /**
+   * Create Parameter string from the URL array
+   * @param $urlFullArray array URL array in full format.
+   * @return string The parameter string, separated by &.
+   * @throws \Exception
+   */
+  private function createParameterString($urlFullArray) {
     $head = $urlFullArray['head'];
     $urlArray = $urlFullArray['content'];
     if (isset($head['auth-userid']) && isset($head['api-key'])) {
@@ -84,6 +106,16 @@ class Core {
     return $parameters;
   }
 
+  /**
+   * Calls the Resellerclub API with the given parameters.
+   * @param $method bool METHOD_GET or METHOD_POST
+   * @param $section string Section as specified in the resellerclub API.
+   * @param $apiName string Name of API call to be called.
+   * @param $urlArray array Parameters to be passed as URL.
+   * @param null $section2 Some API calls needs additional section. They are nuts.
+   * @return array Result of the API call.
+   * @throws \Exception
+   */
   public function callApi($method, $section, $apiName, $urlArray, $section2 = NULL) {
     $urlFullArray = array(
       'head' => array(
@@ -135,6 +167,9 @@ class Core {
     return $result_array;
   }
 
+  /**
+   * This serves as alias to Validation::validate
+   */
   public function validate($type, $subType, $parameters) {
     $validator = new Validation();
     return $validator->validate($type, $subType, $parameters);

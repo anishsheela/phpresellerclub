@@ -1,9 +1,18 @@
 <?php
 
 class Validation extends Core {
+
+  /**
+   * Validate a parameter array.
+   * @param $type string Main validation type.
+   * @param $subType string Sub validation type.
+   * @param $parameters mixed Parameters to validate.
+   * @return boolean TRUE is valid, else FALSE or exception.
+   * @throws \Exception Invalid validation.
+   */
   public function validate($type, $subType, $parameters) {
     $validationFunction = $this->getValidationFunction($type, $subType);
-    if (empty($validationFunction)) {
+    if (NULL === $validationFunction) {
       throw new Exception('Invalid Validation', 1003);
     }
     else {
@@ -13,6 +22,12 @@ class Validation extends Core {
     }
   }
 
+  /**
+   * Get the name of the validation function.
+   * @param $type string Main category of validation.
+   * @param $subType string Validation function name.
+   * @return string Name of validation function or NULL if not found.
+   */
   private function getValidationFunction($type, $subType) {
     $validations = array();
 
@@ -30,6 +45,14 @@ class Validation extends Core {
     }
   }
 
+  /**
+   * Validates an input array for an API.
+   * @param $inputArray array The original array.
+   * @param $mandatory array The mandatory elements to be present in the array.
+   * @param array $optional Optional elements that can be in the array.
+   * @return bool TRUE if array is valid, else exception.
+   * @throws \Exception
+   */
   private function validateArray($inputArray, $mandatory, $optional = array()) {
     if (!is_array($inputArray)) {
       // Not even an array. Who does that :\ ?
@@ -68,13 +91,20 @@ class Validation extends Core {
     return TRUE;
   }
 
-  private function validateItem($itemName, $item) {
+  /**
+   * Validate an item using a validator function.
+   * @param $itemValidator string Name of item's validator function.
+   * @param $item mixed The item to be validated.
+   * @return bool TRUE if valid, else FALSE.
+   */
+  private function validateItem($itemValidator, $item) {
+    // We need to do something about this.
     $itemValidators = array(
       'email' => 'validateEmail',
     );
-    if ( !empty($itemValidators[$itemName])
-        && method_exists($this, $itemValidators[$itemName])) {
-      $validatorFunction = $itemValidators[$itemName];
+    if ( !empty($itemValidators[$itemValidator])
+        && method_exists($this, $itemValidators[$itemValidator])) {
+      $validatorFunction = $itemValidators[$itemValidator];
       return $this->$validatorFunction($item);
     }
     else {
@@ -84,6 +114,11 @@ class Validation extends Core {
     }
   }
 
+  /**
+   * Validate an email address.
+   * @param $email string Email address
+   * @return bool TRUE is valid, else FALSE
+   */
   private function validateEmail($email) {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
       return TRUE;
@@ -93,6 +128,12 @@ class Validation extends Core {
     }
   }
 
+  /**
+   * Validates a contact array.
+   * @param $contactDetails array Contact Details array
+   * @return bool TRUE if valid. Else, exception.
+   * @throws \Exception
+   */
   private function validateContact($contactDetails) {
     $mandatory = array(
       'name',
@@ -119,6 +160,12 @@ class Validation extends Core {
     return $this->validateArray($contactDetails, $mandatory, $optional);
   }
 
+  /**
+   * Validates a customer array.
+   * @param $customerDetails array Customer Details array.
+   * @return bool TRUE if valid, else exception.
+   * @throws \Exception
+   */
   private function validateCustomer($customerDetails) {
     $mandatory = array(
       'username',
