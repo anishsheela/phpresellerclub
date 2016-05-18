@@ -11,7 +11,7 @@ class Core {
    * Create URL parameter string from an array.
    * @param $parameters array Parameter to be made into string as an array.
    * @return string URL parameters separated by &.
-   * @throws \Exception If URL array is invalid.
+   * @throws \Resellerclub\InvalidUrlArrayException If URL array is invalid.
    */
   public function createUrlParameters($parameters) {
     $parameterItems = array();
@@ -27,7 +27,7 @@ class Core {
         $parameterItems[] = $key . '=' . urlencode($value);
       }
       else {
-        throw new \Exception("Invalid URL Array", 1001);
+        throw new InvalidUrlArrayException("Invalid URL Array");
       }
     }
     return implode('&', $parameterItems);
@@ -116,7 +116,7 @@ class Core {
    * @param $urlArray array Parameters to be passed as URL.
    * @param null $section2 Some API calls needs additional section. They are nuts.
    * @return array Result of the API call.
-   * @throws \Exception
+   * @throws \Resellerclub\ApiConnectionException If connection to API is failed.
    */
   public function callApi($method, $section, $apiName, $urlArray, $section2 = NULL) {
     $urlFullArray = array(
@@ -162,7 +162,7 @@ class Core {
       // Connection not available or
       // Curl is not installed or
       // Dinosaurs are extinct.
-      throw new \Exception('Cannot connect to API server.', 1002);
+      throw new ApiConnectionException('Cannot connect to API server.');
     }
     curl_close($curl);
     $result_array = json_decode($json_result);

@@ -12,12 +12,12 @@ class Validation extends Core {
    * @param $subType string Sub validation type.
    * @param $parameters mixed Parameters to validate.
    * @return boolean TRUE is valid, else FALSE or exception.
-   * @throws \Exception Invalid validation.
+   * @throws InvalidValidationException Invalid validation.
    */
   public function validate($type, $subType, $parameters) {
     $validationFunction = $this->getValidationFunction($type, $subType);
     if (NULL === $validationFunction) {
-      throw new \Exception('Invalid Validation', 1003);
+      throw new InvalidValidationException('Invalid validation function.');
     }
     else {
       if (method_exists($this, $validationFunction)) {
@@ -55,19 +55,22 @@ class Validation extends Core {
    * @param $mandatory array The mandatory elements to be present in the array.
    * @param array $optional Optional elements that can be in the array.
    * @return bool TRUE if array is valid, else exception.
-   * @throws \Exception
+   * @throws \Resellerclub\InvalidArrayException Input is not an array.
+   * @throws \Resellerclub\InvalidParameterException There are parameters other than specified in mandatory and optional.
+   * @throws \Resellerclub\MissingParameterException If parameters are missing from the specified mandatory list.
+   * @throws \Resellerclub\InvalidItemException If an item is invalid.
    */
   private function validateArray($inputArray, $mandatory, $optional = array()) {
     if (!is_array($inputArray)) {
       // Not even an array. Who does that :\ ?
-      throw new \Exception('Input is not an array', 1004);
+      throw new InvalidArrayException('Input is not an array');
     }
     foreach ($inputArray as $key => $value) {
       if (!(in_array($key, $mandatory) or in_array($key, $optional))) {
         // If its not in mandatory or optional,
         // then parameter is not valid.
         // We don't want outsiders here.
-        throw new \Exception('There are invalid parameters', 1005);
+        throw new InvalidParameterException('There are invalid parameters.');
       }
       // If the value in array is correct.
       if (!(is_array($value) or is_string($value) or is_int($value) or is_bool($value))) {
@@ -78,10 +81,10 @@ class Validation extends Core {
             }
           }
         }
-        throw new \Exception('Input is not an array', 1006);
+        throw new InvalidArrayException('Input is not an array.');
       }
       if (TRUE !== $this->validateItem($key, $value)) {
-        throw new \Exception('Item is invalid', 1007);
+        throw new InvalidItemException('Item is invalid.');
       }
     }
 
@@ -89,7 +92,7 @@ class Validation extends Core {
     foreach ($mandatory as $mandatory_item) {
       // If any of the mandatory array elements is not found, then array is invalid.
       if (!isset($inputArray[$mandatory_item])) {
-        throw new \Exception('Mandatory items in array missing', '1005');
+        throw new MissingParameterException('Mandatory items in array missing');
       }
     }
     return TRUE;
@@ -136,7 +139,10 @@ class Validation extends Core {
    * Validates a contact array.
    * @param $contactDetails array Contact Details array
    * @return bool TRUE if valid. Else, exception.
-   * @throws \Exception
+   * @throws \Resellerclub\InvalidArrayException
+   * @throws \Resellerclub\InvalidItemException
+   * @throws \Resellerclub\InvalidParameterException
+   * @throws \Resellerclub\MissingParameterException
    */
   private function validateContact($contactDetails) {
     $mandatory = array(
