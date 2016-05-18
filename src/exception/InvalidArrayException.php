@@ -6,6 +6,6 @@
 namespace Resellerclub;
 
 
-class InvalidArrayException extends InvalidUrlArrayException{
+class InvalidArrayException extends \Exception{
 
 }
