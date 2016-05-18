@@ -10,35 +10,35 @@ class Billing extends Core {
     $options = array(
       'customer-id' => $customerId,
     );
-    $apiOut = $this->callApi(METHOD_GET, 'products', 'customer-price', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'products', 'customer-price', $options);
   }
 
   public function getResellerPricing($resellerId) {
     $options = array(
       'reseller-id' => $resellerId,
     );
-    $apiOut = $this->callApi(METHOD_GET, 'products', 'reseller-price', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'products', 'reseller-price', $options);
   }
 
   public function getResellerCostPricing($resellerId) {
     $options = array(
       'reseller-id' => $resellerId,
     );
-    $apiOut = $this->callApi(METHOD_GET, 'products', 'reseller-cost-price', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'products', 'reseller-cost-price', $options);
   }
 
   public function getCustomerTransactionDetails($transactionIds) {
+    // TODO: Check
     // Handles array and string
-    $apiOut = $this->callApi(METHOD_GET, 'products', 'reseller-cost-price', $transactionIds);
-    return $apiOut;
+    return $this->callApi(METHOD_GET, 'products', 'reseller-cost-price', $transactionIds);
   }
 
   public function getResellerTransactionDetails($transactionIds) {
-    $apiOut = $this->callApi(METHOD_GET, 'products', 'reseller-cost-price', $transactionIds);
-    return $apiOut;
+    // TODO: Check
+    return $this->callApi(METHOD_GET, 'products', 'reseller-cost-price', $transactionIds);
   }
 
   public function payTransactions($invoiceIds = NULL, $debitIds = NULL) {
@@ -46,8 +46,8 @@ class Billing extends Core {
       'invoice-ids' => $invoiceIds,
       'debit-ids' => $debitIds,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'billing', 'customer-pay', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'billing', 'customer-pay', $options);
   }
 
   public function cancelInvoiceDebitNote($invoiceIds = NULL, $debitIds = NULL) {
@@ -55,16 +55,16 @@ class Billing extends Core {
       'invoice-ids' => $invoiceIds,
       'debit-ids' => $debitIds,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'billing', 'cancel', $options, 'customer-transactions');
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'billing', 'cancel', $options, 'customer-transactions');
   }
 
   public function getCustomerBalance($customerId) {
     $options = array(
       'customer-id' => $customerId,
     );
-    $apiOut = $this->callApi(METHOD_GET, 'billing', 'customer-balance', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'billing', 'customer-balance', $options);
   }
 
   public function executeOrderWithoutPayment($invoiceIds, $cancelInvoice = FALSE) {
@@ -72,30 +72,31 @@ class Billing extends Core {
       'invoice-ids' => $invoiceIds,
       'cancel-invoice' => $cancelInvoice,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'billing', 'execute-order-without-payment', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'billing', 'execute-order-without-payment', $options);
   }
 
   public function searchCustomerTransaction($options, $page = 1, $count = 10) {
     $options['no-of-records'] = $count;
     $options['page-no'] = $page;
-    $apiOut = $this->callApi(METHOD_GET, 'billing', 'search', $options, 'customer-transactions');
-    return $apiOut;
+    $this->defaultValidate($options);
+    //TODO: Check
+    return $this->callApi(METHOD_GET, 'billing', 'search', $options, 'customer-transactions');
   }
 
   public function searchResellerTransaction($options, $page = 1, $count = 10) {
     $options['no-of-records'] = $count;
     $options['page-no'] = $page;
-    $apiOut = $this->callApi(METHOD_GET, 'billing', 'search', $options, 'reseller-transactions');
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'billing', 'search', $options, 'reseller-transactions');
   }
 
   public function getResellerBalance($resellerId) {
     $options = array(
       'reseller-id' => $resellerId,
     );
-    $apiOut = $this->callApi(METHOD_GET, 'billing', 'reseller-balance', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'billing', 'reseller-balance', $options);
   }
 
   public function discountInvoice($invoiceId, $discount, $transactionKey, $role) {
@@ -105,66 +106,71 @@ class Billing extends Core {
       'transaction-key' => $transactionKey,
       'role' => $role,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'billing', 'customer-processdiscount', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'billing', 'customer-processdiscount', $options);
   }
 
   public function addFundsCustomer($customerId, $options) {
     $options['customer-id'] = $customerId;
-    $apiOut = $this->callApi(METHOD_POST, 'billing', 'add-customer-fund', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'billing', 'add-customer-fund', $options);
   }
 
   public function addFundsReseller($resellerId, $options) {
     $options['reseller-id'] = $resellerId;
-    $apiOut = $this->callApi(METHOD_POST, 'billing', 'add-reseller-fund', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'billing', 'add-reseller-fund', $options);
   }
 
   public function addDebitNoteCustomer($customerId, $options) {
     $options['customer-id'] = $customerId;
-    $apiOut = $this->callApi(METHOD_POST, 'billing', 'add-customer-debit-note', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'billing', 'add-customer-debit-note', $options);
   }
 
   public function addDebitNoteReseller($resellerId, $options) {
     $options['reseller-id'] = $resellerId;
-    $apiOut = $this->callApi(METHOD_POST, 'billing', 'add-reseller-debit-note', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'billing', 'add-reseller-debit-note', $options);
   }
 
   public function suspendOrder($orderId, $reason) {
-    $apiOut = $this->callApi(METHOD_POST, 'orders', 'suspend', array(
+    $options = array(
       'order-id' => $orderId,
       'reason', $reason,
-    ));
-    return $apiOut;
+    );
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'orders', 'suspend', $options);
   }
 
   public function unsuspendOrder($orderId) {
-    $apiOut = $this->callApi(METHOD_POST, 'orders', 'unsuspend', array(
+    $options = array(
       'order-id' => $orderId,
-    ));
-    return $apiOut;
+    );
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'orders', 'unsuspend', $options);
   }
 
   public function getCurrentActions($options, $page = 1, $count = 10) {
     $options['no-of-records'] = $count;
     $options['page-no'] = $page;
-    $apiOut = $this->callApi(METHOD_GET, 'actions', 'search-current', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'actions', 'search-current', $options);
   }
 
   public function getArchiveActions($options, $page = 1, $count = 10) {
     $options['no-of-records'] = $count;
     $options['page-no'] = $page;
-    $apiOut = $this->callApi(METHOD_GET, 'actions', 'search-archived', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'actions', 'search-archived', $options);
   }
 
   public function getLegalAggrement($type) {
-    $apiOut = $this->callApi(METHOD_GET, 'commons', 'legal-agreements', array('type' => $type));
-    return $apiOut;
+    $options = array(
+      'type' => $type
+    );
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'commons', 'legal-agreements', $options);
   }
 
   /**
@@ -179,8 +185,8 @@ class Billing extends Core {
     if (!empty($paymentType)) {
       $options['payment-type'] = $paymentType;
     }
-    $apiOut = $this->callApi(METHOD_GET, 'pg', 'allowedlist-for-customer', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'pg', 'allowedlist-for-customer', $options);
   }
 
   /**
@@ -188,13 +194,11 @@ class Billing extends Core {
    * @return array Parsed output of API call
    */
   public function getAllowedPaymentGatewayReseller() {
-    $apiOut = $this->callApi(METHOD_GET, 'pg', 'list-for-reseller', array());
-    return $apiOut;
+    return $this->callApi(METHOD_GET, 'pg', 'list-for-reseller', array());
   }
 
   public function getCurrencyDetails() {
-    $apiOut = $this->callApi(METHOD_GET, 'currency', 'details', array());
-    return $apiOut;
+    return $this->callApi(METHOD_GET, 'currency', 'details', array());
   }
 
   /**
@@ -204,8 +208,7 @@ class Billing extends Core {
    * @return array Parsed output of API call
    */
   public function getCountryList() {
-    $apiOut = $this->callApi(METHOD_GET, 'country', 'list', array());
-    return $apiOut;
+    return $this->callApi(METHOD_GET, 'country', 'list', array());
   }
 
   /**
@@ -216,10 +219,11 @@ class Billing extends Core {
    * @return array Parsed output of API call
    */
   public function getStateList($countryCode) {
-    $apiOut = $this->callApi(METHOD_POST, 'country', 'state-list', array(
+    $options = array(
       'country-code' => $countryCode,
-    ));
-    return $apiOut;
+    );
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'country', 'state-list', $options);
   }
 
 }

@@ -12,8 +12,8 @@ class Domain extends Core {
       'tlds' => $tlds,
       'suggest-alternative' => $suggestAlternatives,
     );
-    $apiOut = $this->callApi(METHOD_GET, 'domains', 'available', $avail);
-    return $apiOut;
+    $this->defaultValidate($avail);
+    return $this->callApi(METHOD_GET, 'domains', 'available', $avail);
   }
 
   public function checkAvailabilityIdn($domainName, $tld, $idnLanguageCode) {
@@ -33,37 +33,35 @@ class Domain extends Core {
       'tlds' => $tld,
       'idn-languagecode' => $idnLanguageCode,
     );
-    $apiOut = $this->callApi(METHOD_GET, 'domains', 'idn-available', $avail);
-    return $apiOut;
+    $this->defaultValidate($avail);
+    return $this->callApi(METHOD_GET, 'domains', 'idn-available', $avail);
   }
 
   public function checkAvailabilityPremium($keyWord, $tlds, $options) {
-    // TODO: Rewrite using new API call
     $options['key-word'] = $keyWord;
     $options['tlds'] = $tlds;
-    $apiOut = $this->callApi(METHOD_GET, 'domains', 'available', $options, 'premium');
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'domains', 'available', $options, 'premium');
   }
 
   public function domainSuggestions($keyWord, $tld = NULL, $exactMatch = FALSE) {
-    // TODO: Rewrite using new API call
     $options['key-word'] = $keyWord;
     $options['tld-only'] = $tld;
     $options['exact-match'] = $exactMatch;
-    $apiOut = $this->callApi(METHOD_GET, 'domains', 'suggest-names', $options, 'v5');
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'domains', 'suggest-names', $options, 'v5');
   }
 
   public function register($domainName, $options) {
     $options['domain-name'] = $domainName;
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'register', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'register', $options);
   }
 
   public function transfer($domain, $options) {
     $options['domain'] = $domain;
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'transfer', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'transfer', $options);
   }
 
   public function submitAuthCode($orderId, $authCode) {
@@ -71,45 +69,45 @@ class Domain extends Core {
       'order-id' => $orderId,
       'auth-code' => $authCode,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'submit-auth-code', $options, 'transfer');
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'submit-auth-code', $options, 'transfer');
   }
 
   public function validateTransfer($domain) {
     $options = array(
       'domain-name' => $domain,
     );
-    $apiOut = $this->callApi(METHOD_GET, 'domains', 'validate-transfer', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'domains', 'validate-transfer', $options);
   }
 
   public function renew($orderid, $options) {
     $options['order-id'] = $orderid;
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'renew', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'renew', $options);
   }
 
   public function searchDomain($options, $page = 1, $count = 10) {
     $options['no-of-records'] = $count;
     $options['page-no'] = $page;
-    $apiOut = $this->callApi(METHOD_GET, 'domains', 'search', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'domains', 'search', $options);
   }
 
   public function getDefaultNameServer($customerId) {
     $options = array(
       'customer-id' => $customerId,
     );
-    $apiOut = $this->callApi(METHOD_GET, 'domains', 'customer-default-ns', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'domains', 'customer-default-ns', $options);
   }
 
   public function getOrderId($domain) {
     $options = array(
       'domain' => $domain,
     );
-    $apiOut = $this->callApi(METHOD_GET, 'domains', 'orderid', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_GET, 'domains', 'orderid', $options);
   }
 
   public function getDomainDetailsByOrderId($orderId, $options) {
@@ -120,8 +118,8 @@ class Domain extends Core {
     if (is_string($options)) {
       $apiOptions['options'] = $options;
     }
-    $apiOut = $this->callApi(METHOD_GET, 'domains', 'details', $apiOptions);
-    return $apiOut;
+    $this->defaultValidate($apiOptions);
+    return $this->callApi(METHOD_GET, 'domains', 'details', $apiOptions);
   }
 
   public function getDomainDetailsByDomain($domain, $options) {
@@ -132,8 +130,8 @@ class Domain extends Core {
     if (is_string($options)) {
       $apiOptions['options'] = $options;
     }
-    $apiOut = $this->callApi(METHOD_GET, 'domains', 'details-by-name', $apiOptions);
-    return $apiOut;
+    $this->defaultValidate($apiOptions);
+    return $this->callApi(METHOD_GET, 'domains', 'details-by-name', $apiOptions);
   }
 
   public function setNameServer($orderId, $ns) {
@@ -141,8 +139,8 @@ class Domain extends Core {
       'order-id' => $orderId,
       'ns' => $ns,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'modify-ns', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'modify-ns', $options);
   }
 
   public function setChildNameServer($orderId, $cns, $ips) {
@@ -151,8 +149,8 @@ class Domain extends Core {
       'cns' => $cns,
       'ip' => $ips,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'add-cns', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'add-cns', $options);
   }
 
   public function modifyChildNameServerHost($orderId, $oldCns, $newCns) {
@@ -161,8 +159,8 @@ class Domain extends Core {
       'old-cns' => $oldCns,
       'new-cns' => $newCns,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'modify-cns-name', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'modify-cns-name', $options);
   }
 
   public function modifyChildNameServerIp($orderId, $cns, $oldIp, $newIp) {
@@ -172,8 +170,8 @@ class Domain extends Core {
       'old-ip' => $oldIp,
       'new-ip' => $newIp,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'modify-cns-ip', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'modify-cns-ip', $options);
   }
 
   public function deleteChildNameServer($orderId, $cns, $ip) {
@@ -182,14 +180,15 @@ class Domain extends Core {
       'cns' => $cns,
       'ip' => $ip,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'delete-cns-ip', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'delete-cns-ip', $options);
   }
 
   public function modifyDomainContacts($orderId, $contactIds) {
+    //TODO: Check
     $options['order-id'] = $orderId;
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'modify-contact', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'modify-contact', $options);
   }
 
   public function addPrivacyProtection($orderId, $invoiceOption) {
@@ -197,8 +196,8 @@ class Domain extends Core {
       'order-id' => $orderId,
       'invoice-option' => $invoiceOption,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'purchase-privacy', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'purchase-privacy', $options);
   }
 
   public function modifyPrivacyProtection($orderId, $protectPrivacy, $reason) {
@@ -207,8 +206,8 @@ class Domain extends Core {
       'protect-privacy' => $protectPrivacy,
       'reason' => $reason,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'modify-privacy-protection', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'modify-privacy-protection', $options);
   }
 
   public function modifyAuthCode($orderId, $authCode) {
@@ -216,8 +215,8 @@ class Domain extends Core {
       'order-id' => $orderId,
       'auth-code' => $authCode,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'modify-auth-code', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'modify-auth-code', $options);
   }
 
   public function modifyTheftProtection($orderId, $status) {
@@ -226,15 +225,16 @@ class Domain extends Core {
       $options = array(
         'order-id' => $orderId,
       );
-      $apiOut = $this->callApi(METHOD_POST, 'domains', 'enable-theft-protection', $options);
+      $this->defaultValidate($options);
+      return $this->callApi(METHOD_POST, 'domains', 'enable-theft-protection', $options);
     }
     else {
       $options = array(
         'order-id' => $orderId,
       );
-      $apiOut = $this->callApi(METHOD_POST, 'domains', 'disable-theft-protection', $options);
+      $this->defaultValidate($options);
+      return $this->callApi(METHOD_POST, 'domains', 'disable-theft-protection', $options);
     }
-    return $apiOut;
   }
 
   public function suspendDomain($orderId, $reason) {
@@ -242,24 +242,24 @@ class Domain extends Core {
       'order-id' => $orderId,
       'reason' => $reason,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'orders', 'suspend', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'orders', 'suspend', $options);
   }
 
   public function unsuspendDomain($orderId) {
     $options = array(
       'order-id' => $orderId,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'orders', 'unsuspend', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return$this->callApi(METHOD_POST, 'orders', 'unsuspend', $options);
   }
 
   public function deleteDomain($orderId) {
     $options = array(
       'order-id' => $orderId,
     );
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'delete', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'delete', $options);
   }
 
   public function restoreDomain($orderId, $invoiceOption) {
@@ -267,8 +267,8 @@ class Domain extends Core {
       'order-id' => $orderId,
       'invoice-option' => $invoiceOption
     );
-    $apiOut = $this->callApi(METHOD_POST, 'domains', 'restore', $options);
-    return $apiOut;
+    $this->defaultValidate($options);
+    return $this->callApi(METHOD_POST, 'domains', 'restore', $options);
   }
 
 }

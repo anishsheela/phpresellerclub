@@ -18,7 +18,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
    */
   protected function setUp() {
     $mock = $this->getMock('\Resellerclub\Customer', array('callApi'));
-    $mock->method('callApi')->willReturn('foo');
+    $mock->method('callApi')->willReturn(array('success' => TRUE));
     $this->object = $mock;
   }
 
@@ -55,7 +55,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
    * @covers Customer::editCustomer
    */
   public function testEditCustomer() {
-    $customerId = '768906';
+    $customerId = '76898906';
     $customerDetails = array(
       'username' => 'anishsheela@outlook.com',
       'passwd' => 'Rand@123om',

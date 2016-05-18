@@ -176,4 +176,13 @@ class Core {
     $validator = new Validation();
     return $validator->validate($type, $subType, $parameters);
   }
+
+  /**
+   * Validates a general array.
+   * @param $parameters array Array to be validated.
+   * @return bool TRUE if valid.
+   */
+  public function defaultValidate($parameters) {
+    return $this->validate('array', 'default', $parameters);
+  }
 }

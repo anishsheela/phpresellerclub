@@ -37,13 +37,14 @@ class Validation extends Core {
 
     // Validators
     // Array Validators
+    $validations['array']['default'] = 'validateArrayDefault';
     $validations['array']['contact'] = 'validateContact';
     $validations['array']['customer'] = 'validateCustomer';
-    $validations['array']['ip'] ='validateIp';
-    $validations['array']['customer-id'] ='validateCustomerId';
 
     // Basic Validators
     $validations['string']['email'] = 'validateEmail';
+    $validations['string']['ip'] ='validateIp';
+    $validations['string']['customer-id'] ='validateCustomerId';
 
     if (!empty($validations[$type][$subType])) {
       return $validations[$type][$subType];
@@ -111,10 +112,10 @@ class Validation extends Core {
   private function validateItem($itemValidator, $item) {
     // We need to do something about this.
     $itemValidators = array(
-      'email' => array('string','email'),
-      'username' => array('string','email'),
-      'customer-id' => array('string','customer-id'),
-      'ip' => array('string','ip'),
+      'email' => array('string', 'email'),
+      'username' => array('string', 'email'),
+      'customer-id' => array('string', 'customer-id'),
+      'ip' => array('string', 'ip'),
     );
 
     // Get validator function if present
@@ -162,13 +163,23 @@ class Validation extends Core {
   private function validateIp($ip) {
     if(filter_var($ip,FILTER_VALIDATE_IP)) {
       return TRUE;
-    } else {
-      return FALSE;
     }
+    return FALSE;
   }
 
   private function validateCustomerId($customer_id) {
-    return TRUE;
+    if(is_numeric($customer_id) && (strlen($customer_id) === 8)) {
+      return TRUE;
+    }
+    return FALSE;
+  }
+
+  /**
+   * Array Validators
+   */
+
+  private function validateArrayDefault($validate_array) {
+    return $this->validateArray($validate_array, array());
   }
 
   /**

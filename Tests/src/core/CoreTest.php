@@ -21,7 +21,7 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
    */
   protected function setUp() {
     $mock = $this->getMock('\Resellerclub\Core', array('callApi'));
-    $mock->method('callApi')->willReturn('foo');
+    $mock->method('callApi')->willReturn(array('success' => TRUE));
     $this->object = $mock;
   }
 
@@ -71,7 +71,7 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @expectedException Exception
+   * @expectedException \Resellerclub\InvalidUrlArrayException
    * @covers Core::createUrlParameters
    */
   public function testCreateUrlParametersInvalidValues() {
@@ -167,7 +167,7 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
   /**
    * @covers Core::validate
    */
-  public function testValidateContactCorrect() {
+  public function testValidateFunctionCorrect() {
     $contactDetails = array(
       'name' => 'Anish Sheela',
       'company' => 'N/A',
@@ -178,10 +178,31 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
       'zipcode' => '635426',
       'phone-cc' => '91',
       'phone' => '9876543210',
-      'customer-id' => '13560700',
+      'customer-id' => '13560800',
       'type' => 'Contact',
     );
     $this->assertTrue($this->object->validate('array', 'contact', $contactDetails));
+  }
+
+  /**
+   * @expectedException \Resellerclub\InvalidItemException
+   * @covers Core::validate
+   */
+  public function testValidateFunctionWrong() {
+    $contactDetails = array(
+      'name' => 'Anish Sheela',
+      'company' => 'N/A',
+      'email' => 'anishsheela outlook.com', //email deliberately wrong
+      'address-line-1' => '221B Baker St.',
+      'city' => 'London',
+      'country' => 'IN',
+      'zipcode' => '635426',
+      'phone-cc' => '91',
+      'phone' => '9876543210',
+      'customer-id' => '13560700',
+      'type' => 'Contact',
+    );
+    $this->object->validate('array', 'contact', $contactDetails);
   }
 
   /**
@@ -203,6 +224,6 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
       'lang-pref' => 'en',
     );
     $json = $this->object->callApi(METHOD_GET, 'customers', 'signup', $customerDetails);
-    $this->assertEquals('foo', $json);
+    $this->assertTrue($json['success']);
   }
 }
