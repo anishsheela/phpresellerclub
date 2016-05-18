@@ -1,7 +1,7 @@
 <?php
 
 // Include relevant classes
-// TODO: use autoloader
+// TODO: use autoloader, yes we definitely need. This is a mess.
 if (file_exists(__DIR__ . '/../rc-config.php')) {
   require_once __DIR__ . '/../rc-config.php';
 } else {

@@ -39,8 +39,12 @@ class Validation extends Core {
     // Array Validators
     $validations['array']['contact'] = 'validateContact';
     $validations['array']['customer'] = 'validateCustomer';
+    $validations['array']['ip'] ='validateIp';
+    $validations['array']['customer-id'] ='validateCustomerId';
+
     // Basic Validators
     $validations['string']['email'] = 'validateEmail';
+
     if (!empty($validations[$type][$subType])) {
       return $validations[$type][$subType];
     }
@@ -107,11 +111,22 @@ class Validation extends Core {
   private function validateItem($itemValidator, $item) {
     // We need to do something about this.
     $itemValidators = array(
-      'email' => 'validateEmail',
+      'email' => array('string','email'),
+      'username' => array('string','email'),
+      'customer-id' => array('string','customer-id'),
+      'ip' => array('string','ip'),
     );
-    if ( !empty($itemValidators[$itemValidator])
-        && method_exists($this, $itemValidators[$itemValidator])) {
-      $validatorFunction = $itemValidators[$itemValidator];
+
+    // Get validator function if present
+    if ( !empty($itemValidators[$itemValidator])) {
+      $validator = $itemValidators[$itemValidator];
+      $validatorFunction = $this->getValidationFunction($validator[0], $validator[1]);
+    } else {
+      $validatorFunction = NULL;
+    }
+
+    // If validator function is there, validate
+    if (NULL !== $validatorFunction) {
       return $this->$validatorFunction($item);
     }
     else {
@@ -120,6 +135,10 @@ class Validation extends Core {
       return TRUE;
     }
   }
+
+  /**
+   * String Validators
+   */
 
   /**
    * Validate an email address.
@@ -133,6 +152,23 @@ class Validation extends Core {
     else {
       return FALSE;
     }
+  }
+
+  /**
+   * Validate the IP address.
+   * @param $ip IP address
+   * @return bool TRUE if valid, else FALSE.
+   */
+  private function validateIp($ip) {
+    if(filter_var($ip,FILTER_VALIDATE_IP)) {
+      return TRUE;
+    } else {
+      return FALSE;
+    }
+  }
+
+  private function validateCustomerId($customer_id) {
+    return TRUE;
   }
 
   /**
@@ -174,7 +210,10 @@ class Validation extends Core {
    * Validates a customer array.
    * @param $customerDetails array Customer Details array.
    * @return bool TRUE if valid, else exception.
-   * @throws \Exception
+   * @throws \Resellerclub\InvalidArrayException
+   * @throws \Resellerclub\InvalidItemException
+   * @throws \Resellerclub\InvalidParameterException
+   * @throws \Resellerclub\MissingParameterException
    */
   private function validateCustomer($customerDetails) {
     $mandatory = array(
@@ -204,9 +243,7 @@ class Validation extends Core {
       'customer-id',
     );
     if ($this->validateArray($customerDetails, $mandatory, $optional)) {
-      if ($this->validate('string', 'email', $customerDetails['username'])) {
-        return TRUE;
-      }
+      return TRUE;
     }
     return FALSE;
   }
