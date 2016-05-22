@@ -45,6 +45,7 @@ class Validation extends Core {
     $validations['string']['email'] = 'validateEmail';
     $validations['string']['ip'] ='validateIp';
     $validations['string']['customer-id'] ='validateCustomerId';
+    $validations['string']['contact-id'] ='validateContactId';
 
     if (!empty($validations[$type][$subType])) {
       return $validations[$type][$subType];
@@ -117,6 +118,7 @@ class Validation extends Core {
       'email' => array('string', 'email'),
       'username' => array('string', 'email'),
       'customer-id' => array('string', 'customer-id'),
+      'contact-id' => array('string', 'contact-id'),
       'ip' => array('string', 'ip'),
     );
 
@@ -171,6 +173,13 @@ class Validation extends Core {
 
   private function validateCustomerId($customer_id) {
     if(is_numeric($customer_id) && (strlen($customer_id) === 8)) {
+      return TRUE;
+    }
+    return FALSE;
+  }
+
+  private function validateContactId($contact_id) {
+    if(is_numeric($contact_id) && (strlen($contact_id) === 8)) {
       return TRUE;
     }
     return FALSE;
