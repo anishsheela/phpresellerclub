@@ -18,7 +18,7 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
    */
   protected function setUp() {
     $mock = $this->getMock('\Resellerclub\Contact', array('callApi'));
-    $mock->method('callApi')->willReturn('foo');
+    $mock->method('callApi')->willReturn(array('success' => TRUE));
     $this->object = $mock;
   }
 
@@ -47,7 +47,10 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
       'customer-id' => '13560700',
       'type' => 'Contact',
     );
-    $apiOut = $this->object->createContact($contactDetails);
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->createContact($contactDetails)
+    );
   }
 
   /**
@@ -55,14 +58,26 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
    */
   public function testDeleteContact() {
     $customerId = '46968270';
-    $apiOut = $this->object->deleteContact($customerId);
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->deleteContact($customerId)
+    );
+  }
+
+  /**
+   * @covers Contact::deleteContact
+   * @expectedException \Resellerclub\InvalidItemException
+   */
+  public function testDeleteContactWrong() {
+    $customerId = '4696';
+    $this->object->deleteContact($customerId);
   }
 
   /**
    * @covers Contact::editContact
    */
   public function testEditContact() {
-    $customerId = '46968270';
+    $contactId = '46968270';
     $contactDetails = array(
       'name' => 'Anish S',
       'company' => 'N/A',
@@ -76,15 +91,21 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
       'customer-id' => '13560700',
       'type' => 'Contact',
     );
-    $apiOut = $this->object->editContact($customerId, $contactDetails);
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->editContact($contactId, $contactDetails)
+    );
   }
 
   /**
    * @covers Contact::getContact
    */
   public function testGetContact() {
-    $customerId = '46983302';
-    $apiOut = $this->object->getContact($customerId);
+    $contactId = '46983302';
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getContact($contactId)
+    );
   }
 
   /**
@@ -93,7 +114,10 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
   public function testSearchContact() {
     $customerId = '46983302';
     $contactDetails = array();
-    $apiOut = $this->object->searchContact($customerId, $contactDetails);
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->searchContact($customerId, $contactDetails)
+    );
   }
 
 }
