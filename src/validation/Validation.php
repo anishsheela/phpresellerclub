@@ -71,10 +71,12 @@ class Validation extends Core {
       throw new InvalidArrayException('Input is not an array');
     }
     foreach ($inputArray as $key => $value) {
-      if (!(in_array($key, $mandatory) or in_array($key, $optional))) {
+      if (!(in_array($key, $mandatory) or in_array($key, $optional))
+        and !empty($optional)) {
         // If its not in mandatory or optional,
         // then parameter is not valid.
         // We don't want outsiders here.
+        // If $optional is empty, it means, general validator.
         throw new InvalidParameterException('There are invalid parameters.');
       }
       // If the value in array is correct.
@@ -179,6 +181,7 @@ class Validation extends Core {
    */
 
   private function validateArrayDefault($validate_array) {
+    // No mandatory and optional elements
     return $this->validateArray($validate_array, array());
   }
 
@@ -206,6 +209,7 @@ class Validation extends Core {
       'type',
     );
     $optional = array(
+      'contact-id',
       'address-line-2',
       'address-line-3',
       'state',
