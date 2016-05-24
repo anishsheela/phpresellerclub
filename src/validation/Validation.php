@@ -171,6 +171,12 @@ class Validation extends Core {
     return FALSE;
   }
 
+  /**
+   * Validates Customer ID
+   *
+   * @param $customer_id integer Contact ID
+   * @return bool TRUE if valid
+   */
   private function validateCustomerId($customer_id) {
     if(is_numeric($customer_id) && (strlen($customer_id) === 8)) {
       return TRUE;
@@ -178,6 +184,12 @@ class Validation extends Core {
     return FALSE;
   }
 
+  /**
+   * Validates Contact ID
+   *
+   * @param $contact_id integer Contact ID
+   * @return bool TRUE if valid.
+   */
   private function validateContactId($contact_id) {
     if(is_numeric($contact_id) && (strlen($contact_id) === 8)) {
       return TRUE;
@@ -189,6 +201,16 @@ class Validation extends Core {
    * Array Validators
    */
 
+  /**
+   * Default validator for arrays. It also execute item validators.
+   *
+   * @param $validate_array array Array to be validated.
+   * @return bool TRUE if valid, else exception.
+   * @throws \Resellerclub\InvalidArrayException
+   * @throws \Resellerclub\InvalidItemException
+   * @throws \Resellerclub\InvalidParameterException
+   * @throws \Resellerclub\MissingParameterException
+   */
   private function validateArrayDefault($validate_array) {
     // No mandatory and optional elements
     return $this->validateArray($validate_array, array());
