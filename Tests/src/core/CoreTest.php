@@ -11,7 +11,7 @@ require_once __DIR__ . '/../../../src/index.php';
 class CoreTest extends \PHPUnit_Framework_TestCase {
 
   /**
-   * @var Core
+   * @var \Resellerclub\Core
    */
   protected $object;
 

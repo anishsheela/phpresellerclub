@@ -14,7 +14,7 @@ require_once __DIR__ . '/../../../src/index.php';
 class ValidationTest extends \PHPUnit_Framework_TestCase {
 
   /**
-   * @var Validation
+   * @var \Resellerclub\Validation
    */
   protected $object;
 
@@ -24,7 +24,7 @@ class ValidationTest extends \PHPUnit_Framework_TestCase {
    */
   protected function setUp() {
     $mock = $this->getMock('\Resellerclub\Validation', array('callApi'));
-    $mock->method('callApi')->willReturn('foo');
+    $mock->method('callApi')->willReturn(array('success' => TRUE));
     $this->object = $mock;
   }
 

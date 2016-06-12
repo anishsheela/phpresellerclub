@@ -8,7 +8,7 @@ namespace Resellerclub;
 class DomainTest extends \PHPUnit_Framework_TestCase {
 
   /**
-   * @var Domain
+   * @var \Resellerclub\Domain
    */
   protected $object;
 
@@ -18,7 +18,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
    */
   protected function setUp() {
     $mock = $this->getMock('\Resellerclub\Domain', array('callApi'));
-    $mock->method('callApi')->willReturn('foo');
+    $mock->method('callApi')->willReturn(array('success' => TRUE));
     $this->object = $mock;
   }
 

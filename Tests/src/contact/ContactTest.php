@@ -8,7 +8,7 @@ namespace Resellerclub;
 class ContactTest extends \PHPUnit_Framework_TestCase {
 
   /**
-   * @var Contact
+   * @var \Resellerclub\Contact
    */
   protected $object;
 
