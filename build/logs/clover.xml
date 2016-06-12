@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1465752125">
-  <project timestamp="1465752125">
+<coverage generated="1465753106">
+  <project timestamp="1465753106">
     <package name="Resellerclub">
       <file name="/home/anish/Projects/phpresellerclub/src/billing/Billing.php">
         <class name="Billing" namespace="Resellerclub">

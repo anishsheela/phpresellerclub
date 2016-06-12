@@ -35,9 +35,9 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
    */
   public function testCreateCustomer() {
     $customerDetails = array(
-      'username' => 'anishsheela@outlook.com',
+      'username' => 'test@example.com',
       'passwd' => 'Rand@123om',
-      'name' => 'Anish Sheela',
+      'name' => 'John Doe',
       'company' => 'N/A',
       'address-line-1' => 'Test Address Line',
       'city' => 'Mumbai',
@@ -48,7 +48,10 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
       'phone' => '9876543210',
       'lang-pref' => 'en',
     );
-    $apiOut = $this->object->createCustomer($customerDetails);
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->createCustomer($customerDetails)
+    );
   }
 
   /**
@@ -57,9 +60,9 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   public function testEditCustomer() {
     $customerId = '76898906';
     $customerDetails = array(
-      'username' => 'anishsheela@outlook.com',
+      'username' => 'test2@example.com',
       'passwd' => 'Rand@123om',
-      'name' => 'Anish Sheela',
+      'name' => 'John Doe',
       'company' => 'N/A',
       'address-line-1' => 'Test Address Line',
       'city' => 'Mumbai',
