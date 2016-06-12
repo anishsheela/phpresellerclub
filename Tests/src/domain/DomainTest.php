@@ -31,7 +31,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::checkAvailability
+   * @covers \Resellerclub\Domain::checkAvailability
    * @todo   Implement testCheckAvailability().
    */
   public function testCheckAvailability() {
@@ -41,7 +41,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::checkAvailabilityIdn
+   * @covers \Resellerclub\Domain::checkAvailabilityIdn
    * @todo   Implement testCheckAvailabilityIdn().
    */
   public function testCheckAvailabilityIdn() {
@@ -52,7 +52,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::checkAvailabilityPremium
+   * @covers \Resellerclub\Domain::checkAvailabilityPremium
    * @todo   Implement testCheckAvailabilityPremium().
    */
   public function testCheckAvailabilityPremium() {
@@ -63,7 +63,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::domainSuggestions
+   * @covers \Resellerclub\Domain::domainSuggestions
    * @todo   Implement testDomainSuggestions().
    */
   public function testDomainSuggestions() {
@@ -74,7 +74,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::register
+   * @covers \Resellerclub\Domain::register
    * @todo   Implement testRegister().
    */
   public function testRegister() {
@@ -85,7 +85,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::transfer
+   * @covers \Resellerclub\Domain::transfer
    * @todo   Implement testTransfer().
    */
   public function testTransfer() {
@@ -96,7 +96,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::submitAuthCode
+   * @covers \Resellerclub\Domain::submitAuthCode
    * @todo   Implement testSubmitAuthCode().
    */
   public function testSubmitAuthCode() {
@@ -107,7 +107,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::validateTransfer
+   * @covers \Resellerclub\Domain::validateTransfer
    * @todo   Implement testValidateTransfer().
    */
   public function testValidateTransfer() {
@@ -118,7 +118,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::renew
+   * @covers \Resellerclub\Domain::renew
    * @todo   Implement testRenew().
    */
   public function testRenew() {
@@ -129,7 +129,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::searchDomain
+   * @covers \Resellerclub\Domain::searchDomain
    * @todo   Implement testSearchDomain().
    */
   public function testSearchDomain() {
@@ -140,7 +140,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::getDefaultNameServer
+   * @covers \Resellerclub\Domain::getDefaultNameServer
    * @todo   Implement testGetDefaultNameServer().
    */
   public function testGetDefaultNameServer() {
@@ -151,7 +151,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::getOrderId
+   * @covers \Resellerclub\Domain::getOrderId
    * @todo   Implement testGetOrderId().
    */
   public function testGetOrderId() {
@@ -162,7 +162,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::getDomainDetailsByOrderId
+   * @covers \Resellerclub\Domain::getDomainDetailsByOrderId
    * @todo   Implement testGetDomainDetailsByOrderId().
    */
   public function testGetDomainDetailsByOrderId() {
@@ -173,7 +173,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::getDomainDetailsByDomain
+   * @covers \Resellerclub\Domain::getDomainDetailsByDomain
    * @todo   Implement testGetDomainDetailsByDomain().
    */
   public function testGetDomainDetailsByDomain() {
@@ -184,7 +184,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::setNameServer
+   * @covers \Resellerclub\Domain::setNameServer
    * @todo   Implement testSetNameServer().
    */
   public function testSetNameServer() {
@@ -195,7 +195,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::setChildNameServer
+   * @covers \Resellerclub\Domain::setChildNameServer
    * @todo   Implement testSetChildNameServer().
    */
   public function testSetChildNameServer() {
@@ -206,7 +206,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::modifyChildNameServerHost
+   * @covers \Resellerclub\Domain::modifyChildNameServerHost
    * @todo   Implement testModifyChildNameServerHost().
    */
   public function testModifyChildNameServerHost() {
@@ -217,7 +217,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::modifyChildNameServerIp
+   * @covers \Resellerclub\Domain::modifyChildNameServerIp
    * @todo   Implement testModifyChildNameServerIp().
    */
   public function testModifyChildNameServerIp() {
@@ -228,7 +228,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::deleteChildNameServer
+   * @covers \Resellerclub\Domain::deleteChildNameServer
    * @todo   Implement testDeleteChildNameServer().
    */
   public function testDeleteChildNameServer() {
@@ -239,7 +239,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::modifyDomainContacts
+   * @covers \Resellerclub\Domain::modifyDomainContacts
    * @todo   Implement testModifyDomainContacts().
    */
   public function testModifyDomainContacts() {
@@ -250,7 +250,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::addPrivacyProtection
+   * @covers \Resellerclub\Domain::addPrivacyProtection
    * @todo   Implement testAddPrivacyProtection().
    */
   public function testAddPrivacyProtection() {
@@ -261,7 +261,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::modifyPrivacyProtection
+   * @covers \Resellerclub\Domain::modifyPrivacyProtection
    * @todo   Implement testModifyPrivacyProtection().
    */
   public function testModifyPrivacyProtection() {
@@ -272,7 +272,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::modifyAuthCode
+   * @covers \Resellerclub\Domain::modifyAuthCode
    * @todo   Implement testModifyAuthCode().
    */
   public function testModifyAuthCode() {
@@ -283,7 +283,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::modifyTheftProtection
+   * @covers \Resellerclub\Domain::modifyTheftProtection
    * @todo   Implement testModifyTheftProtection().
    */
   public function testModifyTheftProtection() {
@@ -294,7 +294,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::suspendDomain
+   * @covers \Resellerclub\Domain::suspendDomain
    * @todo   Implement testSuspendDomain().
    */
   public function testSuspendDomain() {
@@ -305,7 +305,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::unsuspendDomain
+   * @covers \Resellerclub\Domain::unsuspendDomain
    * @todo   Implement testUnsuspendDomain().
    */
   public function testUnsuspendDomain() {
@@ -316,7 +316,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::deleteDomain
+   * @covers \Resellerclub\Domain::deleteDomain
    * @todo   Implement testDeleteDomain().
    */
   public function testDeleteDomain() {
@@ -327,7 +327,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Domain::restoreDomain
+   * @covers \Resellerclub\Domain::restoreDomain
    * @todo   Implement testRestoreDomain().
    */
   public function testRestoreDomain() {

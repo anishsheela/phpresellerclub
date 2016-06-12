@@ -31,7 +31,7 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Contact::createContact
+   * @covers \Resellerclub\Contact::createContact
    */
   public function testCreateContactCorrect() {
     $contactDetails = array(
@@ -54,7 +54,7 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Contact::deleteContact
+   * @covers \Resellerclub\Contact::deleteContact
    */
   public function testDeleteContact() {
     $customerId = '46968270';
@@ -65,7 +65,7 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Contact::deleteContact
+   * @covers \Resellerclub\Contact::deleteContact
    * @expectedException \Resellerclub\InvalidItemException
    */
   public function testDeleteContactWrong() {
@@ -74,7 +74,7 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Contact::editContact
+   * @covers \Resellerclub\Contact::editContact
    */
   public function testEditContact() {
     $contactId = '46968270';
@@ -98,7 +98,7 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Contact::getContact
+   * @covers \Resellerclub\Contact::getContact
    */
   public function testGetContact() {
     $contactId = '46983302';
@@ -109,7 +109,7 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Contact::searchContact
+   * @covers \Resellerclub\Contact::searchContact
    */
   public function testSearchContact() {
     $customerId = '46983302';

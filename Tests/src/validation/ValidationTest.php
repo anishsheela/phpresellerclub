@@ -37,7 +37,7 @@ class ValidationTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Validation::validate
+   * @covers \Resellerclub\Validation::validate
    */
   public function testValidateEmail() {
     $this->assertTrue($this->object->validate('string', 'email', 'mail@example.com'));

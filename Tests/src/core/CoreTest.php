@@ -35,7 +35,7 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
 
   /**
    * @dataProvider providerTestCreateUrlParametersValidValues
-   * @covers Core::createUrlParameters
+   * @covers \Resellerclub\Core::createUrlParameters
    */
   public function testCreateUrlParametersValidValues($urlArray, $urlString) {
     $this->assertEquals(
@@ -72,7 +72,7 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
 
   /**
    * @expectedException \Resellerclub\InvalidUrlArrayException
-   * @covers Core::createUrlParameters
+   * @covers \Resellerclub\Core::createUrlParameters
    */
   public function testCreateUrlParametersInvalidValues() {
     $invalidArray = array('someval' => NULL); // NULL is invalid
@@ -81,7 +81,7 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
 
   /**
    * @dataProvider providerTestCreateUrlValidValues
-   * @covers Core::createUrl
+   * @covers \Resellerclub\Core::createUrl
    */
   public function testCreateUrlValidValues($urlArray, $urlString) {
     $this->assertEquals(
@@ -149,14 +149,14 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Core::createUrl
+   * @covers \Resellerclub\Core::createUrl
    */
   public function testValidateEmailCorrect() {
     $this->assertTrue($this->object->validate('string', 'email', 'anishsheela@outlook.com'));
   }
   
   /**
-   * @covers Core::createUrl
+   * @covers \Resellerclub\Core::createUrl
    */
   public function testValidateEmailWrong() {
     $this->assertFalse($this->object->validate('string', 'email', '123456'));
@@ -165,7 +165,7 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
   }
   
   /**
-   * @covers Core::validate
+   * @covers \Resellerclub\Core::validate
    */
   public function testValidateFunctionCorrect() {
     $contactDetails = array(
@@ -186,7 +186,7 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
 
   /**
    * @expectedException \Resellerclub\InvalidItemException
-   * @covers Core::validate
+   * @covers \Resellerclub\Core::validate
    */
   public function testValidateFunctionWrong() {
     $contactDetails = array(
@@ -206,7 +206,7 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Core::callApi
+   * @covers \Resellerclub\Core::callApi
    */
   public function testCallApiReturnsValidData() {
     $customerDetails = array(

@@ -29,7 +29,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getCustomerPricing
+   * @covers \Resellerclub\Billing::getCustomerPricing
    * @todo   Implement testGetCustomerPricing().
    */
   public function testGetCustomerPricing() {
@@ -40,7 +40,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getResellerPricing
+   * @covers \Resellerclub\Billing::getResellerPricing
    * @todo   Implement testGetResellerPricing().
    */
   public function testGetResellerPricing() {
@@ -51,7 +51,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getResellerCostPricing
+   * @covers \Resellerclub\Billing::getResellerCostPricing
    * @todo   Implement testGetResellerCostPricing().
    */
   public function testGetResellerCostPricing() {
@@ -62,7 +62,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getCustomerTransactionDetails
+   * @covers \Resellerclub\Billing::getCustomerTransactionDetails
    * @todo   Implement testGetCustomerTransactionDetails().
    */
   public function testGetCustomerTransactionDetails() {
@@ -73,7 +73,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getResellerTransactionDetails
+   * @covers \Resellerclub\Billing::getResellerTransactionDetails
    * @todo   Implement testGetResellerTransactionDetails().
    */
   public function testGetResellerTransactionDetails() {
@@ -84,7 +84,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::payTransactions
+   * @covers \Resellerclub\Billing::payTransactions
    * @todo   Implement testPayTransactions().
    */
   public function testPayTransactions() {
@@ -95,7 +95,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::cancelInvoiceDebitNote
+   * @covers \Resellerclub\Billing::cancelInvoiceDebitNote
    * @todo   Implement testCancelInvoiceDebitNote().
    */
   public function testCancelInvoiceDebitNote() {
@@ -106,7 +106,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getCustomerBalance
+   * @covers \Resellerclub\Billing::getCustomerBalance
    * @todo   Implement testGetCustomerBalance().
    */
   public function testGetCustomerBalance() {
@@ -117,7 +117,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::executeOrderWithoutPayment
+   * @covers \Resellerclub\Billing::executeOrderWithoutPayment
    * @todo   Implement testExecuteOrderWithoutPayment().
    */
   public function testExecuteOrderWithoutPayment() {
@@ -128,7 +128,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::searchCustomerTransaction
+   * @covers \Resellerclub\Billing::searchCustomerTransaction
    * @todo   Implement testSearchCustomerTransaction().
    */
   public function testSearchCustomerTransaction() {
@@ -139,7 +139,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::searchResellerTransaction
+   * @covers \Resellerclub\Billing::searchResellerTransaction
    * @todo   Implement testSearchResellerTransaction().
    */
   public function testSearchResellerTransaction() {
@@ -150,7 +150,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getResellerBalance
+   * @covers \Resellerclub\Billing::getResellerBalance
    * @todo   Implement testGetResellerBalance().
    */
   public function testGetResellerBalance() {
@@ -161,7 +161,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::discountInvoice
+   * @covers \Resellerclub\Billing::discountInvoice
    * @todo   Implement testDiscountInvoice().
    */
   public function testDiscountInvoice() {
@@ -172,7 +172,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::addFundsCustomer
+   * @covers \Resellerclub\Billing::addFundsCustomer
    * @todo   Implement testAddFundsCustomer().
    */
   public function testAddFundsCustomer() {
@@ -183,7 +183,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::addFundsReseller
+   * @covers \Resellerclub\Billing::addFundsReseller
    * @todo   Implement testAddFundsReseller().
    */
   public function testAddFundsReseller() {
@@ -194,7 +194,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::addDebitNoteCustomer
+   * @covers \Resellerclub\Billing::addDebitNoteCustomer
    * @todo   Implement testAddDebitNoteCustomer().
    */
   public function testAddDebitNoteCustomer() {
@@ -205,7 +205,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::addDebitNoteReseller
+   * @covers \Resellerclub\Billing::addDebitNoteReseller
    * @todo   Implement testAddDebitNoteReseller().
    */
   public function testAddDebitNoteReseller() {
@@ -216,7 +216,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::suspendOrder
+   * @covers \Resellerclub\Billing::suspendOrder
    * @todo   Implement testSuspendOrder().
    */
   public function testSuspendOrder() {
@@ -227,7 +227,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::unsuspendOrder
+   * @covers \Resellerclub\Billing::unsuspendOrder
    * @todo   Implement testUnsuspendOrder().
    */
   public function testUnsuspendOrder() {
@@ -238,7 +238,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getCurrentActions
+   * @covers \Resellerclub\Billing::getCurrentActions
    * @todo   Implement testGetCurrentActions().
    */
   public function testGetCurrentActions() {
@@ -249,7 +249,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getArchiveActions
+   * @covers \Resellerclub\Billing::getArchiveActions
    * @todo   Implement testGetArchiveActions().
    */
   public function testGetArchiveActions() {
@@ -260,7 +260,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getLegalAggrement
+   * @covers \Resellerclub\Billing::getLegalAggrement
    * @todo   Implement testGetLegalAggrement().
    */
   public function testGetLegalAggrement() {
@@ -271,7 +271,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getAllowedPaymentGatewayCustomer
+   * @covers \Resellerclub\Billing::getAllowedPaymentGatewayCustomer
    * @todo   Implement testGetAllowedPaymentGatewayCustomer().
    */
   public function testGetAllowedPaymentGatewayCustomer() {
@@ -282,7 +282,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getAllowedPaymentGatewayReseller
+   * @covers \Resellerclub\Billing::getAllowedPaymentGatewayReseller
    * @todo   Implement testGetAllowedPaymentGatewayReseller().
    */
   public function testGetAllowedPaymentGatewayReseller() {
@@ -293,7 +293,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getCurrencyDetails
+   * @covers \Resellerclub\Billing::getCurrencyDetails
    * @todo   Implement testGetCurrencyDetails().
    */
   public function testGetCurrencyDetails() {
@@ -304,7 +304,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getCountryList
+   * @covers \Resellerclub\Billing::getCountryList
    * @todo   Implement testGetCountryList().
    */
   public function testGetCountryList() {
@@ -315,7 +315,7 @@ class BillingTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Billing::getStateList
+   * @covers \Resellerclub\Billing::getStateList
    * @todo   Implement testGetStateList().
    */
   public function testGetStateList() {

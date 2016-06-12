@@ -31,7 +31,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Customer::createCustomer
+   * @covers \Resellerclub\Customer::createCustomer
    */
   public function testCreateCustomer() {
     $customerDetails = array(
@@ -52,7 +52,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Customer::editCustomer
+   * @covers \Resellerclub\Customer::editCustomer
    */
   public function testEditCustomer() {
     $customerId = '76898906';
@@ -74,7 +74,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Customer::getCustomerByUserName
+   * @covers \Resellerclub\Customer::getCustomerByUserName
    * @todo   Implement testGetCustomerByUserName().
    */
   public function testGetCustomerByUserName() {
@@ -85,7 +85,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Customer::getCustomerByCustomerId
+   * @covers \Resellerclub\Customer::getCustomerByCustomerId
    * @todo   Implement testGetCustomerByCustomerId().
    */
   public function testGetCustomerByCustomerId() {
@@ -96,7 +96,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Customer::generateToken
+   * @covers \Resellerclub\Customer::generateToken
    * @todo   Implement testGenerateToken().
    */
   public function testGenerateToken() {
@@ -107,7 +107,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Customer::authenticateToken
+   * @covers \Resellerclub\Customer::authenticateToken
    * @todo   Implement testAuthenticateToken().
    */
   public function testAuthenticateToken() {
@@ -118,7 +118,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Customer::changePassword
+   * @covers \Resellerclub\Customer::changePassword
    * @todo   Implement testChangePassword().
    */
   public function testChangePassword() {
@@ -129,7 +129,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Customer::generateTemporaryPassword
+   * @covers \Resellerclub\Customer::generateTemporaryPassword
    * @todo   Implement testGenerateTemporaryPassword().
    */
   public function testGenerateTemporaryPassword() {
@@ -140,7 +140,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Customer::searchCustomer
+   * @covers \Resellerclub\Customer::searchCustomer
    * @todo   Implement testSearchCustomer().
    */
   public function testSearchCustomer() {
@@ -151,7 +151,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Customer::forgotPassword
+   * @covers \Resellerclub\Customer::forgotPassword
    * @todo   Implement testForgotPassword().
    */
   public function testForgotPassword() {
@@ -162,7 +162,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @covers Customer::deleteCustomer
+   * @covers \Resellerclub\Customer::deleteCustomer
    * @todo   Implement testDeleteCustomer().
    */
   public function testDeleteCustomer() {
