@@ -170,7 +170,7 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
     $contactDetails = array(
       'name' => 'Sherlock Holmes',
       'company' => 'N/A',
-      'email' => 'sherlock@example.com',
+      'email' => 'sherlock.holmes@example.com',
       'address-line-1' => '221B Baker St.',
       'city' => 'London',
       'country' => 'IN',
@@ -189,7 +189,7 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
    */
   public function testValidateFunctionWrong() {
     $contactDetails = array(
-      'name' => 'James Watsom',
+      'name' => 'James Watson',
       'company' => 'N/A',
       'email' => 'james watson example.com', //email deliberately wrong
       'address-line-1' => '221B Baker St.',
@@ -209,14 +209,14 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
    */
   public function testCallApiReturnsValidData() {
     $customerDetails = array(
-      'username' => 'sherlock@example.com',
+      'username' => 'regina.phelange@example.com',
       'passwd' => 'Rand@123om',
-      'name' => 'Sherlock Holmes',
+      'name' => 'Regina Phelange',
       'company' => 'N/A',
       'address-line-1' => 'Test Address Line',
-      'city' => 'Mumbai',
-      'state' => 'Maharashtra',
-      'country' => 'IN',
+      'city' => 'New York',
+      'state' => 'NY',
+      'country' => 'US',
       'zipcode' => '567889',
       'phone-cc' => '91',
       'phone' => '9876543210',

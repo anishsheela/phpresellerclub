@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1465753106">
-  <project timestamp="1465753106">
+<coverage generated="1465757057">
+  <project timestamp="1465757057">
     <package name="Resellerclub">
       <file name="/home/anish/Projects/phpresellerclub/src/billing/Billing.php">
         <class name="Billing" namespace="Resellerclub">
@@ -259,7 +259,7 @@
       </file>
       <file name="/home/anish/Projects/phpresellerclub/src/customer/Customer.php">
         <class name="Customer" namespace="Resellerclub">
-          <metrics methods="11" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="5" elements="47" coveredelements="7"/>
+          <metrics methods="11" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="36" elements="47" coveredelements="47"/>
         </class>
         <line num="17" type="method" name="createCustomer" crap="1" count="1"/>
         <line num="18" type="stmt" count="1"/>
@@ -268,51 +268,51 @@
         <line num="32" type="stmt" count="1"/>
         <line num="33" type="stmt" count="1"/>
         <line num="34" type="stmt" count="1"/>
-        <line num="45" type="method" name="getCustomerByUserName" crap="2" count="0"/>
-        <line num="46" type="stmt" count="0"/>
-        <line num="47" type="stmt" count="0"/>
-        <line num="48" type="stmt" count="0"/>
-        <line num="58" type="method" name="getCustomerByCustomerId" crap="2" count="0"/>
-        <line num="59" type="stmt" count="0"/>
-        <line num="60" type="stmt" count="0"/>
-        <line num="61" type="stmt" count="0"/>
-        <line num="74" type="method" name="generateToken" crap="2" count="0"/>
-        <line num="75" type="stmt" count="0"/>
-        <line num="76" type="stmt" count="0"/>
-        <line num="77" type="stmt" count="0"/>
-        <line num="78" type="stmt" count="0"/>
-        <line num="79" type="stmt" count="0"/>
-        <line num="88" type="method" name="authenticateToken" crap="2" count="0"/>
-        <line num="89" type="stmt" count="0"/>
-        <line num="90" type="stmt" count="0"/>
-        <line num="91" type="stmt" count="0"/>
-        <line num="103" type="method" name="changePassword" crap="2" count="0"/>
-        <line num="104" type="stmt" count="0"/>
-        <line num="105" type="stmt" count="0"/>
-        <line num="106" type="stmt" count="0"/>
-        <line num="107" type="stmt" count="0"/>
-        <line num="118" type="method" name="generateTemporaryPassword" crap="2" count="0"/>
-        <line num="119" type="stmt" count="0"/>
-        <line num="120" type="stmt" count="0"/>
-        <line num="121" type="stmt" count="0"/>
-        <line num="134" type="method" name="searchCustomer" crap="2" count="0"/>
-        <line num="135" type="stmt" count="0"/>
-        <line num="136" type="stmt" count="0"/>
-        <line num="137" type="stmt" count="0"/>
-        <line num="138" type="stmt" count="0"/>
-        <line num="149" type="method" name="forgotPassword" crap="2" count="0"/>
-        <line num="150" type="stmt" count="0"/>
-        <line num="151" type="stmt" count="0"/>
-        <line num="152" type="stmt" count="0"/>
-        <line num="163" type="method" name="deleteCustomer" crap="2" count="0"/>
-        <line num="164" type="stmt" count="0"/>
-        <line num="165" type="stmt" count="0"/>
-        <line num="166" type="stmt" count="0"/>
-        <metrics loc="168" ncloc="77" classes="1" methods="11" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="5" elements="47" coveredelements="7"/>
+        <line num="45" type="method" name="getCustomerByUserName" crap="1" count="1"/>
+        <line num="46" type="stmt" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="58" type="method" name="getCustomerByCustomerId" crap="1" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="61" type="stmt" count="1"/>
+        <line num="74" type="method" name="generateToken" crap="1" count="1"/>
+        <line num="75" type="stmt" count="1"/>
+        <line num="76" type="stmt" count="1"/>
+        <line num="77" type="stmt" count="1"/>
+        <line num="78" type="stmt" count="1"/>
+        <line num="79" type="stmt" count="1"/>
+        <line num="88" type="method" name="authenticateToken" crap="1" count="1"/>
+        <line num="89" type="stmt" count="1"/>
+        <line num="90" type="stmt" count="1"/>
+        <line num="91" type="stmt" count="1"/>
+        <line num="103" type="method" name="changePassword" crap="1" count="1"/>
+        <line num="104" type="stmt" count="1"/>
+        <line num="105" type="stmt" count="1"/>
+        <line num="106" type="stmt" count="1"/>
+        <line num="107" type="stmt" count="1"/>
+        <line num="118" type="method" name="generateTemporaryPassword" crap="1" count="1"/>
+        <line num="119" type="stmt" count="1"/>
+        <line num="120" type="stmt" count="1"/>
+        <line num="121" type="stmt" count="1"/>
+        <line num="134" type="method" name="searchCustomer" crap="1" count="2"/>
+        <line num="135" type="stmt" count="2"/>
+        <line num="136" type="stmt" count="2"/>
+        <line num="137" type="stmt" count="2"/>
+        <line num="138" type="stmt" count="2"/>
+        <line num="149" type="method" name="forgotPassword" crap="1" count="1"/>
+        <line num="150" type="stmt" count="1"/>
+        <line num="151" type="stmt" count="1"/>
+        <line num="152" type="stmt" count="1"/>
+        <line num="163" type="method" name="deleteCustomer" crap="1" count="1"/>
+        <line num="164" type="stmt" count="1"/>
+        <line num="165" type="stmt" count="1"/>
+        <line num="166" type="stmt" count="1"/>
+        <metrics loc="168" ncloc="77" classes="1" methods="11" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="36" elements="47" coveredelements="47"/>
       </file>
       <file name="/home/anish/Projects/phpresellerclub/src/domain/Domain.php">
         <class name="Domain" namespace="Resellerclub">
-          <metrics methods="28" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="147" coveredstatements="6" elements="175" coveredelements="7"/>
+          <metrics methods="28" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="144" coveredstatements="6" elements="172" coveredelements="7"/>
         </class>
         <line num="19" type="method" name="checkAvailability" crap="1" count="1"/>
         <line num="21" type="stmt" count="1"/>
@@ -428,68 +428,65 @@
         <line num="340" type="stmt" count="0"/>
         <line num="341" type="stmt" count="0"/>
         <line num="342" type="stmt" count="0"/>
-        <line num="354" type="method" name="deleteChildNameServer" crap="2" count="0"/>
-        <line num="356" type="stmt" count="0"/>
+        <line num="355" type="method" name="deleteChildNameServer" crap="2" count="0"/>
         <line num="357" type="stmt" count="0"/>
         <line num="358" type="stmt" count="0"/>
         <line num="359" type="stmt" count="0"/>
         <line num="360" type="stmt" count="0"/>
         <line num="361" type="stmt" count="0"/>
-        <line num="364" type="method" name="modifyDomainContacts" crap="2" count="0"/>
-        <line num="366" type="stmt" count="0"/>
-        <line num="367" type="stmt" count="0"/>
-        <line num="368" type="stmt" count="0"/>
-        <line num="380" type="method" name="addPrivacyProtection" crap="2" count="0"/>
-        <line num="382" type="stmt" count="0"/>
-        <line num="383" type="stmt" count="0"/>
-        <line num="384" type="stmt" count="0"/>
-        <line num="385" type="stmt" count="0"/>
-        <line num="386" type="stmt" count="0"/>
-        <line num="399" type="method" name="modifyPrivacyProtection" crap="2" count="0"/>
-        <line num="401" type="stmt" count="0"/>
-        <line num="402" type="stmt" count="0"/>
-        <line num="403" type="stmt" count="0"/>
-        <line num="404" type="stmt" count="0"/>
-        <line num="405" type="stmt" count="0"/>
-        <line num="406" type="stmt" count="0"/>
-        <line num="418" type="method" name="modifyAuthCode" crap="2" count="0"/>
-        <line num="420" type="stmt" count="0"/>
-        <line num="421" type="stmt" count="0"/>
-        <line num="422" type="stmt" count="0"/>
-        <line num="423" type="stmt" count="0"/>
-        <line num="424" type="stmt" count="0"/>
-        <line num="437" type="method" name="modifyTheftProtection" crap="6" count="0"/>
-        <line num="439" type="stmt" count="0"/>
-        <line num="441" type="stmt" count="0"/>
-        <line num="442" type="stmt" count="0"/>
-        <line num="443" type="stmt" count="0"/>
-        <line num="444" type="stmt" count="0"/>
-        <line num="448" type="stmt" count="0"/>
-        <line num="449" type="stmt" count="0"/>
+        <line num="362" type="stmt" count="0"/>
+        <line num="374" type="method" name="modifyDomainContacts" crap="2" count="0"/>
+        <line num="375" type="stmt" count="0"/>
+        <line num="376" type="stmt" count="0"/>
+        <line num="377" type="stmt" count="0"/>
+        <line num="378" type="stmt" count="0"/>
+        <line num="390" type="method" name="addPrivacyProtection" crap="2" count="0"/>
+        <line num="392" type="stmt" count="0"/>
+        <line num="393" type="stmt" count="0"/>
+        <line num="394" type="stmt" count="0"/>
+        <line num="395" type="stmt" count="0"/>
+        <line num="396" type="stmt" count="0"/>
+        <line num="409" type="method" name="modifyPrivacyProtection" crap="2" count="0"/>
+        <line num="411" type="stmt" count="0"/>
+        <line num="412" type="stmt" count="0"/>
+        <line num="413" type="stmt" count="0"/>
+        <line num="414" type="stmt" count="0"/>
+        <line num="415" type="stmt" count="0"/>
+        <line num="416" type="stmt" count="0"/>
+        <line num="428" type="method" name="modifyAuthCode" crap="2" count="0"/>
+        <line num="430" type="stmt" count="0"/>
+        <line num="431" type="stmt" count="0"/>
+        <line num="432" type="stmt" count="0"/>
+        <line num="433" type="stmt" count="0"/>
+        <line num="434" type="stmt" count="0"/>
+        <line num="447" type="method" name="modifyTheftProtection" crap="6" count="0"/>
         <line num="450" type="stmt" count="0"/>
         <line num="451" type="stmt" count="0"/>
-        <line num="464" type="method" name="suspendDomain" crap="2" count="0"/>
-        <line num="466" type="stmt" count="0"/>
-        <line num="467" type="stmt" count="0"/>
+        <line num="452" type="stmt" count="0"/>
+        <line num="453" type="stmt" count="0"/>
+        <line num="454" type="stmt" count="0"/>
+        <line num="466" type="method" name="suspendDomain" crap="2" count="0"/>
         <line num="468" type="stmt" count="0"/>
         <line num="469" type="stmt" count="0"/>
         <line num="470" type="stmt" count="0"/>
-        <line num="481" type="method" name="unsuspendDomain" crap="2" count="0"/>
-        <line num="483" type="stmt" count="0"/>
-        <line num="484" type="stmt" count="0"/>
+        <line num="471" type="stmt" count="0"/>
+        <line num="472" type="stmt" count="0"/>
+        <line num="483" type="method" name="unsuspendDomain" crap="2" count="0"/>
         <line num="485" type="stmt" count="0"/>
         <line num="486" type="stmt" count="0"/>
-        <line num="497" type="method" name="deleteDomain" crap="2" count="0"/>
-        <line num="499" type="stmt" count="0"/>
-        <line num="500" type="stmt" count="0"/>
+        <line num="487" type="stmt" count="0"/>
+        <line num="488" type="stmt" count="0"/>
+        <line num="499" type="method" name="deleteDomain" crap="2" count="0"/>
         <line num="501" type="stmt" count="0"/>
         <line num="502" type="stmt" count="0"/>
-        <line num="514" type="method" name="restoreDomain" crap="2" count="0"/>
-        <line num="516" type="stmt" count="0"/>
+        <line num="503" type="stmt" count="0"/>
+        <line num="504" type="stmt" count="0"/>
+        <line num="516" type="method" name="restoreDomain" crap="2" count="0"/>
         <line num="518" type="stmt" count="0"/>
-        <line num="519" type="stmt" count="0"/>
         <line num="520" type="stmt" count="0"/>
-        <metrics loc="523" ncloc="262" classes="1" methods="28" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="147" coveredstatements="6" elements="175" coveredelements="7"/>
+        <line num="521" type="stmt" count="0"/>
+        <line num="522" type="stmt" count="0"/>
+        <metrics loc="525" ncloc="256" classes="1" methods="28" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="144" coveredstatements="6" elements="172" coveredelements="7"/>
       </file>
       <file name="/home/anish/Projects/phpresellerclub/src/validation/Validation.php">
         <class name="Validation" namespace="Resellerclub">
@@ -627,6 +624,6 @@
     <file name="/home/anish/Projects/phpresellerclub/vendor/symfony/polyfill-mbstring/bootstrap.php">
       <metrics loc="51" ncloc="43" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="7" loc="1716" ncloc="912" classes="6" methods="90" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="495" coveredstatements="51" elements="585" coveredelements="62"/>
+    <metrics files="7" loc="1718" ncloc="906" classes="6" methods="90" coveredmethods="20" conditionals="0" coveredconditionals="0" statements="492" coveredstatements="82" elements="582" coveredelements="102"/>
   </project>
 </coverage>
