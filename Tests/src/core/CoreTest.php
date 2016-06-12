@@ -2,7 +2,6 @@
 
 namespace Resellerclub;
 
-// TODO: use autoloader
 require_once __DIR__ . '/../../../src/index.php';
 
 /**
@@ -169,9 +168,9 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
    */
   public function testValidateFunctionCorrect() {
     $contactDetails = array(
-      'name' => 'Anish Sheela',
+      'name' => 'Sherlock Holmes',
       'company' => 'N/A',
-      'email' => 'anishsheela@outlook.com',
+      'email' => 'sherlock@example.com',
       'address-line-1' => '221B Baker St.',
       'city' => 'London',
       'country' => 'IN',
@@ -190,9 +189,9 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
    */
   public function testValidateFunctionWrong() {
     $contactDetails = array(
-      'name' => 'Anish Sheela',
+      'name' => 'James Watsom',
       'company' => 'N/A',
-      'email' => 'anishsheela outlook.com', //email deliberately wrong
+      'email' => 'james watson example.com', //email deliberately wrong
       'address-line-1' => '221B Baker St.',
       'city' => 'London',
       'country' => 'IN',
@@ -210,9 +209,9 @@ class CoreTest extends \PHPUnit_Framework_TestCase {
    */
   public function testCallApiReturnsValidData() {
     $customerDetails = array(
-      'username' => 'anishsheela@outlook.com',
+      'username' => 'sherlock@example.com',
       'passwd' => 'Rand@123om',
-      'name' => 'Anish Sheela',
+      'name' => 'Sherlock Holmes',
       'company' => 'N/A',
       'address-line-1' => 'Test Address Line',
       'city' => 'Mumbai',

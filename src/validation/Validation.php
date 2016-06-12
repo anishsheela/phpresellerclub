@@ -97,9 +97,9 @@ class Validation extends Core {
     }
 
     // Check for mandatory elements.
-    foreach ($mandatory as $mandatory_item) {
+    foreach ($mandatory as $mandatoryItem) {
       // If any of the mandatory array elements is not found, then array is invalid.
-      if (!isset($inputArray[$mandatory_item])) {
+      if (!isset($inputArray[$mandatoryItem])) {
         throw new MissingParameterException('Mandatory items in array missing');
       }
     }
@@ -161,11 +161,11 @@ class Validation extends Core {
 
   /**
    * Validate the IP address.
-   * @param $ip IP address
+   * @param $IpAddress IP address
    * @return bool TRUE if valid, else FALSE.
    */
-  private function validateIp($ip) {
-    if(filter_var($ip,FILTER_VALIDATE_IP)) {
+  private function validateIp($IpAddress) {
+    if(filter_var($IpAddress,FILTER_VALIDATE_IP)) {
       return TRUE;
     }
     return FALSE;
@@ -174,11 +174,11 @@ class Validation extends Core {
   /**
    * Validates Customer ID
    *
-   * @param $customer_id integer Contact ID
+   * @param $customerId integer Contact ID
    * @return bool TRUE if valid
    */
-  private function validateCustomerId($customer_id) {
-    if(is_numeric($customer_id) && (strlen($customer_id) === 8)) {
+  private function validateCustomerId($customerId) {
+    if(is_numeric($customerId) && (strlen($customerId) === 8)) {
       return TRUE;
     }
     return FALSE;
@@ -187,11 +187,11 @@ class Validation extends Core {
   /**
    * Validates Contact ID
    *
-   * @param $contact_id integer Contact ID
+   * @param $contactId integer Contact ID
    * @return bool TRUE if valid.
    */
-  private function validateContactId($contact_id) {
-    if(is_numeric($contact_id) && (strlen($contact_id) === 8)) {
+  private function validateContactId($contactId) {
+    if(is_numeric($contactId) && (strlen($contactId) === 8)) {
       return TRUE;
     }
     return FALSE;
@@ -204,16 +204,16 @@ class Validation extends Core {
   /**
    * Default validator for arrays. It also execute item validators.
    *
-   * @param $validate_array array Array to be validated.
+   * @param $validateArray array Array to be validated.
    * @return bool TRUE if valid, else exception.
    * @throws \Resellerclub\InvalidArrayException
    * @throws \Resellerclub\InvalidItemException
    * @throws \Resellerclub\InvalidParameterException
    * @throws \Resellerclub\MissingParameterException
    */
-  private function validateArrayDefault($validate_array) {
+  private function validateArrayDefault($validateArray) {
     // No mandatory and optional elements
-    return $this->validateArray($validate_array, array());
+    return $this->validateArray($validateArray, array());
   }
 
   /**

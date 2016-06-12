@@ -39,7 +39,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
       'passwd' => 'randomPw4',
       'name' => 'John Doe',
       'company' => 'N/A',
-      'address-line-1' => 'Test Address Line',
+      'address-line-1' => 'Sample Address Line',
       'city' => 'Mumbai',
       'state' => 'Maharashtra',
       'country' => 'IN',
@@ -60,8 +60,8 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   public function testEditCustomer() {
     $customerId = '48698679';
     $customerDetails = array(
-      'username' => 'test2@example.com',
-      'passwd' => 'Rand@123om',
+      'username' => 'sample@example.com',
+      'passwd' => 'R4nsdomPwd!',
       'name' => 'Jane Doe',
       'company' => 'N/A',
       'address-line-1' => 'Test Address Line',
