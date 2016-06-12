@@ -36,7 +36,7 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
   public function testCreateCustomer() {
     $customerDetails = array(
       'username' => 'test@example.com',
-      'passwd' => 'Rand@123om',
+      'passwd' => 'randomPw4',
       'name' => 'John Doe',
       'company' => 'N/A',
       'address-line-1' => 'Test Address Line',
@@ -58,11 +58,11 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
    * @covers \Resellerclub\Customer::editCustomer
    */
   public function testEditCustomer() {
-    $customerId = '76898906';
+    $customerId = '48698679';
     $customerDetails = array(
       'username' => 'test2@example.com',
       'passwd' => 'Rand@123om',
-      'name' => 'John Doe',
+      'name' => 'Jane Doe',
       'company' => 'N/A',
       'address-line-1' => 'Test Address Line',
       'city' => 'Mumbai',
@@ -73,105 +73,117 @@ class CustomerTest extends \PHPUnit_Framework_TestCase {
       'phone' => '9876543210',
       'lang-pref' => 'en',
     );
-    $apiOut = $this->object->editCustomer($customerId, $customerDetails);
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->editCustomer($customerId, $customerDetails)
+    );
   }
 
   /**
    * @covers \Resellerclub\Customer::getCustomerByUserName
-   * @todo   Implement testGetCustomerByUserName().
    */
   public function testGetCustomerByUserName() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getCustomerByUserName('test@example.com')
     );
   }
 
   /**
    * @covers \Resellerclub\Customer::getCustomerByCustomerId
-   * @todo   Implement testGetCustomerByCustomerId().
    */
   public function testGetCustomerByCustomerId() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getCustomerByCustomerId(45687987)
     );
   }
 
   /**
    * @covers \Resellerclub\Customer::generateToken
-   * @todo   Implement testGenerateToken().
    */
   public function testGenerateToken() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->generateToken('test@example.com', 'p@ssW04d', '8.8.8.8')
     );
   }
 
   /**
    * @covers \Resellerclub\Customer::authenticateToken
-   * @todo   Implement testAuthenticateToken().
    */
   public function testAuthenticateToken() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->authenticateToken('fec41b878e2e2f7e0e6ba3ebe06b4052')
     );
   }
 
   /**
    * @covers \Resellerclub\Customer::changePassword
-   * @todo   Implement testChangePassword().
    */
   public function testChangePassword() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->changePassword(78698765, 'n@wP1sswd')
     );
   }
 
   /**
    * @covers \Resellerclub\Customer::generateTemporaryPassword
-   * @todo   Implement testGenerateTemporaryPassword().
    */
   public function testGenerateTemporaryPassword() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->generateTemporaryPassword(76876578)
     );
   }
 
   /**
    * @covers \Resellerclub\Customer::searchCustomer
-   * @todo   Implement testSearchCustomer().
    */
   public function testSearchCustomer() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $options = array(
+      'name' => 'John Doe',
+      'status' => 'Active',
+    );
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->searchCustomer($options)
+    );
+  }
+
+  /**
+   * @covers \Resellerclub\Customer::searchCustomer
+   */
+  public function testSearchCustomerWithPage() {
+    $options = array(
+      'name' => 'John Doe',
+      'status' => 'Active',
+    );
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->searchCustomer($options, 1, 1)
     );
   }
 
   /**
    * @covers \Resellerclub\Customer::forgotPassword
-   * @todo   Implement testForgotPassword().
    */
   public function testForgotPassword() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->forgotPassword('test@example.com')
     );
   }
 
   /**
    * @covers \Resellerclub\Customer::deleteCustomer
-   * @todo   Implement testDeleteCustomer().
    */
   public function testDeleteCustomer() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->deleteCustomer(67856787)
     );
   }
 
