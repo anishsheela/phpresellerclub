@@ -10,7 +10,7 @@ class Contact extends Core {
    * Creates a contact with given contact details.
    *
    * @see http://manage.resellerclub.com/kb/answer/790
-   * @param $contact array Details Contact details array as specified in API docs.
+   * @param $contactDetails array Details Contact details array as specified in API docs.
    * @return array Output of the API call.
    * @throws \Resellerclub\ApiConnectionException
    */
