@@ -5,9 +5,9 @@ require '../src/index.php';
 $customer = new \Resellerclub\Customer;
 
 $customerDetails = array(
-  'username' => 'randomemail@gmail.com',
-  'passwd' => 'Rand@123om',
-  'name' => 'Anish A',
+  'username' => 'random@example.com',
+  'passwd' => 'Rand124',
+  'name' => 'John Doe',
   'company' => 'N/A',
   'address-line-1' => 'Test Address Line',
   'city' => 'Thiruvananthapuram',
