@@ -345,6 +345,7 @@ class Domain extends Core {
   /**
    * Delete a child name server.
    *
+   * @see http://manage.resellerclub.com/kb/answer/934
    * @param $orderId integer Order ID.
    * @param $cns string Child Nameserver.
    * @param $ip string IP address.
@@ -361,8 +362,17 @@ class Domain extends Core {
     return $this->callApi(METHOD_POST, 'domains', 'delete-cns-ip', $options);
   }
 
+  /**
+   * Modify contacts of a domain name.
+   *
+   * @see http://manage.resellerclub.com/kb/answer/777
+   * @param $orderId int Order ID
+   * @param $contactIds array Contact IDs in array, all are mandatory see reference.
+   * @return array API output.
+   * @throws \Resellerclub\ApiConnectionException
+   */
   public function modifyDomainContacts($orderId, $contactIds) {
-    //TODO: Check
+    $options = $contactIds;
     $options['order-id'] = $orderId;
     $this->defaultValidate($options);
     return $this->callApi(METHOD_POST, 'domains', 'modify-contact', $options);
@@ -436,20 +446,12 @@ class Domain extends Core {
    */
   public function modifyTheftProtection($orderId, $status) {
     // Involves 2 API calls
-    if (TRUE == $status) {
-      $options = array(
-        'order-id' => $orderId,
-      );
-      $this->defaultValidate($options);
-      return $this->callApi(METHOD_POST, 'domains', 'enable-theft-protection', $options);
-    }
-    else {
-      $options = array(
-        'order-id' => $orderId,
-      );
-      $this->defaultValidate($options);
-      return $this->callApi(METHOD_POST, 'domains', 'disable-theft-protection', $options);
-    }
+    $options = array(
+      'order-id' => $orderId,
+    );
+    $this->defaultValidate($options);
+    $apiCall = $status ? 'enable-theft-protection': 'disable-theft-protection';
+    return $this->callApi(METHOD_POST, 'domains', $apiCall, $options);
   }
 
   /**
