@@ -30,166 +30,178 @@ class BillingTest extends PHPUnit_Framework_TestCase {
 
   /**
    * @covers \Resellerclub\Billing::getCustomerPricing
-   * @todo   Implement testGetCustomerPricing().
    */
   public function testGetCustomerPricing() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getCustomerPricing(34678976)
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getResellerPricing
-   * @todo   Implement testGetResellerPricing().
    */
   public function testGetResellerPricing() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getResellerPricing(34678976)
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getResellerCostPricing
-   * @todo   Implement testGetResellerCostPricing().
    */
   public function testGetResellerCostPricing() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getResellerCostPricing(789657)
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getCustomerTransactionDetails
-   * @todo   Implement testGetCustomerTransactionDetails().
    */
   public function testGetCustomerTransactionDetails() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getCustomerTransactionDetails(array(67865489, 78987656))
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getResellerTransactionDetails
-   * @todo   Implement testGetResellerTransactionDetails().
    */
   public function testGetResellerTransactionDetails() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getResellerTransactionDetails(237678675)
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::payTransactions
-   * @todo   Implement testPayTransactions().
    */
   public function testPayTransactions() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->payTransactions(array(56879867, 78978907))
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::cancelInvoiceDebitNote
-   * @todo   Implement testCancelInvoiceDebitNote().
    */
   public function testCancelInvoiceDebitNote() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->cancelInvoiceDebitNote(array(56789765, 78976567))
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getCustomerBalance
-   * @todo   Implement testGetCustomerBalance().
    */
   public function testGetCustomerBalance() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getCustomerBalance(67867896)
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::executeOrderWithoutPayment
-   * @todo   Implement testExecuteOrderWithoutPayment().
    */
   public function testExecuteOrderWithoutPayment() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->executeOrderWithoutPayment(array(56789678))
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::searchCustomerTransaction
-   * @todo   Implement testSearchCustomerTransaction().
    */
   public function testSearchCustomerTransaction() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->searchCustomerTransaction(
+        array('username' => 'sherlock@example.com')
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::searchResellerTransaction
-   * @todo   Implement testSearchResellerTransaction().
    */
   public function testSearchResellerTransaction() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->searchResellerTransaction(
+        array('username' => 'sherlock@example.com')
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getResellerBalance
-   * @todo   Implement testGetResellerBalance().
    */
   public function testGetResellerBalance() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getResellerBalance(56789765)
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::discountInvoice
-   * @todo   Implement testDiscountInvoice().
    */
   public function testDiscountInvoice() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->discountInvoice(
+        367867897,
+        100,
+        'code123',
+        'reseller'
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::addFundsCustomer
-   * @todo   Implement testAddFundsCustomer().
    */
   public function testAddFundsCustomer() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->addFundsCustomer(
+        16789765,
+        array(
+          'amount' => 1000,
+          'description' => 'Bank Payment',
+          'transaction-type' => 'credit',
+          'transaction-key' => 'code123',
+          'update-total-receipt' => TRUE,
+        )
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::addFundsReseller
-   * @todo   Implement testAddFundsReseller().
    */
   public function testAddFundsReseller() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->addFundsReseller(
+        16789765,
+        array(
+          'amount' => 2000,
+          'description' => 'Cheque Payment',
+          'transaction-type' => 'credit',
+          'transaction-key' => 'newcode123',
+          'update-total-receipt' => FALSE,
+        )
+      )
     );
   }
 
@@ -217,111 +229,104 @@ class BillingTest extends PHPUnit_Framework_TestCase {
 
   /**
    * @covers \Resellerclub\Billing::suspendOrder
-   * @todo   Implement testSuspendOrder().
    */
   public function testSuspendOrder() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->suspendOrder(
+        16789765,
+        'Unpaid bills.'
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::unsuspendOrder
-   * @todo   Implement testUnsuspendOrder().
    */
   public function testUnsuspendOrder() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->unsuspendOrder(16789765)
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getCurrentActions
-   * @todo   Implement testGetCurrentActions().
    */
   public function testGetCurrentActions() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getCurrentActions(array('order-id' => array(12345645, 58925632)))
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getArchiveActions
-   * @todo   Implement testGetArchiveActions().
    */
   public function testGetArchiveActions() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getArchiveActions(array('order-id' => array(12345645, 58925632)))
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getLegalAggrement
-   * @todo   Implement testGetLegalAggrement().
    */
   public function testGetLegalAggrement() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getLegalAggrement('customermasteragreement')
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getAllowedPaymentGatewayCustomer
-   * @todo   Implement testGetAllowedPaymentGatewayCustomer().
    */
   public function testGetAllowedPaymentGatewayCustomer() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getAllowedPaymentGatewayCustomer(56789078, 'AddFund')
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getAllowedPaymentGatewayReseller
-   * @todo   Implement testGetAllowedPaymentGatewayReseller().
    */
   public function testGetAllowedPaymentGatewayReseller() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getAllowedPaymentGatewayReseller()
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getCurrencyDetails
-   * @todo   Implement testGetCurrencyDetails().
    */
   public function testGetCurrencyDetails() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getCurrencyDetails()
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getCountryList
-   * @todo   Implement testGetCountryList().
    */
   public function testGetCountryList() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getCountryList()
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::getStateList
-   * @todo   Implement testGetStateList().
    */
   public function testGetStateList() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getStateList('IN')
     );
   }
 

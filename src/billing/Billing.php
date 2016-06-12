@@ -54,27 +54,46 @@ class Billing extends Core {
     return $this->callApi(METHOD_GET, 'products', 'reseller-cost-price', $options);
   }
 
+  /**
+   * Gets a Customer's Transactions along with their details.
+   *
+   * @see http://manage.resellerclub.com/kb/answer/868
+   * @param $transactionIds mixed Array or a single Transaction ID.
+   * @return array API output.
+   * @throws \Resellerclub\ApiConnectionException
+   */
   public function getCustomerTransactionDetails($transactionIds) {
-    // TODO: Check
-    // Handles array and string
-    return $this->callApi(METHOD_GET, 'products', 'reseller-cost-price', $transactionIds);
+    $options = array(
+      'transaction-ids' => $transactionIds,
+    );
+    return $this->callApi(METHOD_GET, 'products', 'customer-transactions', $options);
   }
 
+  /**
+   * Gets a Reseller's Transactions along with their details.
+   *
+   * @see http://manage.resellerclub.com/kb/answer/1155
+   * @param $transactionIds mixed Array or a single Transaction ID.
+   * @return array API output.
+   * @throws \Resellerclub\ApiConnectionException
+   */
   public function getResellerTransactionDetails($transactionIds) {
-    // TODO: Check
-    return $this->callApi(METHOD_GET, 'products', 'reseller-cost-price', $transactionIds);
+    $options = array(
+      'transaction-ids' => $transactionIds,
+    );
+    return $this->callApi(METHOD_GET, 'products', 'reseller-transactions', $options);
   }
 
   /**
    * Pay the transactions using the account balance.
    *
    * @see http://manage.resellerclub.com/kb/answer/871
-   * @param null $invoiceIds array IDs of invoices.
-   * @param null $debitIds array Ids of debit Ids
+   * @param $invoiceIds array IDs of invoices.
+   * @param $debitIds array Ids of debit Ids
    * @return array API call output.
    * @throws \Resellerclub\ApiConnectionException
    */
-  public function payTransactions($invoiceIds = NULL, $debitIds = NULL) {
+  public function payTransactions($invoiceIds = array(), $debitIds = array()) {
     $options = array(
       'invoice-ids' => $invoiceIds,
       'debit-ids' => $debitIds,
@@ -87,12 +106,12 @@ class Billing extends Core {
    * Cancel invoice(s) or/and debit note(s).
    *
    * @see http://manage.resellerclub.com/kb/answer/2415
-   * @param null $invoiceIds array Invoice ids.
-   * @param null $debitIds array Debit note ids.
+   * @param $invoiceIds array Invoice ids.
+   * @param $debitIds array Debit note ids.
    * @return array API Output.
    * @throws \Resellerclub\ApiConnectionException
    */
-  public function cancelInvoiceDebitNote($invoiceIds = NULL, $debitIds = NULL) {
+  public function cancelInvoiceDebitNote($invoiceIds = array(), $debitIds = array()) {
     $options = array(
       'invoice-ids' => $invoiceIds,
       'debit-ids' => $debitIds,
@@ -105,7 +124,7 @@ class Billing extends Core {
    * Get account balance of a customer.
    *
    * @see http://manage.resellerclub.com/kb/answer/872
-   * @param $customerId Customer ID.
+   * @param $customerId int Customer ID.
    * @return array API output.
    * @throws \Resellerclub\ApiConnectionException
    */
@@ -376,6 +395,13 @@ class Billing extends Core {
     return $this->callApi(METHOD_GET, 'pg', 'list-for-reseller', array());
   }
 
+  /**
+   * Get a list of approved currencies.
+   *
+   * @see http://manage.resellerclub.com/kb/answer/1745
+   * @return array API output.
+   * @throws \Resellerclub\ApiConnectionException
+   */
   public function getCurrencyDetails() {
     return $this->callApi(METHOD_GET, 'currency', 'details', array());
   }
