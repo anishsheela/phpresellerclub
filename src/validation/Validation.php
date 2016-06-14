@@ -85,7 +85,13 @@ class Validation extends Core {
         throw new InvalidParameterException('There are invalid parameters.');
       }
       // If the value in array is correct.
-      if (!(is_array($value) or is_string($value) or is_int($value) or is_bool($value))) {
+      if (!(
+        is_array($value) or
+        is_string($value) or
+        is_int($value) or
+        is_bool($value) or
+        is_null($value)
+      )) {
         if (is_array($value)) {
           foreach ($value as $parameter) {
             if (!(is_string($parameter) or is_int($parameter) or is_bool($parameter))) {
