@@ -290,7 +290,7 @@ class Domain extends Core {
    *
    * @see http://manage.resellerclub.com/kb/answer/780
    * @param $orderId integer Order ID.
-   * @param $cns array Child Nameservers.
+   * @param $cns string Child Nameserver.
    * @param $ips array IP addresses.
    * @return array API output.
    * @throws \Resellerclub\ApiConnectionException
@@ -301,7 +301,6 @@ class Domain extends Core {
       'cns' => $cns,
       'ip' => $ips,
     );
-    $this->defaultValidate($options);
     return $this->callApi(METHOD_POST, 'domains', 'add-cns', $options);
   }
 
