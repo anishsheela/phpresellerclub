@@ -171,11 +171,11 @@ class Validation extends Core {
 
   /**
    * Validate the IP address.
-   * @param $IpAddress IP address
+   * @param $IpAddress mixed IP address or array of Ips
    * @return bool TRUE if valid, else FALSE.
    */
   private function validateIp($IpAddress) {
-    if(filter_var($IpAddress,FILTER_VALIDATE_IP)) {
+    if(filter_var($IpAddress, FILTER_VALIDATE_IP)) {
       return TRUE;
     }
     return FALSE;

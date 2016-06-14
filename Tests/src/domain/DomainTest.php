@@ -99,7 +99,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
     );
     $this->assertArrayHasKey(
       'success',
-      $this->object->register('example.com',$domainDetails)
+      $this->object->register('example.com', $domainDetails)
     );
   }
 
@@ -128,243 +128,264 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
 
   /**
    * @covers \Resellerclub\Domain::submitAuthCode
-   * @todo   Implement testSubmitAuthCode().
    */
   public function testSubmitAuthCode() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->submitAuthCode(18790876, 'AUTH_CODE_SAMPLE')
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::validateTransfer
-   * @todo   Implement testValidateTransfer().
    */
   public function testValidateTransfer() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->validateTransfer('example.com')
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::renew
-   * @todo   Implement testRenew().
    */
   public function testRenew() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $options = array(
+      'years' => 2,
+      'exp-date' => time(),
+      'invoice-option' => 'PayInvoice',
+    );
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->renew(89768907, $options)
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::searchDomain
-   * @todo   Implement testSearchDomain().
    */
   public function testSearchDomain() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $options = array(
+      'order-by' => 'customerid',
+      'status' => 'Suspended',
+    );
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->searchDomain($options)
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::getDefaultNameServer
-   * @todo   Implement testGetDefaultNameServer().
    */
   public function testGetDefaultNameServer() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getDefaultNameServer(67856789)
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::getOrderId
-   * @todo   Implement testGetOrderId().
    */
   public function testGetOrderId() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getOrderId('example.com')
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::getDomainDetailsByOrderId
-   * @todo   Implement testGetDomainDetailsByOrderId().
    */
   public function testGetDomainDetailsByOrderId() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getDomainDetailsByOrderId(
+        78987657,
+        array('ContactIds', 'NsDetails')
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::getDomainDetailsByDomain
-   * @todo   Implement testGetDomainDetailsByDomain().
    */
   public function testGetDomainDetailsByDomain() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->getDomainDetailsByDomain(
+        'example.com',
+        array('ContactIds', 'NsDetails')
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::setNameServer
-   * @todo   Implement testSetNameServer().
    */
   public function testSetNameServer() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->setNameServer(
+        76898765,
+        array('ns1.example.com', 'ns2.example.com')
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::setChildNameServer
-   * @todo   Implement testSetChildNameServer().
    */
   public function testSetChildNameServer() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->setChildNameServer(
+        89765678,
+        'ns1.example.com',
+        array('8.8.8.8', '8.8.4.4')
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::modifyChildNameServerHost
-   * @todo   Implement testModifyChildNameServerHost().
    */
   public function testModifyChildNameServerHost() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->modifyChildNameServerHost(
+        87698767,
+        'ns1.example.com',
+        'dns1.example.com'
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::modifyChildNameServerIp
-   * @todo   Implement testModifyChildNameServerIp().
    */
   public function testModifyChildNameServerIp() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->modifyChildNameServerIp(
+        89076789,
+        'ns1.example.com',
+        '8.8.8.8',
+        '4.4.4.4'
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::deleteChildNameServer
-   * @todo   Implement testDeleteChildNameServer().
    */
   public function testDeleteChildNameServer() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->deleteChildNameServer(
+        98767890,
+        'ns1.example.com',
+        '8.8.8.8'
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::modifyDomainContacts
-   * @todo   Implement testModifyDomainContacts().
    */
   public function testModifyDomainContacts() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->modifyDomainContacts(
+        87906546,
+        array(
+          'reg-contact-id' => 89076896,
+          'admin-contact-id' => 87689087,
+          'tech-contact-id' => 89076890,
+          'billing-contact-id' => 89768907,
+        )
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::addPrivacyProtection
-   * @todo   Implement testAddPrivacyProtection().
    */
   public function testAddPrivacyProtection() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->addPrivacyProtection(78967890, 'PayInvoice')
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::modifyPrivacyProtection
-   * @todo   Implement testModifyPrivacyProtection().
    */
   public function testModifyPrivacyProtection() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->modifyPrivacyProtection(78967890, FALSE, 'Government Order')
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::modifyAuthCode
-   * @todo   Implement testModifyAuthCode().
    */
   public function testModifyAuthCode() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->modifyAuthCode(87689076, 'AUTH_CODE_NEW')
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::modifyTheftProtection
-   * @todo   Implement testModifyTheftProtection().
    */
   public function testModifyTheftProtection() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->modifyTheftProtection(78967890, TRUE)
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::suspendDomain
-   * @todo   Implement testSuspendDomain().
    */
   public function testSuspendDomain() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->suspendDomain(78976890, 'Government Order')
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::unsuspendDomain
-   * @todo   Implement testUnsuspendDomain().
    */
   public function testUnsuspendDomain() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->unsuspendDomain(87909876)
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::deleteDomain
-   * @todo   Implement testDeleteDomain().
    */
   public function testDeleteDomain() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->deleteDomain(78976890)
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::restoreDomain
-   * @todo   Implement testRestoreDomain().
    */
   public function testRestoreDomain() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->restoreDomain(89767890, 'PayInvoice')
     );
   }
 

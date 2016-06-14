@@ -36,4 +36,19 @@ class ValidationTest extends \PHPUnit_Framework_TestCase {
     $this->assertTrue($this->object->validate('string', 'email', 'mail@example.com'));
     $this->assertFalse($this->object->validate('string', 'email', 'mail@example'));
   }
+
+  /**
+   * @covers \Resellerclub\Validation::validate
+   */
+  public function testValidateIps() {
+    $this->assertTrue($this->object->validate('string', 'ip', '8.8.8.8'));
+    $this->assertFalse(
+      $this->object->validate(
+        'string',
+        'ip',
+        array('8.8.8.8', '8.8.4.4')
+      )
+    );
+  }
+
 }
