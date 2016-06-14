@@ -46,11 +46,11 @@ class Domain extends Core {
       foreach ($domainName as $domain) {
         // Convert domain to puny code so that it can be
         // handled in ASCII itself
-        $punyDomain[] = \idn_to_ascii($domain);
+        $punyDomain[] = idn_to_ascii($domain);
       }
     }
     else {
-      $punyDomain[] = \idn_to_ascii($domainName);
+      $punyDomain[] = idn_to_ascii($domainName);
     }
     $avail = array(
       'domain-name' => $punyDomain,
@@ -89,6 +89,7 @@ class Domain extends Core {
    * @throws \Resellerclub\ApiConnectionException
    */
   public function domainSuggestions($keyWord, $tld = NULL, $exactMatch = FALSE) {
+    $options = array();
     $options['key-word'] = $keyWord;
     $options['tld-only'] = $tld;
     $options['exact-match'] = $exactMatch;
