@@ -46,11 +46,11 @@ class Domain extends Core {
       foreach ($domainName as $domain) {
         // Convert domain to puny code so that it can be
         // handled in ASCII itself
-        $punyDomain[] = idn_to_ascii($domain);
+        $punyDomain[] = \idn_to_ascii($domain);
       }
     }
     else {
-      $punyDomain[] = idn_to_ascii($domainName);
+      $punyDomain[] = \idn_to_ascii($domainName);
     }
     $avail = array(
       'domain-name' => $punyDomain,
@@ -65,7 +65,7 @@ class Domain extends Core {
    * Check availability of a premium domain name.
    *
    * @see http://manage.resellerclub.com/kb/answer/1948
-   * @param $keyWord string Keywork to search for.
+   * @param $keyWord string Keyword to search for.
    * @param $tlds mixed Array or String of TLD(s).
    * @param $options array See references.
    * @return array API output.

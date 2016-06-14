@@ -32,66 +32,97 @@ class DomainTest extends \PHPUnit_Framework_TestCase {
 
   /**
    * @covers \Resellerclub\Domain::checkAvailability
-   * @todo   Implement testCheckAvailability().
    */
   public function testCheckAvailability() {
     $domainName = 'justrandomdomain';
     $tlds = array('com', 'net');
-    $this->object->checkAvailability($domainName, $tlds, FALSE);
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->checkAvailability($domainName, $tlds, FALSE)
+    );
   }
 
   /**
    * @covers \Resellerclub\Domain::checkAvailabilityIdn
-   * @todo   Implement testCheckAvailabilityIdn().
    */
   public function testCheckAvailabilityIdn() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->checkAvailabilityIdn('മലയാളം', 'com', 'ml')
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::checkAvailabilityPremium
-   * @todo   Implement testCheckAvailabilityPremium().
    */
   public function testCheckAvailabilityPremium() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $options = array(
+      'price-low' => 1000,
+      'price-high' => 10000,
+      'no-of-results' => 10,
+    );
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->checkAvailabilityPremium('example', array(
+        'com',
+        'net'
+      ), $options)
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::domainSuggestions
-   * @todo   Implement testDomainSuggestions().
    */
   public function testDomainSuggestions() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->domainSuggestions('example')
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::register
-   * @todo   Implement testRegister().
    */
   public function testRegister() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $customerId = '13647145';
+    $contactId = '47738316';
+
+    $domainDetails = array(
+      'years' => '1',
+      'ns' => array('ns1.onlyfordemo.net', 'ns2.onlyfordemo.net'),
+      'customer-id' => $customerId,
+      'reg-contact-id' => $contactId,
+      'admin-contact-id' => $contactId,
+      'tech-contact-id' => $contactId,
+      'billing-contact-id' => $contactId,
+      'invoice-option' => 'NoInvoice',
+    );
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->register('example.com',$domainDetails)
     );
   }
 
   /**
    * @covers \Resellerclub\Domain::transfer
-   * @todo   Implement testTransfer().
    */
   public function testTransfer() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $customerId = '13647145';
+    $contactId = '47738316';
+
+    $domainDetails = array(
+      'years' => '1',
+      'ns' => array('ns1.onlyfordemo.net', 'ns2.onlyfordemo.net'),
+      'customer-id' => $customerId,
+      'reg-contact-id' => $contactId,
+      'admin-contact-id' => $contactId,
+      'tech-contact-id' => $contactId,
+      'billing-contact-id' => $contactId,
+      'invoice-option' => 'NoInvoice',
+    );
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->transfer('example.com',$domainDetails)
     );
   }
 
