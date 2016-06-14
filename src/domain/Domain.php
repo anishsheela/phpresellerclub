@@ -4,6 +4,10 @@ namespace Resellerclub;
 
 require_once __DIR__ . '/../core/Core.php';
 
+/**
+ * Contains domain related API calls.
+ * @package Resellerclub
+ */
 class Domain extends Core {
 
   /**

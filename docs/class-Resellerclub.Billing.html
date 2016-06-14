@@ -90,7 +90,7 @@
 
 
 	<div class="description">
-	<p>Class contains core abstractions</p>
+	<p>Billing related API calls.</p>
 	</div>
 
 	<dl class="tree">
@@ -119,9 +119,9 @@
 		
 		
 		<b>Namespace:</b> <a href="namespace-Resellerclub.html">Resellerclub</a><br>
-		
+		<b>Package:</b> Resellerclub<br>
 
-			<b>Located at</b> <a href="source-class-Resellerclub.Billing.html#7-434" title="Go to source code">billing/Billing.php</a>
+			<b>Located at</b> <a href="source-class-Resellerclub.Billing.html#7-438" title="Go to source code">billing/Billing.php</a>
 		<br>
 	</div>
 
@@ -141,7 +141,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getCustomerPricing">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#9-23" title="Go to source code">getCustomerPricing</a>( <span> <var>$customerId</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#13-27" title="Go to source code">getCustomerPricing</a>( <span> <var>$customerId</var></span> )</code>
 
 		<div class="description short">
 			<p>Get the pricing of customer.</p>
@@ -188,7 +188,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getResellerPricing">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#25-39" title="Go to source code">getResellerPricing</a>( <span> <var>$resellerId</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#29-43" title="Go to source code">getResellerPricing</a>( <span> <var>$resellerId</var></span> )</code>
 
 		<div class="description short">
 			<p>Get pricing for reseller.</p>
@@ -235,7 +235,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getResellerCostPricing">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#41-55" title="Go to source code">getResellerCostPricing</a>( <span> <var>$resellerId</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#45-59" title="Go to source code">getResellerCostPricing</a>( <span> <var>$resellerId</var></span> )</code>
 
 		<div class="description short">
 			<p>Get the cost pricing of reseller.</p>
@@ -282,7 +282,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getCustomerTransactionDetails">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#57-70" title="Go to source code">getCustomerTransactionDetails</a>( <span> <var>$transactionIds</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#61-74" title="Go to source code">getCustomerTransactionDetails</a>( <span> <var>$transactionIds</var></span> )</code>
 
 		<div class="description short">
 			<p>Gets a Customer's Transactions along with their details.</p>
@@ -329,7 +329,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getResellerTransactionDetails">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#72-85" title="Go to source code">getResellerTransactionDetails</a>( <span> <var>$transactionIds</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#76-89" title="Go to source code">getResellerTransactionDetails</a>( <span> <var>$transactionIds</var></span> )</code>
 
 		<div class="description short">
 			<p>Gets a Reseller's Transactions along with their details.</p>
@@ -376,7 +376,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_payTransactions">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#87-103" title="Go to source code">payTransactions</a>( <span> <var>$invoiceIds</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$debitIds</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#91-107" title="Go to source code">payTransactions</a>( <span> <var>$invoiceIds</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$debitIds</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
 			<p>Pay the transactions using the account balance.</p>
@@ -425,7 +425,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_cancelInvoiceDebitNote">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#105-121" title="Go to source code">cancelInvoiceDebitNote</a>( <span> <var>$invoiceIds</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$debitIds</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#109-125" title="Go to source code">cancelInvoiceDebitNote</a>( <span> <var>$invoiceIds</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$debitIds</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
 			<p>Cancel invoice(s) or/and debit note(s).</p>
@@ -474,7 +474,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getCustomerBalance">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#123-137" title="Go to source code">getCustomerBalance</a>( <span> <var>$customerId</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#127-141" title="Go to source code">getCustomerBalance</a>( <span> <var>$customerId</var></span> )</code>
 
 		<div class="description short">
 			<p>Get account balance of a customer.</p>
@@ -521,7 +521,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_executeOrderWithoutPayment">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#139-155" title="Go to source code">executeOrderWithoutPayment</a>( <span> <var>$invoiceIds</var></span>, <span>boolean <var>$cancelInvoice</var> = <span class="php-keyword1">FALSE</span></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#143-159" title="Go to source code">executeOrderWithoutPayment</a>( <span> <var>$invoiceIds</var></span>, <span>boolean <var>$cancelInvoice</var> = <span class="php-keyword1">FALSE</span></span> )</code>
 
 		<div class="description short">
 			<p>Execute an order without payment from customer side.</p>
@@ -570,7 +570,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_searchCustomerTransaction">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#157-173" title="Go to source code">searchCustomerTransaction</a>( <span> <var>$options</var></span>, <span>integer <var>$page</var> = <span class="php-num">1</span></span>, <span>integer <var>$count</var> = <span class="php-num">10</span></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#161-177" title="Go to source code">searchCustomerTransaction</a>( <span> <var>$options</var></span>, <span>integer <var>$page</var> = <span class="php-num">1</span></span>, <span>integer <var>$count</var> = <span class="php-num">10</span></span> )</code>
 
 		<div class="description short">
 			<p>Gets a detailed list of Customer's Transactions, matching the search criteria.</p>
@@ -621,7 +621,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_searchResellerTransaction">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#175-190" title="Go to source code">searchResellerTransaction</a>( <span> <var>$options</var></span>, <span>integer <var>$page</var> = <span class="php-num">1</span></span>, <span>integer <var>$count</var> = <span class="php-num">10</span></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#179-194" title="Go to source code">searchResellerTransaction</a>( <span> <var>$options</var></span>, <span>integer <var>$page</var> = <span class="php-num">1</span></span>, <span>integer <var>$count</var> = <span class="php-num">10</span></span> )</code>
 
 		<div class="description short">
 			<p>Gets a detailed list of Reseller's Transactions, matching the search criteria.</p>
@@ -672,7 +672,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getResellerBalance">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#192-206" title="Go to source code">getResellerBalance</a>( <span> <var>$resellerId</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#196-210" title="Go to source code">getResellerBalance</a>( <span> <var>$resellerId</var></span> )</code>
 
 		<div class="description short">
 			<p>Get available account balance of a reseller.</p>
@@ -719,7 +719,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_discountInvoice">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#208-228" title="Go to source code">discountInvoice</a>( <span> <var>$invoiceId</var></span>, <span> <var>$discount</var></span>, <span> <var>$transactionKey</var></span>, <span> <var>$role</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#212-232" title="Go to source code">discountInvoice</a>( <span> <var>$invoiceId</var></span>, <span> <var>$discount</var></span>, <span> <var>$transactionKey</var></span>, <span> <var>$role</var></span> )</code>
 
 		<div class="description short">
 			<p>Adds a discount for a given invoice.</p>
@@ -772,7 +772,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addFundsCustomer">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#230-243" title="Go to source code">addFundsCustomer</a>( <span> <var>$customerId</var></span>, <span> <var>$options</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#234-247" title="Go to source code">addFundsCustomer</a>( <span> <var>$customerId</var></span>, <span> <var>$options</var></span> )</code>
 
 		<div class="description short">
 			<p>Adds funds in a Customer's Account.</p>
@@ -821,7 +821,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addFundsReseller">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#245-258" title="Go to source code">addFundsReseller</a>( <span> <var>$resellerId</var></span>, <span> <var>$options</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#249-262" title="Go to source code">addFundsReseller</a>( <span> <var>$resellerId</var></span>, <span> <var>$options</var></span> )</code>
 
 		<div class="description short">
 			<p>Adds funds in a Reseller's Account.</p>
@@ -870,7 +870,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addDebitNoteCustomer">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#260-273" title="Go to source code">addDebitNoteCustomer</a>( <span> <var>$customerId</var></span>, <span> <var>$options</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#264-277" title="Go to source code">addDebitNoteCustomer</a>( <span> <var>$customerId</var></span>, <span> <var>$options</var></span> )</code>
 
 		<div class="description short">
 			<p>Add debit note in a Customer's Account.</p>
@@ -919,7 +919,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addDebitNoteReseller">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#275-288" title="Go to source code">addDebitNoteReseller</a>( <span> <var>$resellerId</var></span>, <span> <var>$options</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#279-292" title="Go to source code">addDebitNoteReseller</a>( <span> <var>$resellerId</var></span>, <span> <var>$options</var></span> )</code>
 
 		<div class="description short">
 			<p>Add debit note in a Reseller's Account.</p>
@@ -968,7 +968,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_suspendOrder">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#290-306" title="Go to source code">suspendOrder</a>( <span> <var>$orderId</var></span>, <span> <var>$reason</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#294-310" title="Go to source code">suspendOrder</a>( <span> <var>$orderId</var></span>, <span> <var>$reason</var></span> )</code>
 
 		<div class="description short">
 			<p>Suspend an order, in case the client screws up.</p>
@@ -1017,7 +1017,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_unsuspendOrder">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#308-322" title="Go to source code">unsuspendOrder</a>( <span> <var>$orderId</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#312-326" title="Go to source code">unsuspendOrder</a>( <span> <var>$orderId</var></span> )</code>
 
 		<div class="description short">
 			<p>Unsuspend an order.</p>
@@ -1064,7 +1064,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getCurrentActions">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#324-339" title="Go to source code">getCurrentActions</a>( <span> <var>$options</var></span>, <span>integer <var>$page</var> = <span class="php-num">1</span></span>, <span>integer <var>$count</var> = <span class="php-num">10</span></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#328-343" title="Go to source code">getCurrentActions</a>( <span> <var>$options</var></span>, <span>integer <var>$page</var> = <span class="php-num">1</span></span>, <span>integer <var>$count</var> = <span class="php-num">10</span></span> )</code>
 
 		<div class="description short">
 			<p>Gets the Current Actions based on the criteria specified.</p>
@@ -1115,7 +1115,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getArchiveActions">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#341-356" title="Go to source code">getArchiveActions</a>( <span> <var>$options</var></span>, <span>integer <var>$page</var> = <span class="php-num">1</span></span>, <span>integer <var>$count</var> = <span class="php-num">10</span></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#345-360" title="Go to source code">getArchiveActions</a>( <span> <var>$options</var></span>, <span>integer <var>$page</var> = <span class="php-num">1</span></span>, <span>integer <var>$count</var> = <span class="php-num">10</span></span> )</code>
 
 		<div class="description short">
 			<p>Searches the Archived Actions based on the criteria specified.</p>
@@ -1166,7 +1166,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getLegalAggrement">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#358-372" title="Go to source code">getLegalAggrement</a>( <span> <var>$type</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#362-376" title="Go to source code">getLegalAggrement</a>( <span> <var>$type</var></span> )</code>
 
 		<div class="description short">
 			<p>Gets the default and customized Legal Agreements.</p>
@@ -1213,7 +1213,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getAllowedPaymentGatewayCustomer">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#374-388" title="Go to source code">getAllowedPaymentGatewayCustomer</a>( <span>integer <var>$customerId</var></span>, <span>string <var>$paymentType</var> = <span class="php-keyword1">NULL</span></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#378-392" title="Go to source code">getAllowedPaymentGatewayCustomer</a>( <span>integer <var>$customerId</var></span>, <span>string <var>$paymentType</var> = <span class="php-keyword1">NULL</span></span> )</code>
 
 		<div class="description short">
 			<p>Get allowed payment gateway for a customer</p>
@@ -1254,7 +1254,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getAllowedPaymentGatewayReseller">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#390-396" title="Go to source code">getAllowedPaymentGatewayReseller</a>( )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#394-400" title="Go to source code">getAllowedPaymentGatewayReseller</a>( )</code>
 
 		<div class="description short">
 			<p>Get allowed Payment Gateways</p>
@@ -1288,7 +1288,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getCurrencyDetails">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#398-407" title="Go to source code">getCurrencyDetails</a>( )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#402-411" title="Go to source code">getCurrencyDetails</a>( )</code>
 
 		<div class="description short">
 			<p>Get a list of approved currencies.</p>
@@ -1330,7 +1330,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getCountryList">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#409-417" title="Go to source code">getCountryList</a>( )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#413-421" title="Go to source code">getCountryList</a>( )</code>
 
 		<div class="description short">
 			<p>Get list of country</p>
@@ -1368,7 +1368,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getStateList">#</a>
-		<code><a href="source-class-Resellerclub.Billing.html#419-432" title="Go to source code">getStateList</a>( <span>string <var>$countryCode</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Billing.html#423-436" title="Go to source code">getStateList</a>( <span>string <var>$countryCode</var></span> )</code>
 
 		<div class="description short">
 			<p>Get list of states of a given country</p>

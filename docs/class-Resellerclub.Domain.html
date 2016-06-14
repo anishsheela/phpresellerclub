@@ -90,7 +90,7 @@
 
 
 	<div class="description">
-	<p>Class contains core abstractions</p>
+	<p>Contains domain related API calls.</p>
 	</div>
 
 	<dl class="tree">
@@ -119,9 +119,9 @@
 		
 		
 		<b>Namespace:</b> <a href="namespace-Resellerclub.html">Resellerclub</a><br>
-		
+		<b>Package:</b> Resellerclub<br>
 
-			<b>Located at</b> <a href="source-class-Resellerclub.Domain.html#7-525" title="Go to source code">domain/Domain.php</a>
+			<b>Located at</b> <a href="source-class-Resellerclub.Domain.html#7-529" title="Go to source code">domain/Domain.php</a>
 		<br>
 	</div>
 
@@ -141,7 +141,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_checkAvailability">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#9-27" title="Go to source code">checkAvailability</a>( <span> <var>$domainName</var></span>, <span> <var>$tlds</var></span>, <span>boolean <var>$suggestAlternatives</var> = <span class="php-keyword1">FALSE</span></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#13-31" title="Go to source code">checkAvailability</a>( <span> <var>$domainName</var></span>, <span> <var>$tlds</var></span>, <span>boolean <var>$suggestAlternatives</var> = <span class="php-keyword1">FALSE</span></span> )</code>
 
 		<div class="description short">
 			<p>Checks the availability of the specified domain name(s).</p>
@@ -192,7 +192,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_checkAvailabilityIdn">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#29-58" title="Go to source code">checkAvailabilityIdn</a>( <span> <var>$domainName</var></span>, <span> <var>$tld</var></span>, <span> <var>$idnLanguageCode</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#33-62" title="Go to source code">checkAvailabilityIdn</a>( <span> <var>$domainName</var></span>, <span> <var>$tld</var></span>, <span> <var>$idnLanguageCode</var></span> )</code>
 
 		<div class="description short">
 			<p>Checks the availability of Internationalized Domain Name(s) (IDN).</p>
@@ -243,7 +243,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_checkAvailabilityPremium">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#60-75" title="Go to source code">checkAvailabilityPremium</a>( <span> <var>$keyWord</var></span>, <span> <var>$tlds</var></span>, <span> <var>$options</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#64-79" title="Go to source code">checkAvailabilityPremium</a>( <span> <var>$keyWord</var></span>, <span> <var>$tlds</var></span>, <span> <var>$options</var></span> )</code>
 
 		<div class="description short">
 			<p>Check availability of a premium domain name.</p>
@@ -294,7 +294,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_domainSuggestions">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#77-93" title="Go to source code">domainSuggestions</a>( <span> <var>$keyWord</var></span>, <span>null <var>$tld</var> = <span class="php-keyword1">NULL</span></span>, <span>boolean <var>$exactMatch</var> = <span class="php-keyword1">FALSE</span></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#81-97" title="Go to source code">domainSuggestions</a>( <span> <var>$keyWord</var></span>, <span>null <var>$tld</var> = <span class="php-keyword1">NULL</span></span>, <span>boolean <var>$exactMatch</var> = <span class="php-keyword1">FALSE</span></span> )</code>
 
 		<div class="description short">
 			<p>Returns domain name suggestions for a user-specified keyword.</p>
@@ -345,7 +345,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_register">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#95-108" title="Go to source code">register</a>( <span> <var>$domainName</var></span>, <span> <var>$options</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#99-112" title="Go to source code">register</a>( <span> <var>$domainName</var></span>, <span> <var>$options</var></span> )</code>
 
 		<div class="description short">
 			<p>Register a domain name.</p>
@@ -394,7 +394,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_transfer">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#110-123" title="Go to source code">transfer</a>( <span> <var>$domain</var></span>, <span> <var>$options</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#114-127" title="Go to source code">transfer</a>( <span> <var>$domain</var></span>, <span> <var>$options</var></span> )</code>
 
 		<div class="description short">
 			<p>Transfer a domain name.</p>
@@ -443,7 +443,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_submitAuthCode">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#125-141" title="Go to source code">submitAuthCode</a>( <span> <var>$orderId</var></span>, <span> <var>$authCode</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#129-145" title="Go to source code">submitAuthCode</a>( <span> <var>$orderId</var></span>, <span> <var>$authCode</var></span> )</code>
 
 		<div class="description short">
 			<p>Submit auth code for domain transfer.</p>
@@ -492,7 +492,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_validateTransfer">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#143-157" title="Go to source code">validateTransfer</a>( <span> <var>$domain</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#147-161" title="Go to source code">validateTransfer</a>( <span> <var>$domain</var></span> )</code>
 
 		<div class="description short">
 			<p>Validate a transfer request.</p>
@@ -539,7 +539,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_renew">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#159-172" title="Go to source code">renew</a>( <span> <var>$orderid</var></span>, <span> <var>$options</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#163-176" title="Go to source code">renew</a>( <span> <var>$orderid</var></span>, <span> <var>$options</var></span> )</code>
 
 		<div class="description short">
 			<p>Renew a domain.</p>
@@ -588,7 +588,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_searchDomain">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#174-189" title="Go to source code">searchDomain</a>( <span> <var>$options</var></span>, <span>integer <var>$page</var> = <span class="php-num">1</span></span>, <span>integer <var>$count</var> = <span class="php-num">10</span></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#178-193" title="Go to source code">searchDomain</a>( <span> <var>$options</var></span>, <span>integer <var>$page</var> = <span class="php-num">1</span></span>, <span>integer <var>$count</var> = <span class="php-num">10</span></span> )</code>
 
 		<div class="description short">
 			<p>Search a domain.</p>
@@ -639,7 +639,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getDefaultNameServer">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#191-205" title="Go to source code">getDefaultNameServer</a>( <span> <var>$customerId</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#195-209" title="Go to source code">getDefaultNameServer</a>( <span> <var>$customerId</var></span> )</code>
 
 		<div class="description short">
 			<p>Get the default nameserver for a domain.</p>
@@ -686,7 +686,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getOrderId">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#207-221" title="Go to source code">getOrderId</a>( <span> <var>$domain</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#211-225" title="Go to source code">getOrderId</a>( <span> <var>$domain</var></span> )</code>
 
 		<div class="description short">
 			<p>Get order ID from domain name.</p>
@@ -733,7 +733,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getDomainDetailsByOrderId">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#223-242" title="Go to source code">getDomainDetailsByOrderId</a>( <span> <var>$orderId</var></span>, <span> <var>$options</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#227-246" title="Go to source code">getDomainDetailsByOrderId</a>( <span> <var>$orderId</var></span>, <span> <var>$options</var></span> )</code>
 
 		<div class="description short">
 			<p>Get details of domain by order ID.</p>
@@ -782,7 +782,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getDomainDetailsByDomain">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#244-263" title="Go to source code">getDomainDetailsByDomain</a>( <span> <var>$domain</var></span>, <span> <var>$options</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#248-267" title="Go to source code">getDomainDetailsByDomain</a>( <span> <var>$domain</var></span>, <span> <var>$options</var></span> )</code>
 
 		<div class="description short">
 			<p>Get details of domain by domain name.</p>
@@ -831,7 +831,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setNameServer">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#265-281" title="Go to source code">setNameServer</a>( <span> <var>$orderId</var></span>, <span> <var>$ns</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#269-285" title="Go to source code">setNameServer</a>( <span> <var>$orderId</var></span>, <span> <var>$ns</var></span> )</code>
 
 		<div class="description short">
 			<p>Set nameserver for an order.</p>
@@ -880,7 +880,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setChildNameServer">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#283-301" title="Go to source code">setChildNameServer</a>( <span> <var>$orderId</var></span>, <span> <var>$cns</var></span>, <span> <var>$ips</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#287-305" title="Go to source code">setChildNameServer</a>( <span> <var>$orderId</var></span>, <span> <var>$cns</var></span>, <span> <var>$ips</var></span> )</code>
 
 		<div class="description short">
 			<p>Set child name server for a domain.</p>
@@ -931,7 +931,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_modifyChildNameServerHost">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#303-321" title="Go to source code">modifyChildNameServerHost</a>( <span> <var>$orderId</var></span>, <span> <var>$oldCns</var></span>, <span> <var>$newCns</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#307-325" title="Go to source code">modifyChildNameServerHost</a>( <span> <var>$orderId</var></span>, <span> <var>$oldCns</var></span>, <span> <var>$newCns</var></span> )</code>
 
 		<div class="description short">
 			<p>Modify Child nameserver host of a domain.</p>
@@ -982,7 +982,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_modifyChildNameServerIp">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#323-343" title="Go to source code">modifyChildNameServerIp</a>( <span> <var>$orderId</var></span>, <span> <var>$cns</var></span>, <span> <var>$oldIp</var></span>, <span> <var>$newIp</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#327-347" title="Go to source code">modifyChildNameServerIp</a>( <span> <var>$orderId</var></span>, <span> <var>$cns</var></span>, <span> <var>$oldIp</var></span>, <span> <var>$newIp</var></span> )</code>
 
 		<div class="description short">
 			<p>Modify a child name server's IP address.</p>
@@ -1035,7 +1035,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_deleteChildNameServer">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#345-363" title="Go to source code">deleteChildNameServer</a>( <span> <var>$orderId</var></span>, <span> <var>$cns</var></span>, <span> <var>$ip</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#349-367" title="Go to source code">deleteChildNameServer</a>( <span> <var>$orderId</var></span>, <span> <var>$cns</var></span>, <span> <var>$ip</var></span> )</code>
 
 		<div class="description short">
 			<p>Delete a child name server.</p>
@@ -1086,7 +1086,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_modifyDomainContacts">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#365-379" title="Go to source code">modifyDomainContacts</a>( <span> <var>$orderId</var></span>, <span> <var>$contactIds</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#369-383" title="Go to source code">modifyDomainContacts</a>( <span> <var>$orderId</var></span>, <span> <var>$contactIds</var></span> )</code>
 
 		<div class="description short">
 			<p>Modify contacts of a domain name.</p>
@@ -1135,7 +1135,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addPrivacyProtection">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#381-397" title="Go to source code">addPrivacyProtection</a>( <span> <var>$orderId</var></span>, <span> <var>$invoiceOption</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#385-401" title="Go to source code">addPrivacyProtection</a>( <span> <var>$orderId</var></span>, <span> <var>$invoiceOption</var></span> )</code>
 
 		<div class="description short">
 			<p>Add privacy protection for a domain.</p>
@@ -1184,7 +1184,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_modifyPrivacyProtection">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#399-417" title="Go to source code">modifyPrivacyProtection</a>( <span> <var>$orderId</var></span>, <span> <var>$protectPrivacy</var></span>, <span> <var>$reason</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#403-421" title="Go to source code">modifyPrivacyProtection</a>( <span> <var>$orderId</var></span>, <span> <var>$protectPrivacy</var></span>, <span> <var>$reason</var></span> )</code>
 
 		<div class="description short">
 			<p>Modify privacy protection for an order.</p>
@@ -1235,7 +1235,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_modifyAuthCode">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#419-435" title="Go to source code">modifyAuthCode</a>( <span> <var>$orderId</var></span>, <span> <var>$authCode</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#423-439" title="Go to source code">modifyAuthCode</a>( <span> <var>$orderId</var></span>, <span> <var>$authCode</var></span> )</code>
 
 		<div class="description short">
 			<p>Modify domain transfer Auth code.</p>
@@ -1284,7 +1284,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_modifyTheftProtection">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#437-455" title="Go to source code">modifyTheftProtection</a>( <span> <var>$orderId</var></span>, <span> <var>$status</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#441-459" title="Go to source code">modifyTheftProtection</a>( <span> <var>$orderId</var></span>, <span> <var>$status</var></span> )</code>
 
 		<div class="description short">
 			<p>Modify theft protection status.</p>
@@ -1334,7 +1334,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_suspendDomain">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#457-473" title="Go to source code">suspendDomain</a>( <span> <var>$orderId</var></span>, <span> <var>$reason</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#461-477" title="Go to source code">suspendDomain</a>( <span> <var>$orderId</var></span>, <span> <var>$reason</var></span> )</code>
 
 		<div class="description short">
 			<p>Suspend a domain.</p>
@@ -1383,7 +1383,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_unsuspendDomain">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#475-489" title="Go to source code">unsuspendDomain</a>( <span> <var>$orderId</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#479-493" title="Go to source code">unsuspendDomain</a>( <span> <var>$orderId</var></span> )</code>
 
 		<div class="description short">
 			<p>Unsuspend a domain.</p>
@@ -1430,7 +1430,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_deleteDomain">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#491-505" title="Go to source code">deleteDomain</a>( <span> <var>$orderId</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#495-509" title="Go to source code">deleteDomain</a>( <span> <var>$orderId</var></span> )</code>
 
 		<div class="description short">
 			<p>Delete a domain.</p>
@@ -1477,7 +1477,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_restoreDomain">#</a>
-		<code><a href="source-class-Resellerclub.Domain.html#507-523" title="Go to source code">restoreDomain</a>( <span> <var>$orderId</var></span>, <span> <var>$invoiceOption</var></span> )</code>
+		<code><a href="source-class-Resellerclub.Domain.html#511-527" title="Go to source code">restoreDomain</a>( <span> <var>$orderId</var></span>, <span> <var>$invoiceOption</var></span> )</code>
 
 		<div class="description short">
 			<p>Restore a domain.</p>

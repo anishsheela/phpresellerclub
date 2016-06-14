@@ -4,6 +4,10 @@ namespace Resellerclub;
 
 require_once __DIR__ . '/../core/Core.php';
 
+/**
+ * Contains validation functions.
+ * @package Resellerclub
+ */
 class Validation extends Core {
 
   /**

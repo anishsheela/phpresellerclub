@@ -4,6 +4,10 @@ namespace Resellerclub;
 
 require_once __DIR__ . '/../core/Core.php';
 
+/**
+ * Contacts related API calls.
+ * @package Resellerclub
+ */
 class Contact extends Core {
 
   /**

@@ -3,7 +3,9 @@
 namespace Resellerclub;
 
 /**
- * Class contains core abstractions
+ * Class contains core abstractions.
+ *
+ * @package Resellerclub
  */
 class Core {
 

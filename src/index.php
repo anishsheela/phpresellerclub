@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * ResellerClub is one of the leading providers of domain name
+ * reseller system. However, their API is very hard to use
+ * directly in applications and will be prone to bugs. This is a
+ * PHP abstraction for the resellerclub API and is compatible with
+ * all resellers under it.
+ *
+ */
 // Include relevant classes
 // TODO: use autoloader, yes we definitely need. This is a mess.
 if (file_exists(__DIR__ . '/../rc-config.php')) {

@@ -4,6 +4,10 @@ namespace Resellerclub;
 
 require_once __DIR__ . '/../core/Core.php';
 
+/**
+ * Billing related API calls.
+ * @package Resellerclub
+ */
 class Billing extends Core {
 
   /**
