@@ -90,6 +90,7 @@ class Validation extends Core {
         is_string($value) or
         is_int($value) or
         is_bool($value) or
+        is_float($value) or
         is_null($value)
       )) {
         if (is_array($value)) {
