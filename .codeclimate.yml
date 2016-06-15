@@ -14,4 +14,6 @@ ratings:
   - "**.inc"
   - "**.module"
   - "**.php"
-exclude_paths: []
+exclude_paths: 
+ - "Tests"
+ - "vendor"
