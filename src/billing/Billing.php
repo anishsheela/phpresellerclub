@@ -279,7 +279,7 @@ class Billing extends Core {
   /**
    * Add debit note in a Reseller's Account.
    *
-   * @see http://manage.resellerclub.com/kb/answer/1166
+   * @see http://manage.resellerclub.com/kb/answer/1167
    * @param $resellerId integer Reseller id.
    * @param $options array Details like amount, see reference.
    * @return array API output.

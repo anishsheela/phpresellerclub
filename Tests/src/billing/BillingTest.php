@@ -207,23 +207,39 @@ class BillingTest extends PHPUnit_Framework_TestCase {
 
   /**
    * @covers \Resellerclub\Billing::addDebitNoteCustomer
-   * @todo   Implement testAddDebitNoteCustomer().
    */
   public function testAddDebitNoteCustomer() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->addDebitNoteCustomer(
+        16789765,
+        array(
+          'selling-amount' => 100.2,
+          'description' => 'Sample Payment',
+          'debit-note-date' => time(),
+          'transaction-key' => 'newcode123',
+          'update-total-receipt' => FALSE,
+        )
+      )
     );
   }
 
   /**
    * @covers \Resellerclub\Billing::addDebitNoteReseller
-   * @todo   Implement testAddDebitNoteReseller().
    */
   public function testAddDebitNoteReseller() {
-    // Remove the following lines when you implement this test.
-    $this->markTestIncomplete(
-        'This test has not been implemented yet.'
+    $this->assertArrayHasKey(
+      'success',
+      $this->object->addDebitNoteCustomer(
+        16789765,
+        array(
+          'selling-amount' => 100.2,
+          'description' => 'Sample Payment',
+          'debit-note-date' => time(),
+          'transaction-key' => 'newcode123',
+          'update-total-receipt' => FALSE,
+        )
+      )
     );
   }
 
