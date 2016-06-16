@@ -95,7 +95,13 @@ class Validation extends Core {
       )) {
         if (is_array($value)) {
           foreach ($value as $parameter) {
-            if (!(is_string($parameter) or is_int($parameter) or is_bool($parameter))) {
+            if (!(
+              is_string($parameter) or
+              is_int($parameter) or
+              is_bool($parameter) or
+              is_float($parameter) or
+              is_null($parameter)
+            )) {
               return FALSE;
             }
           }
