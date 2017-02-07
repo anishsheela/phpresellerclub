@@ -90,7 +90,7 @@ class Domain extends Core {
    */
   public function domainSuggestions($keyWord, $tld = NULL, $exactMatch = FALSE) {
     $options = array();
-    $options['key-word'] = $keyWord;
+    $options['keyword'] = $keyWord;
     $options['tld-only'] = $tld;
     $options['exact-match'] = $exactMatch;
     $this->defaultValidate($options);
