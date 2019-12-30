@@ -46,11 +46,11 @@ class Domain extends Core {
       foreach ($domainName as $domain) {
         // Convert domain to puny code so that it can be
         // handled in ASCII itself
-        $punyDomain[] = idn_to_ascii($domain);
+        $punyDomain[] = idn_to_ascii($domain, IDNA_DEFAULT,  INTL_IDNA_VARIANT_UTS46);
       }
     }
     else {
-      $punyDomain[] = idn_to_ascii($domainName);
+      $punyDomain[] = idn_to_ascii($domainName, IDNA_DEFAULT,  INTL_IDNA_VARIANT_UTS46);
     }
     $avail = array(
       'domain-name' => $punyDomain,
