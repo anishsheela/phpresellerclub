@@ -2,9 +2,11 @@
 
 namespace Resellerclub;
 
+use PHPUnit\Framework\TestCase;
+
 require_once __DIR__ . '/../../../src/index.php';
 
-class ValidationTest extends \PHPUnit_Framework_TestCase {
+class ValidationTest extends TestCase {
 
   /**
    * @var \Resellerclub\Validation
